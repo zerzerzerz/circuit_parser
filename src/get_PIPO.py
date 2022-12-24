@@ -1,5 +1,4 @@
 import re
-from utils.utils import save_json
 
 def get_PIPO(verilog_file_path) -> dict:
     with open(verilog_file_path) as f:
@@ -37,6 +36,5 @@ def get_PIPO(verilog_file_path) -> dict:
     
     res['PI'] = func(pis)
     res['PO'] = func(pos)
-    save_json(res, 'PIPO.json')
     return res
     
