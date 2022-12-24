@@ -30,5 +30,4 @@ def extract_cell(verilog_file_path:str) -> list:
                 "cell_name": cell_name,
                 "pins": pins
             })
-    utils.save_json(res,'cell.json')
     return res

@@ -24,5 +24,4 @@ def extract_inter_connection(cells:list) -> dict:
                 # fanin connected to this wire/port
                 connections[wire_name]['sink'].append(pin_name)
 
-    utils.save_json(connections,'inter_connection.json')
     return connections

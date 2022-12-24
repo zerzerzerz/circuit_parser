@@ -1,5 +1,5 @@
 from config.config import FANOUTS
-import dgl
+from copy import deepcopy
 
 def construct_cell_graph(cells:list, pin2index:dict):
     src = []
@@ -33,7 +33,7 @@ def construct_cell_graph(cells:list, pin2index:dict):
 def construct_net_graph(inter_connections:dict, pin2index:dict):
     src = []
     dst = []
-    for wire_name, v in inter_connections:
+    for wire_name, v in inter_connections.items():
         if wire_name in pin2index.keys():
             continue
         assert len(v['driver']) == 1
@@ -41,3 +41,12 @@ def construct_net_graph(inter_connections:dict, pin2index:dict):
             src.append(pin2index[v['driver'][0]])
             dst.append(pin2index[sink])
     return src, dst
+
+
+def construct_graph(cells:list, inter_connections:dict, pin2index:dict):
+    res = {}
+    res[('node','net_out','node')] = construct_net_graph(inter_connections, pin2index)
+    res[('node','cell_out','node')] = construct_cell_graph(cells, pin2index)
+    res[('node','cell_in','node')] = deepcopy(res[('node','cell_out','node')])[::-1]
+    # return dgl.heterograph(res)
+    return res
