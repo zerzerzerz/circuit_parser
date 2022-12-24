@@ -7,7 +7,7 @@ def construct_cell_graph(cells:list, pin2index:dict):
     for cell in cells:
         n_pin = len(cell['pins'])
         for i in range(n_pin):
-            for j in range(i,n_pin):
+            for j in range(i+1,n_pin):
                 pin_a = cell['pins'][i][0]
                 pin_b = cell['pins'][j][0]
                 pin_name_a = f"{cell['cell_name']}.{pin_a}"
@@ -34,6 +34,7 @@ def construct_net_graph(inter_connections:dict, pin2index:dict):
     src = []
     dst = []
     for wire_name, v in inter_connections.items():
+        # if this is PI/PO, continue
         if wire_name in pin2index.keys():
             continue
         assert len(v['driver']) == 1
