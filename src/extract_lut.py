@@ -137,5 +137,5 @@ def extract_lut_sub(cell_file, cell_type):
                         })
 
         else:
-            pass
+            raise NotImplementedError(f'direction = {direction} is not implemented!')
     return ans

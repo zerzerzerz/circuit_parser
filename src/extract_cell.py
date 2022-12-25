@@ -1,7 +1,7 @@
 import re
-import utils.utils as utils
 
 def extract_cell(verilog_file_path:str) -> list:
+    '''extract all cells from verilog file'''
     PIPO = ['input', 'output']
     OTHERS = ['module', 'endmodule']
 

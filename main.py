@@ -6,8 +6,10 @@ import src.get_timing_endpoint as get_timing_endpoint
 import src.extract_cell_loc as extract_cell_loc
 import src.extract_timing as extract_timing
 import src.extract_lut as extract_lut
+import src.pin_in_or_out as pin_in_or_out
 import utils.utils as utils
 from os.path import join
+from collections import defaultdict
 import dgl
 
 if __name__ == "__main__":
@@ -19,8 +21,12 @@ if __name__ == "__main__":
     res_dir = 'res'
 
     utils.mkdir(res_dir)
+    lut_info = extract_lut.extract_lut(liberty_file)
+
+    pin_fanin_or_fanout = pin_in_or_out.get_pin_fanin_or_fanout(lut_info)
+
     cells = extract_cell.extract_cell(verilog_file)
-    inter_connections = extract_inter_connection.extract_inter_connection(cells)
+    inter_connections = extract_inter_connection.extract_inter_connection(cells, pin_fanin_or_fanout)
     pipos = get_PIPO.get_PIPO(verilog_file)
 
 
@@ -33,17 +39,17 @@ if __name__ == "__main__":
             pin_name = f'{cell_name}.{pin[0]}'
             pins.append(pin_name)
     pin2index = {k:v for v,k in enumerate(pins)}
-    graph = construct_graph.construct_graph(cells, inter_connections, pin2index)
+    graph = construct_graph.construct_graph(cells, inter_connections, pin2index, pin_fanin_or_fanout)
     
     
     timing_endpoint = get_timing_endpoint.get_timing_endpoint(sdc_file)
     cell_locs = extract_cell_loc.extract_cell_loc(def_file)
 
     atslew, net_delay, cell_delay = extract_timing.extract_timing(sdf_file)
-    lut_info = extract_lut.extract_lut(liberty_file)
 
 
 
+    utils.save_json(pin_fanin_or_fanout, join(res_dir, 'pin_fanin_or_fanout.json'))
     utils.save_json(atslew, join(res_dir, 'atslew.json'))
     utils.save_json(lut_info, join(res_dir, 'lut_info.json'))
     utils.save_json(net_delay, join(res_dir, 'net_delay.json'))

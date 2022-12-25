@@ -1,6 +1,10 @@
 import re
 
 def get_PIPO(verilog_file_path) -> dict:
+    '''
+    extract PIPO from verilog file
+    PI PO are ports of top level module
+    '''
     with open(verilog_file_path) as f:
         circuit = f.read()
 
@@ -11,8 +15,6 @@ def get_PIPO(verilog_file_path) -> dict:
 
     pis = pi_pattern.findall(circuit)
     pos = po_pattern.findall(circuit)
-    # print(pis)
-    # print(pos)
 
     def func(io):
         res = []

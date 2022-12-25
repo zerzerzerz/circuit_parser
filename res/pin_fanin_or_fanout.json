@@ -1,0 +1,1328 @@
+{
+    "AND2_X1": {
+        "input": [
+            "A1",
+            "A2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AND2_X2": {
+        "input": [
+            "A1",
+            "A2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AND2_X4": {
+        "input": [
+            "A1",
+            "A2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AND3_X1": {
+        "input": [
+            "A1",
+            "A2",
+            "A3"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AND3_X2": {
+        "input": [
+            "A1",
+            "A2",
+            "A3"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AND3_X4": {
+        "input": [
+            "A1",
+            "A2",
+            "A3"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AND4_X1": {
+        "input": [
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AND4_X2": {
+        "input": [
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AND4_X4": {
+        "input": [
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "ANTENNA_X1": {
+        "input": [
+            "A"
+        ],
+        "output": []
+    },
+    "AOI21_X1": {
+        "input": [
+            "A",
+            "B1",
+            "B2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AOI21_X2": {
+        "input": [
+            "A",
+            "B1",
+            "B2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AOI21_X4": {
+        "input": [
+            "A",
+            "B1",
+            "B2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AOI22_X1": {
+        "input": [
+            "A1",
+            "A2",
+            "B1",
+            "B2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AOI22_X2": {
+        "input": [
+            "A1",
+            "A2",
+            "B1",
+            "B2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AOI22_X4": {
+        "input": [
+            "A1",
+            "A2",
+            "B1",
+            "B2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AOI211_X1": {
+        "input": [
+            "A",
+            "B",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AOI211_X2": {
+        "input": [
+            "A",
+            "B",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AOI211_X4": {
+        "input": [
+            "A",
+            "B",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AOI221_X1": {
+        "input": [
+            "A",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AOI221_X2": {
+        "input": [
+            "A",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AOI221_X4": {
+        "input": [
+            "A",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AOI222_X1": {
+        "input": [
+            "A1",
+            "A2",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AOI222_X2": {
+        "input": [
+            "A1",
+            "A2",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "AOI222_X4": {
+        "input": [
+            "A1",
+            "A2",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "BUF_X1": {
+        "input": [
+            "A"
+        ],
+        "output": [
+            "Z"
+        ]
+    },
+    "BUF_X2": {
+        "input": [
+            "A"
+        ],
+        "output": [
+            "Z"
+        ]
+    },
+    "BUF_X4": {
+        "input": [
+            "A"
+        ],
+        "output": [
+            "Z"
+        ]
+    },
+    "BUF_X8": {
+        "input": [
+            "A"
+        ],
+        "output": [
+            "Z"
+        ]
+    },
+    "BUF_X16": {
+        "input": [
+            "A"
+        ],
+        "output": [
+            "Z"
+        ]
+    },
+    "BUF_X32": {
+        "input": [
+            "A"
+        ],
+        "output": [
+            "Z"
+        ]
+    },
+    "CLKBUF_X1": {
+        "input": [
+            "A"
+        ],
+        "output": [
+            "Z"
+        ]
+    },
+    "CLKBUF_X2": {
+        "input": [
+            "A"
+        ],
+        "output": [
+            "Z"
+        ]
+    },
+    "CLKBUF_X3": {
+        "input": [
+            "A"
+        ],
+        "output": [
+            "Z"
+        ]
+    },
+    "CLKGATETST_X1": {
+        "input": [
+            "CK",
+            "E",
+            "SE"
+        ],
+        "output": [
+            "GCK"
+        ]
+    },
+    "CLKGATETST_X2": {
+        "input": [
+            "CK",
+            "E",
+            "SE"
+        ],
+        "output": [
+            "GCK"
+        ]
+    },
+    "CLKGATETST_X4": {
+        "input": [
+            "CK",
+            "E",
+            "SE"
+        ],
+        "output": [
+            "GCK"
+        ]
+    },
+    "CLKGATETST_X8": {
+        "input": [
+            "CK",
+            "E",
+            "SE"
+        ],
+        "output": [
+            "GCK"
+        ]
+    },
+    "CLKGATE_X1": {
+        "input": [
+            "CK",
+            "E"
+        ],
+        "output": [
+            "GCK"
+        ]
+    },
+    "CLKGATE_X2": {
+        "input": [
+            "CK",
+            "E"
+        ],
+        "output": [
+            "GCK"
+        ]
+    },
+    "CLKGATE_X4": {
+        "input": [
+            "CK",
+            "E"
+        ],
+        "output": [
+            "GCK"
+        ]
+    },
+    "CLKGATE_X8": {
+        "input": [
+            "CK",
+            "E"
+        ],
+        "output": [
+            "GCK"
+        ]
+    },
+    "DFFRS_X1": {
+        "input": [
+            "D",
+            "RN",
+            "SN",
+            "CK"
+        ],
+        "output": [
+            "Q",
+            "QN"
+        ]
+    },
+    "DFFRS_X2": {
+        "input": [
+            "D",
+            "RN",
+            "SN",
+            "CK"
+        ],
+        "output": [
+            "Q",
+            "QN"
+        ]
+    },
+    "DFFR_X1": {
+        "input": [
+            "D",
+            "RN",
+            "CK"
+        ],
+        "output": [
+            "Q",
+            "QN"
+        ]
+    },
+    "DFFR_X2": {
+        "input": [
+            "D",
+            "RN",
+            "CK"
+        ],
+        "output": [
+            "Q",
+            "QN"
+        ]
+    },
+    "DFFS_X1": {
+        "input": [
+            "D",
+            "SN",
+            "CK"
+        ],
+        "output": [
+            "Q",
+            "QN"
+        ]
+    },
+    "DFFS_X2": {
+        "input": [
+            "D",
+            "SN",
+            "CK"
+        ],
+        "output": [
+            "Q",
+            "QN"
+        ]
+    },
+    "DFF_X1": {
+        "input": [
+            "D",
+            "CK"
+        ],
+        "output": [
+            "Q",
+            "QN"
+        ]
+    },
+    "DFF_X2": {
+        "input": [
+            "D",
+            "CK"
+        ],
+        "output": [
+            "Q",
+            "QN"
+        ]
+    },
+    "DLH_X1": {
+        "input": [
+            "D",
+            "G"
+        ],
+        "output": [
+            "Q"
+        ]
+    },
+    "DLH_X2": {
+        "input": [
+            "D",
+            "G"
+        ],
+        "output": [
+            "Q"
+        ]
+    },
+    "DLL_X1": {
+        "input": [
+            "D",
+            "GN"
+        ],
+        "output": [
+            "Q"
+        ]
+    },
+    "DLL_X2": {
+        "input": [
+            "D",
+            "GN"
+        ],
+        "output": [
+            "Q"
+        ]
+    },
+    "FA_X1": {
+        "input": [
+            "A",
+            "B",
+            "CI"
+        ],
+        "output": [
+            "CO",
+            "S"
+        ]
+    },
+    "FILLCELL_X1": {
+        "input": [],
+        "output": []
+    },
+    "TAPCELL_X1": {
+        "input": [],
+        "output": []
+    },
+    "FILLCELL_X2": {
+        "input": [],
+        "output": []
+    },
+    "FILLCELL_X4": {
+        "input": [],
+        "output": []
+    },
+    "FILLCELL_X8": {
+        "input": [],
+        "output": []
+    },
+    "FILLCELL_X16": {
+        "input": [],
+        "output": []
+    },
+    "FILLCELL_X32": {
+        "input": [],
+        "output": []
+    },
+    "HA_X1": {
+        "input": [
+            "A",
+            "B"
+        ],
+        "output": [
+            "CO",
+            "S"
+        ]
+    },
+    "INV_X1": {
+        "input": [
+            "A"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "INV_X2": {
+        "input": [
+            "A"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "INV_X4": {
+        "input": [
+            "A"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "INV_X8": {
+        "input": [
+            "A"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "INV_X16": {
+        "input": [
+            "A"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "INV_X32": {
+        "input": [
+            "A"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "LOGIC0_X1": {
+        "input": [],
+        "output": [
+            "Z"
+        ]
+    },
+    "LOGIC1_X1": {
+        "input": [],
+        "output": [
+            "Z"
+        ]
+    },
+    "MUX2_X1": {
+        "input": [
+            "A",
+            "B",
+            "S"
+        ],
+        "output": [
+            "Z"
+        ]
+    },
+    "MUX2_X2": {
+        "input": [
+            "A",
+            "B",
+            "S"
+        ],
+        "output": [
+            "Z"
+        ]
+    },
+    "NAND2_X1": {
+        "input": [
+            "A1",
+            "A2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "NAND2_X2": {
+        "input": [
+            "A1",
+            "A2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "NAND2_X4": {
+        "input": [
+            "A1",
+            "A2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "NAND3_X1": {
+        "input": [
+            "A1",
+            "A2",
+            "A3"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "NAND3_X2": {
+        "input": [
+            "A1",
+            "A2",
+            "A3"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "NAND3_X4": {
+        "input": [
+            "A1",
+            "A2",
+            "A3"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "NAND4_X1": {
+        "input": [
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "NAND4_X2": {
+        "input": [
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "NAND4_X4": {
+        "input": [
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "NOR2_X1": {
+        "input": [
+            "A1",
+            "A2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "NOR2_X2": {
+        "input": [
+            "A1",
+            "A2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "NOR2_X4": {
+        "input": [
+            "A1",
+            "A2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "NOR3_X1": {
+        "input": [
+            "A1",
+            "A2",
+            "A3"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "NOR3_X2": {
+        "input": [
+            "A1",
+            "A2",
+            "A3"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "NOR3_X4": {
+        "input": [
+            "A1",
+            "A2",
+            "A3"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "NOR4_X1": {
+        "input": [
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "NOR4_X2": {
+        "input": [
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "NOR4_X4": {
+        "input": [
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OAI21_X1": {
+        "input": [
+            "A",
+            "B1",
+            "B2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OAI21_X2": {
+        "input": [
+            "A",
+            "B1",
+            "B2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OAI21_X4": {
+        "input": [
+            "A",
+            "B1",
+            "B2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OAI22_X1": {
+        "input": [
+            "A1",
+            "A2",
+            "B1",
+            "B2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OAI22_X2": {
+        "input": [
+            "A1",
+            "A2",
+            "B1",
+            "B2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OAI22_X4": {
+        "input": [
+            "A1",
+            "A2",
+            "B1",
+            "B2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OAI33_X1": {
+        "input": [
+            "A1",
+            "A2",
+            "A3",
+            "B1",
+            "B2",
+            "B3"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OAI211_X1": {
+        "input": [
+            "A",
+            "B",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OAI211_X2": {
+        "input": [
+            "A",
+            "B",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OAI211_X4": {
+        "input": [
+            "A",
+            "B",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OAI221_X1": {
+        "input": [
+            "A",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OAI221_X2": {
+        "input": [
+            "A",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OAI221_X4": {
+        "input": [
+            "A",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OAI222_X1": {
+        "input": [
+            "A1",
+            "A2",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OAI222_X2": {
+        "input": [
+            "A1",
+            "A2",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OAI222_X4": {
+        "input": [
+            "A1",
+            "A2",
+            "B1",
+            "B2",
+            "C1",
+            "C2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OR2_X1": {
+        "input": [
+            "A1",
+            "A2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OR2_X2": {
+        "input": [
+            "A1",
+            "A2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OR2_X4": {
+        "input": [
+            "A1",
+            "A2"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OR3_X1": {
+        "input": [
+            "A1",
+            "A2",
+            "A3"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OR3_X2": {
+        "input": [
+            "A1",
+            "A2",
+            "A3"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OR3_X4": {
+        "input": [
+            "A1",
+            "A2",
+            "A3"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OR4_X1": {
+        "input": [
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OR4_X2": {
+        "input": [
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "OR4_X4": {
+        "input": [
+            "A1",
+            "A2",
+            "A3",
+            "A4"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "SDFFRS_X1": {
+        "input": [
+            "D",
+            "RN",
+            "SE",
+            "SI",
+            "SN",
+            "CK"
+        ],
+        "output": [
+            "Q",
+            "QN"
+        ]
+    },
+    "SDFFRS_X2": {
+        "input": [
+            "D",
+            "RN",
+            "SE",
+            "SI",
+            "SN",
+            "CK"
+        ],
+        "output": [
+            "Q",
+            "QN"
+        ]
+    },
+    "SDFFR_X1": {
+        "input": [
+            "D",
+            "RN",
+            "SE",
+            "SI",
+            "CK"
+        ],
+        "output": [
+            "Q",
+            "QN"
+        ]
+    },
+    "SDFFR_X2": {
+        "input": [
+            "D",
+            "RN",
+            "SE",
+            "SI",
+            "CK"
+        ],
+        "output": [
+            "Q",
+            "QN"
+        ]
+    },
+    "SDFFS_X1": {
+        "input": [
+            "D",
+            "SE",
+            "SI",
+            "SN",
+            "CK"
+        ],
+        "output": [
+            "Q",
+            "QN"
+        ]
+    },
+    "SDFFS_X2": {
+        "input": [
+            "D",
+            "SE",
+            "SI",
+            "SN",
+            "CK"
+        ],
+        "output": [
+            "Q",
+            "QN"
+        ]
+    },
+    "SDFF_X1": {
+        "input": [
+            "D",
+            "SE",
+            "SI",
+            "CK"
+        ],
+        "output": [
+            "Q",
+            "QN"
+        ]
+    },
+    "SDFF_X2": {
+        "input": [
+            "D",
+            "SE",
+            "SI",
+            "CK"
+        ],
+        "output": [
+            "Q",
+            "QN"
+        ]
+    },
+    "TBUF_X1": {
+        "input": [
+            "A",
+            "EN"
+        ],
+        "output": [
+            "Z"
+        ]
+    },
+    "TBUF_X2": {
+        "input": [
+            "A",
+            "EN"
+        ],
+        "output": [
+            "Z"
+        ]
+    },
+    "TBUF_X4": {
+        "input": [
+            "A",
+            "EN"
+        ],
+        "output": [
+            "Z"
+        ]
+    },
+    "TBUF_X8": {
+        "input": [
+            "A",
+            "EN"
+        ],
+        "output": [
+            "Z"
+        ]
+    },
+    "TBUF_X16": {
+        "input": [
+            "A",
+            "EN"
+        ],
+        "output": [
+            "Z"
+        ]
+    },
+    "TINV_X1": {
+        "input": [
+            "EN",
+            "I"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "TLAT_X1": {
+        "input": [
+            "D",
+            "G",
+            "OE"
+        ],
+        "output": [
+            "Q"
+        ]
+    },
+    "XNOR2_X1": {
+        "input": [
+            "A",
+            "B"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "XNOR2_X2": {
+        "input": [
+            "A",
+            "B"
+        ],
+        "output": [
+            "ZN"
+        ]
+    },
+    "XOR2_X1": {
+        "input": [
+            "A",
+            "B"
+        ],
+        "output": [
+            "Z"
+        ]
+    },
+    "XOR2_X2": {
+        "input": [
+            "A",
+            "B"
+        ],
+        "output": [
+            "Z"
+        ]
+    }
+}
