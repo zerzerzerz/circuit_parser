@@ -5,6 +5,7 @@ import src.construct_graph as construct_graph
 import src.get_timing_endpoint as get_timing_endpoint
 import src.extract_cell_loc as extract_cell_loc
 import src.extract_timing as extract_timing
+import src.extract_lut as extract_lut
 import utils.utils as utils
 from os.path import join
 import dgl
@@ -14,6 +15,7 @@ if __name__ == "__main__":
     sdc_file = 'data\\6_final.sdc'
     sdf_file = 'data\\6_final.sdf'
     def_file = 'data\\6_final.def'
+    liberty_file = 'data\\NangateOpenCellLibrary_typical.lib'
     res_dir = 'res'
 
     utils.mkdir(res_dir)
@@ -38,8 +40,12 @@ if __name__ == "__main__":
     cell_locs = extract_cell_loc.extract_cell_loc(def_file)
 
     atslew, net_delay, cell_delay = extract_timing.extract_timing(sdf_file)
+    lut_info = extract_lut.extract_lut(liberty_file)
+
+
 
     utils.save_json(atslew, join(res_dir, 'atslew.json'))
+    utils.save_json(lut_info, join(res_dir, 'lut_info.json'))
     utils.save_json(net_delay, join(res_dir, 'net_delay.json'))
     utils.save_json(cell_delay, join(res_dir, 'cell_delay.json'))
     utils.save_json(pins, join(res_dir, 'pins.json'))
