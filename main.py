@@ -4,6 +4,7 @@ import src.get_PIPO as get_PIPO
 import src.construct_graph as construct_graph
 import src.get_timing_endpoint as get_timing_endpoint
 import src.extract_cell_loc as extract_cell_loc
+import src.extract_timing as extract_timing
 import utils.utils as utils
 from os.path import join
 import dgl
@@ -11,6 +12,7 @@ import dgl
 if __name__ == "__main__":
     verilog_file = 'data\\6_final.v'
     sdc_file = 'data\\6_final.sdc'
+    sdf_file = 'data\\6_final.sdf'
     def_file = 'data\\6_final.def'
     res_dir = 'res'
 
@@ -35,6 +37,11 @@ if __name__ == "__main__":
     timing_endpoint = get_timing_endpoint.get_timing_endpoint(sdc_file)
     cell_locs = extract_cell_loc.extract_cell_loc(def_file)
 
+    atslew, net_delay, cell_delay = extract_timing.extract_timing(sdf_file)
+
+    utils.save_json(atslew, join(res_dir, 'atslew.json'))
+    utils.save_json(net_delay, join(res_dir, 'net_delay.json'))
+    utils.save_json(cell_delay, join(res_dir, 'cell_delay.json'))
     utils.save_json(pins, join(res_dir, 'pins.json'))
     utils.save_json(timing_endpoint, join(res_dir, 'timing_endpoint.json'))
     utils.save_json(pipos, join(res_dir, 'pipos.json'))
