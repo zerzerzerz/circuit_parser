@@ -1,4 +1,6 @@
 from copy import deepcopy
+import torch
+import dgl
 
 def construct_cell_graph(cells:list, pin2index:dict, fanin_or_fanout:dict):
     src = []
@@ -44,10 +46,17 @@ def construct_net_graph(inter_connections:dict, pin2index:dict):
     return src, dst
 
 
-def construct_graph(cells:list, inter_connections:dict, pin2index:dict, fanin_or_fanout:dict):
+def construct_graph(
+    cells:list, 
+    inter_connections:dict, 
+    pin2index:dict, 
+    fanin_or_fanout:dict,
+
+    lut_info,
+    
+):
     res = {}
     res[('node','net_out','node')] = construct_net_graph(inter_connections, pin2index)
     res[('node','cell_out','node')] = construct_cell_graph(cells, pin2index, fanin_or_fanout)
-    res[('node','cell_in','node')] = deepcopy(res[('node','cell_out','node')])[::-1]
-    # return dgl.heterograph(res)
-    return res
+    res[('node','net_in','node')] = deepcopy(res[('node','net_out','node')])[::-1]
+    return dgl.heterograph(res)

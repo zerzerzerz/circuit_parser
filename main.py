@@ -9,8 +9,6 @@ import src.extract_lut as extract_lut
 import src.pin_in_or_out as pin_in_or_out
 import utils.utils as utils
 from os.path import join
-from collections import defaultdict
-import dgl
 
 if __name__ == "__main__":
     verilog_file = 'data\\6_final.v'
@@ -62,5 +60,5 @@ if __name__ == "__main__":
     utils.save_json(cell_locs, join(res_dir, 'cell_locs.json'))
     utils.save_json(inter_connections, join(res_dir, 'inter_connections.json'))
 
-    graph = dgl.heterograph(graph)
+
     print(graph)
