@@ -51,9 +51,6 @@ def construct_graph(
     inter_connections:dict, 
     pin2index:dict, 
     fanin_or_fanout:dict,
-
-    lut_info,
-    
 ):
     res = {}
     res[('node','net_out','node')] = construct_net_graph(inter_connections, pin2index)
