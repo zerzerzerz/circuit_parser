@@ -7,10 +7,14 @@ import src.extract_cell_loc as extract_cell_loc
 import src.extract_timing as extract_timing
 import src.extract_lut as extract_lut
 import src.pin_in_or_out as pin_in_or_out
+import src.extract_pipo_loc as extract_pipo_loc
+import src.add_graph_feature as add_graph_feature
+import src.get_pin2index as get_pin2index
 import utils.utils as utils
 from os.path import join
 
 if __name__ == "__main__":
+    # settings
     verilog_file = 'data\\6_final.v'
     sdc_file = 'data\\6_final.sdc'
     sdf_file = 'data\\6_final.sdf'
@@ -19,46 +23,50 @@ if __name__ == "__main__":
     res_dir = 'res'
 
     utils.mkdir(res_dir)
-    lut_info = extract_lut.extract_lut(liberty_file)
 
-    pin_fanin_or_fanout = pin_in_or_out.get_pin_fanin_or_fanout(lut_info)
-
+    # extract information
     cells = extract_cell.extract_cell(verilog_file)
-    inter_connections = extract_inter_connection.extract_inter_connection(cells, pin_fanin_or_fanout)
     pipos = get_PIPO.get_PIPO(verilog_file)
-
-
-    pins = []
-    pins.extend(pipos['PI'])
-    pins.extend(pipos['PO'])
-    for cell in cells:
-        cell_name = cell['cell_name']
-        for pin in cell['pins']:
-            pin_name = f'{cell_name}.{pin[0]}'
-            pins.append(pin_name)
-    pin2index = {k:v for v,k in enumerate(pins)}
-    graph = construct_graph.construct_graph(cells, inter_connections, pin2index, pin_fanin_or_fanout)
-    
-    
+    pin2index = get_pin2index.get_pin2index(cells, pipos)
+    index2pin = {i:p for p,i in pin2index.items()}
+    pipo_loc = extract_pipo_loc.extract_pipo_loc(def_file)
+    lut_info = extract_lut.extract_lut(liberty_file)
     timing_endpoint = get_timing_endpoint.get_timing_endpoint(sdc_file)
     cell_locs = extract_cell_loc.extract_cell_loc(def_file)
-
     atslew, net_delay, cell_delay = extract_timing.extract_timing(sdf_file)
 
 
-
-    utils.save_json(pin_fanin_or_fanout, join(res_dir, 'pin_fanin_or_fanout.json'))
+    # save extracted information
+    utils.save_json(pipo_loc, join(res_dir, 'pipo_loc.json'))
     utils.save_json(atslew, join(res_dir, 'atslew.json'))
     utils.save_json(lut_info, join(res_dir, 'lut_info.json'))
     utils.save_json(net_delay, join(res_dir, 'net_delay.json'))
     utils.save_json(cell_delay, join(res_dir, 'cell_delay.json'))
-    utils.save_json(pins, join(res_dir, 'pins.json'))
     utils.save_json(timing_endpoint, join(res_dir, 'timing_endpoint.json'))
     utils.save_json(pipos, join(res_dir, 'pipos.json'))
-    utils.save_json(cells, join(res_dir, 'cells.json'))
     utils.save_json(pin2index, join(res_dir, 'pin2index.json'))
+    utils.save_json(index2pin, join(res_dir, 'index2pin.json'))
     utils.save_json(cell_locs, join(res_dir, 'cell_locs.json'))
-    utils.save_json(inter_connections, join(res_dir, 'inter_connections.json'))
 
+    # construct graph and add feature
+    graph = construct_graph.construct_graph(cell_delay, net_delay, pin2index)
+    graph = add_graph_feature.add_graph_feature(
+        graph,
+        pin2index,
+        net_delay
+    )
 
     print(graph)
+    sep = '*'*130
+    for ntype in graph.ntypes:
+        print(sep)
+        print(ntype)
+        for k,v in graph.node_attr_schemes(ntype).items():
+            print(k,v)
+    for etype in graph.etypes:
+        print(sep)
+        print(etype)
+        for k,v in graph.edge_attr_schemes(etype).items():
+            print(k,v)
+    print(sep)
+    
