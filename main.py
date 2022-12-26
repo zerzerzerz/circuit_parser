@@ -24,7 +24,7 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_file, res_dir):
     pin2index = get_pin2index.get_pin2index(cells, pipos)
     index2pin = {i:p for p,i in pin2index.items()}
     pipo_loc = extract_pipo_loc.extract_pipo_loc(def_file)
-    lut_info = extract_lut.extract_lut(liberty_file)
+    lut_info = extract_lut.extract_lut([liberty_file])
     timing_endpoint = get_timing_endpoint.get_timing_endpoint(sdc_file)
     cell_locs = extract_cell_loc.extract_cell_loc(def_file)
     at_rat_slew, net_delay, cell_delay = extract_timing.extract_timing(sdf_file)

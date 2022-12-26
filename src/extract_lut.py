@@ -3,9 +3,24 @@ import utils.utils as utils
 import numpy as np
 from einops import repeat
 
-def extract_lut(liberty_file):
-    ''''''
+def extract_lut(liberty_files):
     print("Extracting LUTs")
+    assert isinstance(liberty_files, list)
+    tmp = []
+    for f in liberty_files:
+        tmp.append(extract_lut_single_file(f))
+    
+    ans = {}
+    for item in tmp:
+        for k,v in item.items():
+            if k in tmp.keys():
+                continue
+            else:
+                ans[k] = v
+    return ans
+
+def extract_lut_single_file(liberty_file):
+    ''''''
     with open(liberty_file) as f:
         c = f.read()
     p = re.compile(r'cell\s\((\w+)\)\s\{')
