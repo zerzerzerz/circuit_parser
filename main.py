@@ -15,15 +15,7 @@ import utils.utils as utils
 from os.path import join
 import dgl
 
-if __name__ == "__main__":
-    # settings
-    verilog_file = 'data\\6_final.v'
-    sdc_file = 'data\\6_final.sdc'
-    sdf_file = 'data\\6_final.sdf'
-    def_file = 'data\\6_final.def'
-    liberty_file = 'data\\NangateOpenCellLibrary_typical.lib'
-    res_dir = 'res'
-
+def main(verilog_file, sdc_file, sdf_file, def_file, liberty_file, res_dir):
     utils.mkdir(res_dir, rm=True)
 
     # extract information
@@ -86,6 +78,18 @@ if __name__ == "__main__":
         for k,v in graph.edge_attr_schemes(etype).items():
             print(k,v)
     print(sep)
+    dgl.save_graphs(join(res_dir,'graph.bin'),[graph])
 
-    dgl.save_graphs('tmp.bin',[graph])
+
+if __name__ == "__main__":
+    # settings
+    verilog_file = 'data\\6_final.v'
+    sdc_file = 'data\\6_final.sdc'
+    sdf_file = 'data\\6_final.sdf'
+    def_file = 'data\\6_final.def'
+    liberty_file = 'data\\NangateOpenCellLibrary_typical.lib'
+    res_dir = 'res'
+
+    main(verilog_file, sdc_file, sdf_file, def_file, liberty_file, res_dir)
+    
     
