@@ -15,7 +15,7 @@ import utils.utils as utils
 from os.path import join
 import dgl
 
-def main(verilog_file, sdc_file, sdf_file, def_file, liberty_file, res_dir):
+def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
     utils.mkdir(res_dir, rm=True)
 
     # extract information
@@ -24,7 +24,7 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_file, res_dir):
     pin2index = get_pin2index.get_pin2index(cells, pipos)
     index2pin = {i:p for p,i in pin2index.items()}
     pipo_loc = extract_pipo_loc.extract_pipo_loc(def_file)
-    lut_info = extract_lut.extract_lut([liberty_file])
+    lut_info = extract_lut.extract_lut(liberty_files)
     timing_endpoint = get_timing_endpoint.get_timing_endpoint(sdc_file)
     cell_locs = extract_cell_loc.extract_cell_loc(def_file)
     at_rat_slew, net_delay, cell_delay = extract_timing.extract_timing(sdf_file)
@@ -90,6 +90,6 @@ if __name__ == "__main__":
     liberty_file = 'data\\NangateOpenCellLibrary_typical.lib'
     res_dir = 'res'
 
-    main(verilog_file, sdc_file, sdf_file, def_file, liberty_file, res_dir)
+    main(verilog_file, sdc_file, sdf_file, def_file, [liberty_file], res_dir)
     
     
