@@ -3,6 +3,7 @@ from collections import defaultdict
 import numpy as np
 
 def extract_timing(sdf_file):
+    print("Extracting timing (AT, RAT, slew)")
     with open(sdf_file) as f:
         c = f.read()
     atslew = extract_atslew(c)

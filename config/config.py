@@ -1,2 +1,4 @@
-# these pins of cell are regarded as fanouts
-FANOUTS = ['Q','QN','Z','ZN']
+class LUT():
+    lut_size = 7
+    num_luts = 8
+    

@@ -4,6 +4,8 @@ import numpy as np
 from einops import repeat
 
 def extract_lut(liberty_file):
+    ''''''
+    print("Extracting LUTs")
     with open(liberty_file) as f:
         c = f.read()
     p = re.compile(r'cell\s\((\w+)\)\s\{')
@@ -112,13 +114,13 @@ def extract_lut_sub(cell_file, cell_type):
                             index1, index2, values, _ = lut_split
                             index1 = [float(i) for i in index1.split('\"')[1].split(',')]
                             index2 = [float(i) for i in index2.split('\"')[1].split(',')]
-                            values = np.array([float(i) for i in values.replace('\"','')[7:-2].split(',')]).reshape(len(index1), len(index2)).tolist()
+                            values = np.array([float(i) for i in values.replace('\"','')[7:-2].split(',')]).reshape(len(index1), len(index2))
                         elif len(lut_split) == 2:
                             values, _ = lut_split
                             index1 = [0.0 for i in range(7)]
                             index2 = [0.0 for i in range(7)]
                             tmp = float(re.search(r'[-+]?\d*\.?\d+',values).group())
-                            values = np.array([tmp for i in range(7*7)]).reshape(len(index1), len(index2)).tolist()
+                            values = np.array([tmp for i in range(7*7)]).reshape(len(index1), len(index2))
                         elif len(lut_split) == 3:
                             index1, values, _ = lut_split
                             index1 = [float(i) for i in index1.split('\"')[1].split(',')]
@@ -133,7 +135,7 @@ def extract_lut_sub(cell_file, cell_type):
                         ans[pin_name]['luts'][related_pin].append({
                             "index1": index1,
                             "index2": index2,
-                            "values": values
+                            "values": values.flatten().tolist()
                         })
 
         else:

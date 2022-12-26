@@ -2,6 +2,7 @@ import re
 
 def extract_pipo_loc(def_file_path):
     '''extract PIPO locations from .def file'''
+    print("Extracting locations of PIPO")
     with open(def_file_path) as f:
         c = f.read()
     

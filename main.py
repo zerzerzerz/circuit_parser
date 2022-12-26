@@ -1,17 +1,18 @@
 import src.extract_cell as extract_cell
-import src.extract_inter_connection as extract_inter_connection
 import src.get_PIPO as get_PIPO
 import src.construct_graph as construct_graph
 import src.get_timing_endpoint as get_timing_endpoint
 import src.extract_cell_loc as extract_cell_loc
 import src.extract_timing as extract_timing
 import src.extract_lut as extract_lut
-import src.pin_in_or_out as pin_in_or_out
 import src.extract_pipo_loc as extract_pipo_loc
 import src.add_graph_feature as add_graph_feature
 import src.get_pin2index as get_pin2index
+# import src.pin_in_or_out as pin_in_or_out
+# import src.extract_inter_connection as extract_inter_connection
 import utils.utils as utils
 from os.path import join
+import dgl
 
 if __name__ == "__main__":
     # settings
@@ -37,6 +38,7 @@ if __name__ == "__main__":
 
 
     # save extracted information
+    utils.save_json(cells, join(res_dir, 'cells.json'))
     utils.save_json(pipo_loc, join(res_dir, 'pipo_loc.json'))
     utils.save_json(atslew, join(res_dir, 'atslew.json'))
     utils.save_json(lut_info, join(res_dir, 'lut_info.json'))
@@ -48,16 +50,22 @@ if __name__ == "__main__":
     utils.save_json(index2pin, join(res_dir, 'index2pin.json'))
     utils.save_json(cell_locs, join(res_dir, 'cell_locs.json'))
 
+
     # construct graph and add feature
     graph = construct_graph.construct_graph(cell_delay, net_delay, pin2index)
     graph = add_graph_feature.add_graph_feature(
         graph,
         pin2index,
-        net_delay
+        net_delay,
+        cell_delay,
+        cells,
+        lut_info
     )
 
+
+    # display information
     print(graph)
-    sep = '*'*130
+    sep = '*'*50
     for ntype in graph.ntypes:
         print(sep)
         print(ntype)
@@ -69,4 +77,6 @@ if __name__ == "__main__":
         for k,v in graph.edge_attr_schemes(etype).items():
             print(k,v)
     print(sep)
+
+    dgl.save_graphs('tmp.bin',[graph])
     

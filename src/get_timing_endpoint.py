@@ -2,6 +2,7 @@ import re
 
 def get_timing_endpoint(sdc_path):
     '''If a port is constrainted in .sdf file, then it is a timing endpoint'''
+    print("Extracting which pins are timing endpoints")
     with open(sdc_path) as f:
         content = f.read()
     pattern = re.compile(r'\[get_ports \{([\w\[\]]+?)\}\]')

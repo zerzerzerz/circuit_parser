@@ -1,5 +1,4 @@
 from copy import deepcopy
-import torch
 import dgl
 
 def construct_cell_graph(cell_delay:dict, pin2index:dict):
@@ -36,7 +35,8 @@ def construct_graph(
     cell_delay: dict,
     net_delay: dict,
     pin2index: dict
-):
+) -> dgl.DGLHeteroGraph:
+    print("Constructing graph")
     res = {}
     res[('node','cell_out','node')] = construct_cell_graph(cell_delay, pin2index)
     res[('node','net_out','node')] = construct_net_graph(net_delay, pin2index)

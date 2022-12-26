@@ -2,6 +2,9 @@ import re
 
 def extract_cell(verilog_file_path:str) -> list:
     '''extract all cells from verilog file'''
+
+    print("Extracting basic cell information")
+
     PIPO = ['input', 'output']
     OTHERS = ['module', 'endmodule']
 
@@ -10,7 +13,7 @@ def extract_cell(verilog_file_path:str) -> list:
 
     cell_pattern = re.compile(r'(\w+)\s+(\w+)\s+\((.*?)\)\s*;')
     cells = cell_pattern.findall(circuit)
-    res = []
+    res = {}
     for cell in cells:
         header = cell[0]
         if header in OTHERS + PIPO:
@@ -23,11 +26,13 @@ def extract_cell(verilog_file_path:str) -> list:
                 pin = pin.strip('\n\t ')
                 tmp = pin.split('(')
                 pin_name = tmp[0][1:].strip('\n\t ')
-                pin_instance = tmp[1][0:-1].strip('\n\t ')
-                pins.append([pin_name, pin_instance])
-            res.append({
+                connected_wire = tmp[1][0:-1].strip('\n\t ')
+                pins.append({
+                    "pin_name": pin_name,
+                    "connected_wire": connected_wire,
+                })
+            res[cell_name] = {
                 "cell_class": cell_class,
-                "cell_name": cell_name,
                 "pins": pins
-            })
+            }
     return res

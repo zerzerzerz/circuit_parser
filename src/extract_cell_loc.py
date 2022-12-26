@@ -1,5 +1,6 @@
 import re
 def extract_cell_loc(def_path):
+    print("Extracting cell location to replace pin location")
     with open(def_path) as f:
         content = f.read()
 
