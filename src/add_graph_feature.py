@@ -1,6 +1,5 @@
 import dgl
 import torch
-import tqdm
 from config.config import LUT
 
 def add_graph_feature(
@@ -10,6 +9,8 @@ def add_graph_feature(
     cell_delay,
     cells,
     lut_info,
+    at_rat_slew,
+    timing_endpoint,
 ):
     '''
     node:
@@ -55,8 +56,10 @@ def add_graph_feature(
     print('Adding feature: net_in, net_out')
     for k, delay in (net_delay.items()):
         pin_src, pin_dst = k.split('->')
-        pin_src = pin2index[pin_src]
-        pin_dst = pin2index[pin_dst]
+        pin_src = pin2index.get(pin_src)
+        pin_dst = pin2index.get(pin_dst)
+        if pin_src is None or pin_dst is None:
+            continue
         g.edges['net_out'].data['ef'][g.edge_ids(pin_src, pin_dst, etype='net_out')] = torch.Tensor(delay[0:2])
         g.edges['net_in'].data['ef'][g.edge_ids(pin_dst, pin_src, etype='net_in')] = torch.Tensor(delay[2:4])
 
@@ -65,8 +68,10 @@ def add_graph_feature(
     print('Adding feature: cell_out (e_cell_delays)')
     for k,delay in cell_delay.items():
         fanin, fanout = k.split('->')
-        fanin = pin2index[fanin]
-        fanout = pin2index[fanout]
+        fanin = pin2index.get(fanin)
+        fanout = pin2index.get(fanout)
+        if fanin is None or fanout is None:
+            continue
         g.edges['cell_out'].data['e_cell_delays'][g.edge_ids(fanin, fanout, etype='cell_out')] = torch.Tensor(delay[0:4])
     
 
@@ -108,6 +113,37 @@ def add_graph_feature(
                 values = torch.cat([values, torch.zeros(LUT.lut_size**2 - values.shape[0])])
             g.edges['cell_out'].data['ef'][edge_id][s:s+LUT.lut_size**2] = values[0:LUT.lut_size**2]
             s += LUT.lut_size**2
+
+
+    print('Adding feature: node (AT, RAT, slew)')
+    for pin_name, timing in at_rat_slew.items():
+        pin_index = pin2index.get(pin_name)
+        if pin_index is None:
+            continue
+        at = torch.Tensor(timing['AT'])
+        rat = torch.Tensor(timing['RAT'])
+        slew = torch.Tensor(timing['SLEW'])
+        g.nodes['node'].data['n_ats'][pin_index] = at[0:4]
+        g.nodes['node'].data['n_rats'][pin_index] = rat[0:4]
+        g.nodes['node'].data['n_slews'][pin_index] = slew[0:4]
+
+
+    print('Adding feature: node (n_net_delays)')
+    for k,delay in net_delay.items():
+        pin_src, pin_dst = k.split('->')
+        pin_index = pin2index.get(pin_dst)
+        if pin_index is None:
+            continue
+        delay = torch.Tensor(delay)
+        g.nodes['node'].data['n_net_delays'][pin_index] = delay[0:4]
+
+
+    print('Adding feature: node (n_is_timing_endpt)')
+    for pin in timing_endpoint:
+        pin_index = pin2index.get(pin)
+        if pin_index is None:
+            continue
+        g.nodes['node'].data['n_is_timing_endpt'][pin_index] = 1.0
 
 
     return g

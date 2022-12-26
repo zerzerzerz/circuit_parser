@@ -34,13 +34,13 @@ if __name__ == "__main__":
     lut_info = extract_lut.extract_lut(liberty_file)
     timing_endpoint = get_timing_endpoint.get_timing_endpoint(sdc_file)
     cell_locs = extract_cell_loc.extract_cell_loc(def_file)
-    atslew, net_delay, cell_delay = extract_timing.extract_timing(sdf_file)
+    at_rat_slew, net_delay, cell_delay = extract_timing.extract_timing(sdf_file)
 
 
     # save extracted information
     utils.save_json(cells, join(res_dir, 'cells.json'))
     utils.save_json(pipo_loc, join(res_dir, 'pipo_loc.json'))
-    utils.save_json(atslew, join(res_dir, 'atslew.json'))
+    utils.save_json(at_rat_slew, join(res_dir, 'at_rat_slew.json'))
     utils.save_json(lut_info, join(res_dir, 'lut_info.json'))
     utils.save_json(net_delay, join(res_dir, 'net_delay.json'))
     utils.save_json(cell_delay, join(res_dir, 'cell_delay.json'))
@@ -59,13 +59,16 @@ if __name__ == "__main__":
         net_delay,
         cell_delay,
         cells,
-        lut_info
+        lut_info,
+        at_rat_slew,
+        timing_endpoint
     )
 
 
     # display information
-    print(graph)
     sep = '*'*50
+    print(sep)
+    print(graph)
     for ntype in graph.ntypes:
         print(sep)
         print(ntype)
