@@ -24,7 +24,7 @@ def extract_lut_single_file(liberty_file):
     ''''''
     with open(liberty_file) as f:
         c = f.read()
-    p = re.compile(r'cell\s*\(\s*(\w+)\s*\)\s*\{')
+    p = re.compile(r'cell\s*\(\s*\"?(\w+)\"?\s*\)\s*\{')
     ans = {}
     res = True
     while res is not None:
@@ -50,7 +50,7 @@ def extract_lut_single_file(liberty_file):
 
 def extract_lut_sub(cell_file, cell_type):
     c = cell_file
-    p = re.compile(r'pin\s*\(\s*(\w+)\s*\)\s*\{')
+    p = re.compile(r'pin\s*\(\s*\"?(\w+)\"?\s*\)\s*\{')
     res = True
     pins = []
     while res is not None:
@@ -73,7 +73,7 @@ def extract_lut_sub(cell_file, cell_type):
             pins.append((res.group(1), pin))
 
 
-    p_direction = re.compile(r'direction\s*\:\s*(\w+)\s*;')
+    p_direction = re.compile(r'direction\s*\:\s*\"?(\w+)\"?\s*;')
     p_capacitance = re.compile(r'(max_capacitance|capacitance)\s*\:\s*([-+]?\d*\.?\d+)\s*;')
 
     ans = {}
@@ -120,9 +120,9 @@ def extract_lut_sub(cell_file, cell_type):
                     timing = c[res.span()[0]: i]
                     c = c[i:]
 
-                    related_pin = re.search(r'related_pin\s*\:\s*\"(\w+)\"\s*;', timing).group(1)
+                    related_pin = re.search(r'related_pin\s*\:\s*\"?(\w+)\"?\s*;', timing).group(1)
                     ans[pin_name]['luts'][related_pin] = []
-                    luts = re.findall(r'\w+\s*\(\s*\w+\s*\)\s*\{([\s\S]*?)\}', timing)
+                    luts = re.findall(r'\w+\s*\(\s*\"?\w+\"?\s*\)\s*\{([\s\S]*?)\}', timing)
                     for lut in luts:
                         lut = lut.replace(' ','')
                         lut = lut.replace('\n','')

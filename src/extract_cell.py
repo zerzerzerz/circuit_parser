@@ -11,7 +11,7 @@ def extract_cell(verilog_file_path:str) -> list:
     with open(verilog_file_path) as f:
         circuit = f.read().replace('\n','')
 
-    cell_pattern = re.compile(r'(\w+)\s+(\w+)\s+\((.*?)\)\s*;')
+    cell_pattern = re.compile(r'(\w+)\s+(\w+)\s+\(([\s\S]*?)\)\s*;')
     cells = cell_pattern.findall(circuit)
     res = {}
     for cell in cells:
