@@ -13,7 +13,7 @@ def extract_lut(liberty_files):
     ans = {}
     for item in tmp:
         for k,v in item.items():
-            if k in tmp.keys():
+            if k in ans.keys():
                 continue
             else:
                 ans[k] = v
