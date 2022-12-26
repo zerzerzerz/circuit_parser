@@ -20,6 +20,9 @@ def extract_cell(verilog_file_path:str) -> list:
             continue
         cell_class = cell[0]
         cell_name = cell[1]
+        if '{' in cell[2]:
+            print("Ignore macro")
+            continue
         pins = []
         if len(cell[-1]) > 0:
             for pin in cell[-1].split(','):

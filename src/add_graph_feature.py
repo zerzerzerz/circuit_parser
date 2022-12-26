@@ -89,8 +89,10 @@ def add_graph_feature(
         cell_name, fanout_name = v.split('.')
         fanin_name = u.split('.')[-1]
         cell_class = cells[cell_name]['cell_class']
-        luts = lut_info[cell_class][fanout_name]['luts'][fanin_name]
-
+        try:
+            luts = lut_info[cell_class][fanout_name]['luts'][fanin_name]
+        except KeyError:
+            continue
         s = 0
         g.edges['cell_out'].data['ef'][edge_id][s:s+LUT.num_luts] = torch.ones(LUT.num_luts)
         s += LUT.num_luts
