@@ -73,7 +73,7 @@ def extract_lut_sub(cell_file, cell_type):
         # print(cap)
         ans[pin_name] = {
             "direction": direction,
-            "capacitance": cap,
+            "capacitance": float(cap),
         }
         if direction == 'input':
             pass

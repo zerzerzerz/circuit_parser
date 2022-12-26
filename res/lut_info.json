@@ -2,15 +2,15 @@
     "AND2_X1": {
         "A1": {
             "direction": "input",
-            "capacitance": "0.918145"
+            "capacitance": 0.918145
         },
         "A2": {
             "direction": "input",
-            "capacitance": "0.974630"
+            "capacitance": 0.97463
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "60.577400",
+            "capacitance": 60.5774,
             "luts": {
                 "A1": [
                     {
@@ -590,15 +590,15 @@
     "AND2_X2": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.656515"
+            "capacitance": 1.656515
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.726477"
+            "capacitance": 1.726477
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "120.850000",
+            "capacitance": 120.85,
             "luts": {
                 "A1": [
                     {
@@ -1178,15 +1178,15 @@
     "AND2_X4": {
         "A1": {
             "direction": "input",
-            "capacitance": "3.195354"
+            "capacitance": 3.195354
         },
         "A2": {
             "direction": "input",
-            "capacitance": "3.536501"
+            "capacitance": 3.536501
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "241.699000",
+            "capacitance": 241.699,
             "luts": {
                 "A1": [
                     {
@@ -1766,19 +1766,19 @@
     "AND3_X1": {
         "A1": {
             "direction": "input",
-            "capacitance": "0.879747"
+            "capacitance": 0.879747
         },
         "A2": {
             "direction": "input",
-            "capacitance": "0.927525"
+            "capacitance": 0.927525
         },
         "A3": {
             "direction": "input",
-            "capacitance": "0.964824"
+            "capacitance": 0.964824
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "60.424800",
+            "capacitance": 60.4248,
             "luts": {
                 "A1": [
                     {
@@ -2644,19 +2644,19 @@
     "AND3_X2": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.599415"
+            "capacitance": 1.599415
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.648903"
+            "capacitance": 1.648903
         },
         "A3": {
             "direction": "input",
-            "capacitance": "1.700149"
+            "capacitance": 1.700149
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "120.544000",
+            "capacitance": 120.544,
             "luts": {
                 "A1": [
                     {
@@ -3522,19 +3522,19 @@
     "AND3_X4": {
         "A1": {
             "direction": "input",
-            "capacitance": "3.085124"
+            "capacitance": 3.085124
         },
         "A2": {
             "direction": "input",
-            "capacitance": "3.300701"
+            "capacitance": 3.300701
         },
         "A3": {
             "direction": "input",
-            "capacitance": "3.581806"
+            "capacitance": 3.581806
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "241.089000",
+            "capacitance": 241.089,
             "luts": {
                 "A1": [
                     {
@@ -4400,23 +4400,23 @@
     "AND4_X1": {
         "A1": {
             "direction": "input",
-            "capacitance": "0.856528"
+            "capacitance": 0.856528
         },
         "A2": {
             "direction": "input",
-            "capacitance": "0.902272"
+            "capacitance": 0.902272
         },
         "A3": {
             "direction": "input",
-            "capacitance": "0.924115"
+            "capacitance": 0.924115
         },
         "A4": {
             "direction": "input",
-            "capacitance": "0.944508"
+            "capacitance": 0.944508
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "60.272200",
+            "capacitance": 60.2722,
             "luts": {
                 "A1": [
                     {
@@ -5568,23 +5568,23 @@
     "AND4_X2": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.550933"
+            "capacitance": 1.550933
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.605000"
+            "capacitance": 1.605
         },
         "A3": {
             "direction": "input",
-            "capacitance": "1.649913"
+            "capacitance": 1.649913
         },
         "A4": {
             "direction": "input",
-            "capacitance": "1.684580"
+            "capacitance": 1.68458
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "120.392000",
+            "capacitance": 120.392,
             "luts": {
                 "A1": [
                     {
@@ -6736,23 +6736,23 @@
     "AND4_X4": {
         "A1": {
             "direction": "input",
-            "capacitance": "3.014616"
+            "capacitance": 3.014616
         },
         "A2": {
             "direction": "input",
-            "capacitance": "3.260554"
+            "capacitance": 3.260554
         },
         "A3": {
             "direction": "input",
-            "capacitance": "3.486019"
+            "capacitance": 3.486019
         },
         "A4": {
             "direction": "input",
-            "capacitance": "3.766184"
+            "capacitance": 3.766184
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "241.089000",
+            "capacitance": 241.089,
             "luts": {
                 "A1": [
                     {
@@ -7904,25 +7904,25 @@
     "ANTENNA_X1": {
         "A": {
             "direction": "input",
-            "capacitance": "0.023429"
+            "capacitance": 0.023429
         }
     },
     "AOI21_X1": {
         "A": {
             "direction": "input",
-            "capacitance": "1.626352"
+            "capacitance": 1.626352
         },
         "B1": {
             "direction": "input",
-            "capacitance": "1.647003"
+            "capacitance": 1.647003
         },
         "B2": {
             "direction": "input",
-            "capacitance": "1.676853"
+            "capacitance": 1.676853
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "25.329600",
+            "capacitance": 25.3296,
             "luts": {
                 "A": [
                     {
@@ -8788,19 +8788,19 @@
     "AOI21_X2": {
         "A": {
             "direction": "input",
-            "capacitance": "3.136406"
+            "capacitance": 3.136406
         },
         "B1": {
             "direction": "input",
-            "capacitance": "3.129761"
+            "capacitance": 3.129761
         },
         "B2": {
             "direction": "input",
-            "capacitance": "3.482455"
+            "capacitance": 3.482455
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "50.659200",
+            "capacitance": 50.6592,
             "luts": {
                 "A": [
                     {
@@ -9666,19 +9666,19 @@
     "AOI21_X4": {
         "A": {
             "direction": "input",
-            "capacitance": "6.139254"
+            "capacitance": 6.139254
         },
         "B1": {
             "direction": "input",
-            "capacitance": "6.401877"
+            "capacitance": 6.401877
         },
         "B2": {
             "direction": "input",
-            "capacitance": "6.713197"
+            "capacitance": 6.713197
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "101.013000",
+            "capacitance": 101.013,
             "luts": {
                 "A": [
                     {
@@ -10544,23 +10544,23 @@
     "AOI22_X1": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.687512"
+            "capacitance": 1.687512
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.689746"
+            "capacitance": 1.689746
         },
         "B1": {
             "direction": "input",
-            "capacitance": "1.584010"
+            "capacitance": 1.58401
         },
         "B2": {
             "direction": "input",
-            "capacitance": "1.623031"
+            "capacitance": 1.623031
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "24.604800",
+            "capacitance": 24.6048,
             "luts": {
                 "A1": [
                     {
@@ -11712,23 +11712,23 @@
     "AOI22_X2": {
         "A1": {
             "direction": "input",
-            "capacitance": "3.147425"
+            "capacitance": 3.147425
         },
         "A2": {
             "direction": "input",
-            "capacitance": "3.477477"
+            "capacitance": 3.477477
         },
         "B1": {
             "direction": "input",
-            "capacitance": "2.987578"
+            "capacitance": 2.987578
         },
         "B2": {
             "direction": "input",
-            "capacitance": "3.437290"
+            "capacitance": 3.43729
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "49.133300",
+            "capacitance": 49.1333,
             "luts": {
                 "A1": [
                     {
@@ -12880,23 +12880,23 @@
     "AOI22_X4": {
         "A1": {
             "direction": "input",
-            "capacitance": "6.418618"
+            "capacitance": 6.418618
         },
         "A2": {
             "direction": "input",
-            "capacitance": "6.780931"
+            "capacitance": 6.780931
         },
         "B1": {
             "direction": "input",
-            "capacitance": "6.090127"
+            "capacitance": 6.090127
         },
         "B2": {
             "direction": "input",
-            "capacitance": "6.605098"
+            "capacitance": 6.605098
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "97.961400",
+            "capacitance": 97.9614,
             "luts": {
                 "A1": [
                     {
@@ -14048,23 +14048,23 @@
     "AOI211_X1": {
         "A": {
             "direction": "input",
-            "capacitance": "1.620338"
+            "capacitance": 1.620338
         },
         "B": {
             "direction": "input",
-            "capacitance": "1.658423"
+            "capacitance": 1.658423
         },
         "C1": {
             "direction": "input",
-            "capacitance": "1.655202"
+            "capacitance": 1.655202
         },
         "C2": {
             "direction": "input",
-            "capacitance": "1.679479"
+            "capacitance": 1.679479
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "14.495900",
+            "capacitance": 14.4959,
             "luts": {
                 "A": [
                     {
@@ -15216,23 +15216,23 @@
     "AOI211_X2": {
         "A": {
             "direction": "input",
-            "capacitance": "3.114220"
+            "capacitance": 3.11422
         },
         "B": {
             "direction": "input",
-            "capacitance": "3.425452"
+            "capacitance": 3.425452
         },
         "C1": {
             "direction": "input",
-            "capacitance": "3.165257"
+            "capacitance": 3.165257
         },
         "C2": {
             "direction": "input",
-            "capacitance": "3.454374"
+            "capacitance": 3.454374
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "28.991700",
+            "capacitance": 28.9917,
             "luts": {
                 "A": [
                     {
@@ -16384,23 +16384,23 @@
     "AOI211_X4": {
         "A": {
             "direction": "input",
-            "capacitance": "1.668945"
+            "capacitance": 1.668945
         },
         "B": {
             "direction": "input",
-            "capacitance": "1.696344"
+            "capacitance": 1.696344
         },
         "C1": {
             "direction": "input",
-            "capacitance": "1.632665"
+            "capacitance": 1.632665
         },
         "C2": {
             "direction": "input",
-            "capacitance": "1.749982"
+            "capacitance": 1.749982
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "242.310000",
+            "capacitance": 242.31,
             "luts": {
                 "A": [
                     {
@@ -17552,27 +17552,27 @@
     "AOI221_X1": {
         "A": {
             "direction": "input",
-            "capacitance": "1.677530"
+            "capacitance": 1.67753
         },
         "B1": {
             "direction": "input",
-            "capacitance": "1.581620"
+            "capacitance": 1.58162
         },
         "B2": {
             "direction": "input",
-            "capacitance": "1.628297"
+            "capacitance": 1.628297
         },
         "C1": {
             "direction": "input",
-            "capacitance": "1.632251"
+            "capacitance": 1.632251
         },
         "C2": {
             "direction": "input",
-            "capacitance": "1.706745"
+            "capacitance": 1.706745
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "13.809200",
+            "capacitance": 13.8092,
             "luts": {
                 "A": [
                     {
@@ -19010,27 +19010,27 @@
     "AOI221_X2": {
         "A": {
             "direction": "input",
-            "capacitance": "3.504692"
+            "capacitance": 3.504692
         },
         "B1": {
             "direction": "input",
-            "capacitance": "3.226091"
+            "capacitance": 3.226091
         },
         "B2": {
             "direction": "input",
-            "capacitance": "3.135271"
+            "capacitance": 3.135271
         },
         "C1": {
             "direction": "input",
-            "capacitance": "3.145027"
+            "capacitance": 3.145027
         },
         "C2": {
             "direction": "input",
-            "capacitance": "3.501501"
+            "capacitance": 3.501501
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "27.618400",
+            "capacitance": 27.6184,
             "luts": {
                 "A": [
                     {
@@ -20468,27 +20468,27 @@
     "AOI221_X4": {
         "A": {
             "direction": "input",
-            "capacitance": "1.649091"
+            "capacitance": 1.649091
         },
         "B1": {
             "direction": "input",
-            "capacitance": "1.557194"
+            "capacitance": 1.557194
         },
         "B2": {
             "direction": "input",
-            "capacitance": "1.649664"
+            "capacitance": 1.649664
         },
         "C1": {
             "direction": "input",
-            "capacitance": "1.600832"
+            "capacitance": 1.600832
         },
         "C2": {
             "direction": "input",
-            "capacitance": "1.681052"
+            "capacitance": 1.681052
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "242.310000",
+            "capacitance": 242.31,
             "luts": {
                 "A": [
                     {
@@ -21926,31 +21926,31 @@
     "AOI222_X1": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.636678"
+            "capacitance": 1.636678
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.695263"
+            "capacitance": 1.695263
         },
         "B1": {
             "direction": "input",
-            "capacitance": "1.579130"
+            "capacitance": 1.57913
         },
         "B2": {
             "direction": "input",
-            "capacitance": "1.621925"
+            "capacitance": 1.621925
         },
         "C1": {
             "direction": "input",
-            "capacitance": "1.547208"
+            "capacitance": 1.547208
         },
         "C2": {
             "direction": "input",
-            "capacitance": "1.586715"
+            "capacitance": 1.586715
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "13.008100",
+            "capacitance": 13.0081,
             "luts": {
                 "A1": [
                     {
@@ -23674,31 +23674,31 @@
     "AOI222_X2": {
         "A1": {
             "direction": "input",
-            "capacitance": "3.164179"
+            "capacitance": 3.164179
         },
         "A2": {
             "direction": "input",
-            "capacitance": "3.216068"
+            "capacitance": 3.216068
         },
         "B1": {
             "direction": "input",
-            "capacitance": "3.026291"
+            "capacitance": 3.026291
         },
         "B2": {
             "direction": "input",
-            "capacitance": "3.400260"
+            "capacitance": 3.40026
         },
         "C1": {
             "direction": "input",
-            "capacitance": "2.964483"
+            "capacitance": 2.964483
         },
         "C2": {
             "direction": "input",
-            "capacitance": "3.315441"
+            "capacitance": 3.315441
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "25.634800",
+            "capacitance": 25.6348,
             "luts": {
                 "A1": [
                     {
@@ -25422,31 +25422,31 @@
     "AOI222_X4": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.596468"
+            "capacitance": 1.596468
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.701800"
+            "capacitance": 1.7018
         },
         "B1": {
             "direction": "input",
-            "capacitance": "1.596573"
+            "capacitance": 1.596573
         },
         "B2": {
             "direction": "input",
-            "capacitance": "1.677640"
+            "capacitance": 1.67764
         },
         "C1": {
             "direction": "input",
-            "capacitance": "1.578039"
+            "capacitance": 1.578039
         },
         "C2": {
             "direction": "input",
-            "capacitance": "1.650615"
+            "capacitance": 1.650615
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "242.310000",
+            "capacitance": 242.31,
             "luts": {
                 "A1": [
                     {
@@ -27170,11 +27170,11 @@
     "BUF_X1": {
         "A": {
             "direction": "input",
-            "capacitance": "0.974659"
+            "capacitance": 0.974659
         },
         "Z": {
             "direction": "output",
-            "capacitance": "60.653700",
+            "capacitance": 60.6537,
             "luts": {
                 "A": [
                     {
@@ -27468,11 +27468,11 @@
     "BUF_X2": {
         "A": {
             "direction": "input",
-            "capacitance": "1.779209"
+            "capacitance": 1.779209
         },
         "Z": {
             "direction": "output",
-            "capacitance": "121.155000",
+            "capacitance": 121.155,
             "luts": {
                 "A": [
                     {
@@ -27766,11 +27766,11 @@
     "BUF_X4": {
         "A": {
             "direction": "input",
-            "capacitance": "3.401892"
+            "capacitance": 3.401892
         },
         "Z": {
             "direction": "output",
-            "capacitance": "242.310000",
+            "capacitance": 242.31,
             "luts": {
                 "A": [
                     {
@@ -28064,11 +28064,11 @@
     "BUF_X8": {
         "A": {
             "direction": "input",
-            "capacitance": "6.585178"
+            "capacitance": 6.585178
         },
         "Z": {
             "direction": "output",
-            "capacitance": "484.009000",
+            "capacitance": 484.009,
             "luts": {
                 "A": [
                     {
@@ -28362,11 +28362,11 @@
     "BUF_X16": {
         "A": {
             "direction": "input",
-            "capacitance": "12.410827"
+            "capacitance": 12.410827
         },
         "Z": {
             "direction": "output",
-            "capacitance": "965.576000",
+            "capacitance": 965.576,
             "luts": {
                 "A": [
                     {
@@ -28660,11 +28660,11 @@
     "BUF_X32": {
         "A": {
             "direction": "input",
-            "capacitance": "26.703923"
+            "capacitance": 26.703923
         },
         "Z": {
             "direction": "output",
-            "capacitance": "1904.300000",
+            "capacitance": 1904.3,
             "luts": {
                 "A": [
                     {
@@ -28958,11 +28958,11 @@
     "CLKBUF_X1": {
         "A": {
             "direction": "input",
-            "capacitance": "0.779830"
+            "capacitance": 0.77983
         },
         "Z": {
             "direction": "output",
-            "capacitance": "60.730000",
+            "capacitance": 60.73,
             "luts": {
                 "A": [
                     {
@@ -29256,11 +29256,11 @@
     "CLKBUF_X2": {
         "A": {
             "direction": "input",
-            "capacitance": "1.405914"
+            "capacitance": 1.405914
         },
         "Z": {
             "direction": "output",
-            "capacitance": "121.460000",
+            "capacitance": 121.46,
             "luts": {
                 "A": [
                     {
@@ -29554,11 +29554,11 @@
     "CLKBUF_X3": {
         "A": {
             "direction": "input",
-            "capacitance": "1.421162"
+            "capacitance": 1.421162
         },
         "Z": {
             "direction": "output",
-            "capacitance": "181.885000",
+            "capacitance": 181.885,
             "luts": {
                 "A": [
                     {
@@ -29852,19 +29852,19 @@
     "CLKGATETST_X1": {
         "CK": {
             "direction": "input",
-            "capacitance": "1.812200"
+            "capacitance": 1.8122
         },
         "E": {
             "direction": "input",
-            "capacitance": "0.877980"
+            "capacitance": 0.87798
         },
         "SE": {
             "direction": "input",
-            "capacitance": "0.776756"
+            "capacitance": 0.776756
         },
         "GCK": {
             "direction": "output",
-            "capacitance": "60.730000",
+            "capacitance": 60.73,
             "luts": {
                 "CK": [
                     {
@@ -30016,19 +30016,19 @@
     "CLKGATETST_X2": {
         "CK": {
             "direction": "input",
-            "capacitance": "2.818591"
+            "capacitance": 2.818591
         },
         "E": {
             "direction": "input",
-            "capacitance": "0.872203"
+            "capacitance": 0.872203
         },
         "SE": {
             "direction": "input",
-            "capacitance": "0.810873"
+            "capacitance": 0.810873
         },
         "GCK": {
             "direction": "output",
-            "capacitance": "121.460000",
+            "capacitance": 121.46,
             "luts": {
                 "CK": [
                     {
@@ -30180,19 +30180,19 @@
     "CLKGATETST_X4": {
         "CK": {
             "direction": "input",
-            "capacitance": "4.438941"
+            "capacitance": 4.438941
         },
         "E": {
             "direction": "input",
-            "capacitance": "0.930490"
+            "capacitance": 0.93049
         },
         "SE": {
             "direction": "input",
-            "capacitance": "0.814723"
+            "capacitance": 0.814723
         },
         "GCK": {
             "direction": "output",
-            "capacitance": "242.920000",
+            "capacitance": 242.92,
             "luts": {
                 "CK": [
                     {
@@ -30344,19 +30344,19 @@
     "CLKGATETST_X8": {
         "CK": {
             "direction": "input",
-            "capacitance": "7.959177"
+            "capacitance": 7.959177
         },
         "E": {
             "direction": "input",
-            "capacitance": "0.901507"
+            "capacitance": 0.901507
         },
         "SE": {
             "direction": "input",
-            "capacitance": "0.801331"
+            "capacitance": 0.801331
         },
         "GCK": {
             "direction": "output",
-            "capacitance": "484.619000",
+            "capacitance": 484.619,
             "luts": {
                 "CK": [
                     {
@@ -30508,15 +30508,15 @@
     "CLKGATE_X1": {
         "CK": {
             "direction": "input",
-            "capacitance": "1.837892"
+            "capacitance": 1.837892
         },
         "E": {
             "direction": "input",
-            "capacitance": "0.915181"
+            "capacitance": 0.915181
         },
         "GCK": {
             "direction": "output",
-            "capacitance": "60.730000",
+            "capacitance": 60.73,
             "luts": {
                 "CK": [
                     {
@@ -30668,15 +30668,15 @@
     "CLKGATE_X2": {
         "CK": {
             "direction": "input",
-            "capacitance": "2.562124"
+            "capacitance": 2.562124
         },
         "E": {
             "direction": "input",
-            "capacitance": "0.893230"
+            "capacitance": 0.89323
         },
         "GCK": {
             "direction": "output",
-            "capacitance": "121.307000",
+            "capacitance": 121.307,
             "luts": {
                 "CK": [
                     {
@@ -30828,15 +30828,15 @@
     "CLKGATE_X4": {
         "CK": {
             "direction": "input",
-            "capacitance": "4.253856"
+            "capacitance": 4.253856
         },
         "E": {
             "direction": "input",
-            "capacitance": "0.881805"
+            "capacitance": 0.881805
         },
         "GCK": {
             "direction": "output",
-            "capacitance": "242.310000",
+            "capacitance": 242.31,
             "luts": {
                 "CK": [
                     {
@@ -30988,15 +30988,15 @@
     "CLKGATE_X8": {
         "CK": {
             "direction": "input",
-            "capacitance": "7.654296"
+            "capacitance": 7.654296
         },
         "E": {
             "direction": "input",
-            "capacitance": "1.162619"
+            "capacitance": 1.162619
         },
         "GCK": {
             "direction": "output",
-            "capacitance": "484.619000",
+            "capacitance": 484.619,
             "luts": {
                 "CK": [
                     {
@@ -31148,23 +31148,23 @@
     "DFFRS_X1": {
         "D": {
             "direction": "input",
-            "capacitance": "1.148034"
+            "capacitance": 1.148034
         },
         "RN": {
             "direction": "input",
-            "capacitance": "1.407088"
+            "capacitance": 1.407088
         },
         "SN": {
             "direction": "input",
-            "capacitance": "2.211875"
+            "capacitance": 2.211875
         },
         "CK": {
             "direction": "input",
-            "capacitance": "0.963316"
+            "capacitance": 0.963316
         },
         "Q": {
             "direction": "output",
-            "capacitance": "60.653700",
+            "capacitance": 60.6537,
             "luts": {
                 "CK": [
                     {
@@ -31744,7 +31744,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": "60.272200",
+            "capacitance": 60.2722,
             "luts": {
                 "CK": [
                     {
@@ -32326,23 +32326,23 @@
     "DFFRS_X2": {
         "D": {
             "direction": "input",
-            "capacitance": "1.162239"
+            "capacitance": 1.162239
         },
         "RN": {
             "direction": "input",
-            "capacitance": "1.844314"
+            "capacitance": 1.844314
         },
         "SN": {
             "direction": "input",
-            "capacitance": "2.620929"
+            "capacitance": 2.620929
         },
         "CK": {
             "direction": "input",
-            "capacitance": "0.940231"
+            "capacitance": 0.940231
         },
         "Q": {
             "direction": "output",
-            "capacitance": "120.850000",
+            "capacitance": 120.85,
             "luts": {
                 "CK": [
                     {
@@ -32922,7 +32922,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": "120.850000",
+            "capacitance": 120.85,
             "luts": {
                 "CK": [
                     {
@@ -33504,19 +33504,19 @@
     "DFFR_X1": {
         "D": {
             "direction": "input",
-            "capacitance": "1.128277"
+            "capacitance": 1.128277
         },
         "RN": {
             "direction": "input",
-            "capacitance": "1.778528"
+            "capacitance": 1.778528
         },
         "CK": {
             "direction": "input",
-            "capacitance": "0.976605"
+            "capacitance": 0.976605
         },
         "Q": {
             "direction": "output",
-            "capacitance": "60.577400",
+            "capacitance": 60.5774,
             "luts": {
                 "CK": [
                     {
@@ -33952,7 +33952,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": "60.272200",
+            "capacitance": 60.2722,
             "luts": {
                 "CK": [
                     {
@@ -34390,19 +34390,19 @@
     "DFFR_X2": {
         "D": {
             "direction": "input",
-            "capacitance": "1.128370"
+            "capacitance": 1.12837
         },
         "RN": {
             "direction": "input",
-            "capacitance": "2.475099"
+            "capacitance": 2.475099
         },
         "CK": {
             "direction": "input",
-            "capacitance": "0.965663"
+            "capacitance": 0.965663
         },
         "Q": {
             "direction": "output",
-            "capacitance": "120.850000",
+            "capacitance": 120.85,
             "luts": {
                 "CK": [
                     {
@@ -34838,7 +34838,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": "120.544000",
+            "capacitance": 120.544,
             "luts": {
                 "CK": [
                     {
@@ -35276,19 +35276,19 @@
     "DFFS_X1": {
         "D": {
             "direction": "input",
-            "capacitance": "1.163714"
+            "capacitance": 1.163714
         },
         "SN": {
             "direction": "input",
-            "capacitance": "1.355893"
+            "capacitance": 1.355893
         },
         "CK": {
             "direction": "input",
-            "capacitance": "0.965214"
+            "capacitance": 0.965214
         },
         "Q": {
             "direction": "output",
-            "capacitance": "60.653700",
+            "capacitance": 60.6537,
             "luts": {
                 "CK": [
                     {
@@ -35724,7 +35724,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": "60.272200",
+            "capacitance": 60.2722,
             "luts": {
                 "CK": [
                     {
@@ -36162,19 +36162,19 @@
     "DFFS_X2": {
         "D": {
             "direction": "input",
-            "capacitance": "1.163041"
+            "capacitance": 1.163041
         },
         "SN": {
             "direction": "input",
-            "capacitance": "1.333554"
+            "capacitance": 1.333554
         },
         "CK": {
             "direction": "input",
-            "capacitance": "0.968853"
+            "capacitance": 0.968853
         },
         "Q": {
             "direction": "output",
-            "capacitance": "121.155000",
+            "capacitance": 121.155,
             "luts": {
                 "CK": [
                     {
@@ -36610,7 +36610,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": "120.544000",
+            "capacitance": 120.544,
             "luts": {
                 "CK": [
                     {
@@ -37048,15 +37048,15 @@
     "DFF_X1": {
         "D": {
             "direction": "input",
-            "capacitance": "1.140290"
+            "capacitance": 1.14029
         },
         "CK": {
             "direction": "input",
-            "capacitance": "0.949653"
+            "capacitance": 0.949653
         },
         "Q": {
             "direction": "output",
-            "capacitance": "60.730000",
+            "capacitance": 60.73,
             "luts": {
                 "CK": [
                     {
@@ -37348,7 +37348,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": "60.272200",
+            "capacitance": 60.2722,
             "luts": {
                 "CK": [
                     {
@@ -37642,15 +37642,15 @@
     "DFF_X2": {
         "D": {
             "direction": "input",
-            "capacitance": "1.127600"
+            "capacitance": 1.1276
         },
         "CK": {
             "direction": "input",
-            "capacitance": "0.930494"
+            "capacitance": 0.930494
         },
         "Q": {
             "direction": "output",
-            "capacitance": "121.155000",
+            "capacitance": 121.155,
             "luts": {
                 "CK": [
                     {
@@ -37942,7 +37942,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": "120.544000",
+            "capacitance": 120.544,
             "luts": {
                 "CK": [
                     {
@@ -38236,15 +38236,15 @@
     "DLH_X1": {
         "D": {
             "direction": "input",
-            "capacitance": "0.914139"
+            "capacitance": 0.914139
         },
         "G": {
             "direction": "input",
-            "capacitance": "0.985498"
+            "capacitance": 0.985498
         },
         "Q": {
             "direction": "output",
-            "capacitance": "60.577400",
+            "capacitance": 60.5774,
             "luts": {
                 "D": [
                     {
@@ -38824,15 +38824,15 @@
     "DLH_X2": {
         "D": {
             "direction": "input",
-            "capacitance": "1.161008"
+            "capacitance": 1.161008
         },
         "G": {
             "direction": "input",
-            "capacitance": "0.987008"
+            "capacitance": 0.987008
         },
         "Q": {
             "direction": "output",
-            "capacitance": "120.697000",
+            "capacitance": 120.697,
             "luts": {
                 "D": [
                     {
@@ -39412,15 +39412,15 @@
     "DLL_X1": {
         "D": {
             "direction": "input",
-            "capacitance": "0.883012"
+            "capacitance": 0.883012
         },
         "GN": {
             "direction": "input",
-            "capacitance": "0.989103"
+            "capacitance": 0.989103
         },
         "Q": {
             "direction": "output",
-            "capacitance": "60.272200",
+            "capacitance": 60.2722,
             "luts": {
                 "D": [
                     {
@@ -40000,15 +40000,15 @@
     "DLL_X2": {
         "D": {
             "direction": "input",
-            "capacitance": "1.130534"
+            "capacitance": 1.130534
         },
         "GN": {
             "direction": "input",
-            "capacitance": "0.982609"
+            "capacitance": 0.982609
         },
         "Q": {
             "direction": "output",
-            "capacitance": "120.544000",
+            "capacitance": 120.544,
             "luts": {
                 "D": [
                     {
@@ -40588,19 +40588,19 @@
     "FA_X1": {
         "A": {
             "direction": "input",
-            "capacitance": "3.745709"
+            "capacitance": 3.745709
         },
         "B": {
             "direction": "input",
-            "capacitance": "3.471985"
+            "capacitance": 3.471985
         },
         "CI": {
             "direction": "input",
-            "capacitance": "2.762078"
+            "capacitance": 2.762078
         },
         "CO": {
             "direction": "output",
-            "capacitance": "60.119600",
+            "capacitance": 60.1196,
             "luts": {
                 "A": [
                     {
@@ -41464,7 +41464,7 @@
         },
         "S": {
             "direction": "output",
-            "capacitance": "60.272200",
+            "capacitance": 60.2722,
             "luts": {
                 "A": [
                     {
@@ -42337,15 +42337,15 @@
     "HA_X1": {
         "A": {
             "direction": "input",
-            "capacitance": "3.185865"
+            "capacitance": 3.185865
         },
         "B": {
             "direction": "input",
-            "capacitance": "3.447793"
+            "capacitance": 3.447793
         },
         "CO": {
             "direction": "output",
-            "capacitance": "60.577400",
+            "capacitance": 60.5774,
             "luts": {
                 "A": [
                     {
@@ -42923,7 +42923,7 @@
         },
         "S": {
             "direction": "output",
-            "capacitance": "25.253300",
+            "capacitance": 25.2533,
             "luts": {
                 "A": [
                     {
@@ -43503,11 +43503,11 @@
     "INV_X1": {
         "A": {
             "direction": "input",
-            "capacitance": "1.700230"
+            "capacitance": 1.70023
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "60.730000",
+            "capacitance": 60.73,
             "luts": {
                 "A": [
                     {
@@ -43801,11 +43801,11 @@
     "INV_X2": {
         "A": {
             "direction": "input",
-            "capacitance": "3.250891"
+            "capacitance": 3.250891
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "121.460000",
+            "capacitance": 121.46,
             "luts": {
                 "A": [
                     {
@@ -44099,11 +44099,11 @@
     "INV_X4": {
         "A": {
             "direction": "input",
-            "capacitance": "6.258425"
+            "capacitance": 6.258425
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "242.920000",
+            "capacitance": 242.92,
             "luts": {
                 "A": [
                     {
@@ -44397,11 +44397,11 @@
     "INV_X8": {
         "A": {
             "direction": "input",
-            "capacitance": "11.810652"
+            "capacitance": 11.810652
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "485.229000",
+            "capacitance": 485.229,
             "luts": {
                 "A": [
                     {
@@ -44695,11 +44695,11 @@
     "INV_X16": {
         "A": {
             "direction": "input",
-            "capacitance": "25.228138"
+            "capacitance": 25.228138
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "969.238000",
+            "capacitance": 969.238,
             "luts": {
                 "A": [
                     {
@@ -44993,11 +44993,11 @@
     "INV_X32": {
         "A": {
             "direction": "input",
-            "capacitance": "49.191468"
+            "capacitance": 49.191468
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "1923.830000",
+            "capacitance": 1923.83,
             "luts": {
                 "A": [
                     {
@@ -45305,19 +45305,19 @@
     "MUX2_X1": {
         "A": {
             "direction": "input",
-            "capacitance": "0.946420"
+            "capacitance": 0.94642
         },
         "B": {
             "direction": "input",
-            "capacitance": "0.944775"
+            "capacitance": 0.944775
         },
         "S": {
             "direction": "input",
-            "capacitance": "1.919942"
+            "capacitance": 1.919942
         },
         "Z": {
             "direction": "output",
-            "capacitance": "60.501100",
+            "capacitance": 60.5011,
             "luts": {
                 "A": [
                     {
@@ -46183,19 +46183,19 @@
     "MUX2_X2": {
         "A": {
             "direction": "input",
-            "capacitance": "1.592289"
+            "capacitance": 1.592289
         },
         "B": {
             "direction": "input",
-            "capacitance": "1.735083"
+            "capacitance": 1.735083
         },
         "S": {
             "direction": "input",
-            "capacitance": "2.624002"
+            "capacitance": 2.624002
         },
         "Z": {
             "direction": "output",
-            "capacitance": "120.850000",
+            "capacitance": 120.85,
             "luts": {
                 "A": [
                     {
@@ -47061,15 +47061,15 @@
     "NAND2_X1": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.599032"
+            "capacitance": 1.599032
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.664199"
+            "capacitance": 1.664199
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "59.356700",
+            "capacitance": 59.3567,
             "luts": {
                 "A1": [
                     {
@@ -47649,15 +47649,15 @@
     "NAND2_X2": {
         "A1": {
             "direction": "input",
-            "capacitance": "3.053103"
+            "capacitance": 3.053103
         },
         "A2": {
             "direction": "input",
-            "capacitance": "3.450993"
+            "capacitance": 3.450993
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "118.713000",
+            "capacitance": 118.713,
             "luts": {
                 "A1": [
                     {
@@ -48237,15 +48237,15 @@
     "NAND2_X4": {
         "A1": {
             "direction": "input",
-            "capacitance": "5.954965"
+            "capacitance": 5.954965
         },
         "A2": {
             "direction": "input",
-            "capacitance": "6.201850"
+            "capacitance": 6.20185
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "237.427000",
+            "capacitance": 237.427,
             "luts": {
                 "A1": [
                     {
@@ -48825,19 +48825,19 @@
     "NAND3_X1": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.590286"
+            "capacitance": 1.590286
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.621225"
+            "capacitance": 1.621225
         },
         "A3": {
             "direction": "input",
-            "capacitance": "1.650377"
+            "capacitance": 1.650377
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "58.364900",
+            "capacitance": 58.3649,
             "luts": {
                 "A1": [
                     {
@@ -49703,19 +49703,19 @@
     "NAND3_X2": {
         "A1": {
             "direction": "input",
-            "capacitance": "2.977805"
+            "capacitance": 2.977805
         },
         "A2": {
             "direction": "input",
-            "capacitance": "3.286375"
+            "capacitance": 3.286375
         },
         "A3": {
             "direction": "input",
-            "capacitance": "3.558898"
+            "capacitance": 3.558898
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "116.272000",
+            "capacitance": 116.272,
             "luts": {
                 "A1": [
                     {
@@ -50581,19 +50581,19 @@
     "NAND3_X4": {
         "A1": {
             "direction": "input",
-            "capacitance": "6.251026"
+            "capacitance": 6.251026
         },
         "A2": {
             "direction": "input",
-            "capacitance": "6.913977"
+            "capacitance": 6.913977
         },
         "A3": {
             "direction": "input",
-            "capacitance": "7.155898"
+            "capacitance": 7.155898
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "233.154000",
+            "capacitance": 233.154,
             "luts": {
                 "A1": [
                     {
@@ -51459,23 +51459,23 @@
     "NAND4_X1": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.522092"
+            "capacitance": 1.522092
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.595210"
+            "capacitance": 1.59521
         },
         "A3": {
             "direction": "input",
-            "capacitance": "1.638090"
+            "capacitance": 1.63809
         },
         "A4": {
             "direction": "input",
-            "capacitance": "1.659913"
+            "capacitance": 1.659913
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "55.999800",
+            "capacitance": 55.9998,
             "luts": {
                 "A1": [
                     {
@@ -52627,23 +52627,23 @@
     "NAND4_X2": {
         "A1": {
             "direction": "input",
-            "capacitance": "2.922235"
+            "capacitance": 2.922235
         },
         "A2": {
             "direction": "input",
-            "capacitance": "3.274809"
+            "capacitance": 3.274809
         },
         "A3": {
             "direction": "input",
-            "capacitance": "3.476345"
+            "capacitance": 3.476345
         },
         "A4": {
             "direction": "input",
-            "capacitance": "3.821420"
+            "capacitance": 3.82142
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "111.542000",
+            "capacitance": 111.542,
             "luts": {
                 "A1": [
                     {
@@ -53795,23 +53795,23 @@
     "NAND4_X4": {
         "A1": {
             "direction": "input",
-            "capacitance": "5.652047"
+            "capacitance": 5.652047
         },
         "A2": {
             "direction": "input",
-            "capacitance": "5.794997"
+            "capacitance": 5.794997
         },
         "A3": {
             "direction": "input",
-            "capacitance": "5.905165"
+            "capacitance": 5.905165
         },
         "A4": {
             "direction": "input",
-            "capacitance": "6.095535"
+            "capacitance": 6.095535
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "222.778000",
+            "capacitance": 222.778,
             "luts": {
                 "A1": [
                     {
@@ -54963,15 +54963,15 @@
     "NOR2_X1": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.714471"
+            "capacitance": 1.714471
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.651345"
+            "capacitance": 1.651345
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "26.702900",
+            "capacitance": 26.7029,
             "luts": {
                 "A1": [
                     {
@@ -55551,15 +55551,15 @@
     "NOR2_X2": {
         "A1": {
             "direction": "input",
-            "capacitance": "3.293307"
+            "capacitance": 3.293307
         },
         "A2": {
             "direction": "input",
-            "capacitance": "3.346923"
+            "capacitance": 3.346923
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "53.405800",
+            "capacitance": 53.4058,
             "luts": {
                 "A1": [
                     {
@@ -56139,15 +56139,15 @@
     "NOR2_X4": {
         "A1": {
             "direction": "input",
-            "capacitance": "6.773059"
+            "capacitance": 6.773059
         },
         "A2": {
             "direction": "input",
-            "capacitance": "6.683366"
+            "capacitance": 6.683366
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "106.811000",
+            "capacitance": 106.811,
             "luts": {
                 "A1": [
                     {
@@ -56727,19 +56727,19 @@
     "NOR3_X1": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.763571"
+            "capacitance": 1.763571
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.663842"
+            "capacitance": 1.663842
         },
         "A3": {
             "direction": "input",
-            "capacitance": "1.616298"
+            "capacitance": 1.616298
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "16.021700",
+            "capacitance": 16.0217,
             "luts": {
                 "A1": [
                     {
@@ -57605,19 +57605,19 @@
     "NOR3_X2": {
         "A1": {
             "direction": "input",
-            "capacitance": "3.365192"
+            "capacitance": 3.365192
         },
         "A2": {
             "direction": "input",
-            "capacitance": "3.430457"
+            "capacitance": 3.430457
         },
         "A3": {
             "direction": "input",
-            "capacitance": "3.442792"
+            "capacitance": 3.442792
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "31.738300",
+            "capacitance": 31.7383,
             "luts": {
                 "A1": [
                     {
@@ -58483,19 +58483,19 @@
     "NOR3_X4": {
         "A1": {
             "direction": "input",
-            "capacitance": "6.514946"
+            "capacitance": 6.514946
         },
         "A2": {
             "direction": "input",
-            "capacitance": "6.171360"
+            "capacitance": 6.17136
         },
         "A3": {
             "direction": "input",
-            "capacitance": "6.105358"
+            "capacitance": 6.105358
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "63.324000",
+            "capacitance": 63.324,
             "luts": {
                 "A1": [
                     {
@@ -59361,23 +59361,23 @@
     "NOR4_X1": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.736804"
+            "capacitance": 1.736804
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.674130"
+            "capacitance": 1.67413
         },
         "A3": {
             "direction": "input",
-            "capacitance": "1.635974"
+            "capacitance": 1.635974
         },
         "A4": {
             "direction": "input",
-            "capacitance": "1.605950"
+            "capacitance": 1.60595
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "10.471300",
+            "capacitance": 10.4713,
             "luts": {
                 "A1": [
                     {
@@ -60529,23 +60529,23 @@
     "NOR4_X2": {
         "A1": {
             "direction": "input",
-            "capacitance": "3.390672"
+            "capacitance": 3.390672
         },
         "A2": {
             "direction": "input",
-            "capacitance": "3.409886"
+            "capacitance": 3.409886
         },
         "A3": {
             "direction": "input",
-            "capacitance": "3.519213"
+            "capacitance": 3.519213
         },
         "A4": {
             "direction": "input",
-            "capacitance": "3.614957"
+            "capacitance": 3.614957
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "20.904500",
+            "capacitance": 20.9045,
             "luts": {
                 "A1": [
                     {
@@ -61697,23 +61697,23 @@
     "NOR4_X4": {
         "A1": {
             "direction": "input",
-            "capacitance": "6.569444"
+            "capacitance": 6.569444
         },
         "A2": {
             "direction": "input",
-            "capacitance": "6.198845"
+            "capacitance": 6.198845
         },
         "A3": {
             "direction": "input",
-            "capacitance": "6.081284"
+            "capacitance": 6.081284
         },
         "A4": {
             "direction": "input",
-            "capacitance": "6.026564"
+            "capacitance": 6.026564
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "41.503900",
+            "capacitance": 41.5039,
             "luts": {
                 "A1": [
                     {
@@ -62865,19 +62865,19 @@
     "OAI21_X1": {
         "A": {
             "direction": "input",
-            "capacitance": "1.670716"
+            "capacitance": 1.670716
         },
         "B1": {
             "direction": "input",
-            "capacitance": "1.662050"
+            "capacitance": 1.66205
         },
         "B2": {
             "direction": "input",
-            "capacitance": "1.571893"
+            "capacitance": 1.571893
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "26.054400",
+            "capacitance": 26.0544,
             "luts": {
                 "A": [
                     {
@@ -63743,19 +63743,19 @@
     "OAI21_X2": {
         "A": {
             "direction": "input",
-            "capacitance": "3.180718"
+            "capacitance": 3.180718
         },
         "B1": {
             "direction": "input",
-            "capacitance": "3.100793"
+            "capacitance": 3.100793
         },
         "B2": {
             "direction": "input",
-            "capacitance": "3.328943"
+            "capacitance": 3.328943
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "52.108800",
+            "capacitance": 52.1088,
             "luts": {
                 "A": [
                     {
@@ -64621,19 +64621,19 @@
     "OAI21_X4": {
         "A": {
             "direction": "input",
-            "capacitance": "6.194658"
+            "capacitance": 6.194658
         },
         "B1": {
             "direction": "input",
-            "capacitance": "6.351550"
+            "capacitance": 6.35155
         },
         "B2": {
             "direction": "input",
-            "capacitance": "6.500426"
+            "capacitance": 6.500426
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "104.065000",
+            "capacitance": 104.065,
             "luts": {
                 "A": [
                     {
@@ -65499,23 +65499,23 @@
     "OAI22_X1": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.671043"
+            "capacitance": 1.671043
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.584237"
+            "capacitance": 1.584237
         },
         "B1": {
             "direction": "input",
-            "capacitance": "1.665448"
+            "capacitance": 1.665448
         },
         "B2": {
             "direction": "input",
-            "capacitance": "1.615611"
+            "capacitance": 1.615611
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "23.231500",
+            "capacitance": 23.2315,
             "luts": {
                 "A1": [
                     {
@@ -66667,23 +66667,23 @@
     "OAI22_X2": {
         "A1": {
             "direction": "input",
-            "capacitance": "3.132973"
+            "capacitance": 3.132973
         },
         "A2": {
             "direction": "input",
-            "capacitance": "3.397133"
+            "capacitance": 3.397133
         },
         "B1": {
             "direction": "input",
-            "capacitance": "3.160700"
+            "capacitance": 3.1607
         },
         "B2": {
             "direction": "input",
-            "capacitance": "3.333146"
+            "capacitance": 3.333146
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "46.310400",
+            "capacitance": 46.3104,
             "luts": {
                 "A1": [
                     {
@@ -67835,23 +67835,23 @@
     "OAI22_X4": {
         "A1": {
             "direction": "input",
-            "capacitance": "6.448126"
+            "capacitance": 6.448126
         },
         "A2": {
             "direction": "input",
-            "capacitance": "6.523128"
+            "capacitance": 6.523128
         },
         "B1": {
             "direction": "input",
-            "capacitance": "6.521216"
+            "capacitance": 6.521216
         },
         "B2": {
             "direction": "input",
-            "capacitance": "6.481659"
+            "capacitance": 6.481659
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "92.468300",
+            "capacitance": 92.4683,
             "luts": {
                 "A1": [
                     {
@@ -69003,31 +69003,31 @@
     "OAI33_X1": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.679872"
+            "capacitance": 1.679872
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.617460"
+            "capacitance": 1.61746
         },
         "A3": {
             "direction": "input",
-            "capacitance": "1.573439"
+            "capacitance": 1.573439
         },
         "B1": {
             "direction": "input",
-            "capacitance": "1.651275"
+            "capacitance": 1.651275
         },
         "B2": {
             "direction": "input",
-            "capacitance": "1.611999"
+            "capacitance": 1.611999
         },
         "B3": {
             "direction": "input",
-            "capacitance": "1.581480"
+            "capacitance": 1.58148
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "11.482200",
+            "capacitance": 11.4822,
             "luts": {
                 "A1": [
                     {
@@ -70751,23 +70751,23 @@
     "OAI211_X1": {
         "A": {
             "direction": "input",
-            "capacitance": "1.614241"
+            "capacitance": 1.614241
         },
         "B": {
             "direction": "input",
-            "capacitance": "1.657276"
+            "capacitance": 1.657276
         },
         "C1": {
             "direction": "input",
-            "capacitance": "1.595175"
+            "capacitance": 1.595175
         },
         "C2": {
             "direction": "input",
-            "capacitance": "1.555656"
+            "capacitance": 1.555656
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "25.558500",
+            "capacitance": 25.5585,
             "luts": {
                 "A": [
                     {
@@ -71919,23 +71919,23 @@
     "OAI211_X2": {
         "A": {
             "direction": "input",
-            "capacitance": "3.331182"
+            "capacitance": 3.331182
         },
         "B": {
             "direction": "input",
-            "capacitance": "3.207926"
+            "capacitance": 3.207926
         },
         "C1": {
             "direction": "input",
-            "capacitance": "2.995510"
+            "capacitance": 2.99551
         },
         "C2": {
             "direction": "input",
-            "capacitance": "3.220988"
+            "capacitance": 3.220988
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "50.811800",
+            "capacitance": 50.8118,
             "luts": {
                 "A": [
                     {
@@ -73087,23 +73087,23 @@
     "OAI211_X4": {
         "A": {
             "direction": "input",
-            "capacitance": "6.364038"
+            "capacitance": 6.364038
         },
         "B": {
             "direction": "input",
-            "capacitance": "6.550739"
+            "capacitance": 6.550739
         },
         "C1": {
             "direction": "input",
-            "capacitance": "6.206207"
+            "capacitance": 6.206207
         },
         "C2": {
             "direction": "input",
-            "capacitance": "6.423357"
+            "capacitance": 6.423357
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "101.624000",
+            "capacitance": 101.624,
             "luts": {
                 "A": [
                     {
@@ -74255,27 +74255,27 @@
     "OAI221_X1": {
         "A": {
             "direction": "input",
-            "capacitance": "1.630225"
+            "capacitance": 1.630225
         },
         "B1": {
             "direction": "input",
-            "capacitance": "1.655378"
+            "capacitance": 1.655378
         },
         "B2": {
             "direction": "input",
-            "capacitance": "1.605417"
+            "capacitance": 1.605417
         },
         "C1": {
             "direction": "input",
-            "capacitance": "1.569676"
+            "capacitance": 1.569676
         },
         "C2": {
             "direction": "input",
-            "capacitance": "1.583349"
+            "capacitance": 1.583349
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "22.163400",
+            "capacitance": 22.1634,
             "luts": {
                 "A": [
                     {
@@ -75713,27 +75713,27 @@
     "OAI221_X2": {
         "A": {
             "direction": "input",
-            "capacitance": "3.536380"
+            "capacitance": 3.53638
         },
         "B1": {
             "direction": "input",
-            "capacitance": "3.477443"
+            "capacitance": 3.477443
         },
         "B2": {
             "direction": "input",
-            "capacitance": "3.124702"
+            "capacitance": 3.124702
         },
         "C1": {
             "direction": "input",
-            "capacitance": "2.996374"
+            "capacitance": 2.996374
         },
         "C2": {
             "direction": "input",
-            "capacitance": "3.245202"
+            "capacitance": 3.245202
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "43.869000",
+            "capacitance": 43.869,
             "luts": {
                 "A": [
                     {
@@ -77171,27 +77171,27 @@
     "OAI221_X4": {
         "A": {
             "direction": "input",
-            "capacitance": "1.643414"
+            "capacitance": 1.643414
         },
         "B1": {
             "direction": "input",
-            "capacitance": "1.672754"
+            "capacitance": 1.672754
         },
         "B2": {
             "direction": "input",
-            "capacitance": "1.653010"
+            "capacitance": 1.65301
         },
         "C1": {
             "direction": "input",
-            "capacitance": "1.548184"
+            "capacitance": 1.548184
         },
         "C2": {
             "direction": "input",
-            "capacitance": "1.584488"
+            "capacitance": 1.584488
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "242.310000",
+            "capacitance": 242.31,
             "luts": {
                 "A": [
                     {
@@ -78629,31 +78629,31 @@
     "OAI222_X1": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.576587"
+            "capacitance": 1.576587
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.594615"
+            "capacitance": 1.594615
         },
         "B1": {
             "direction": "input",
-            "capacitance": "1.617471"
+            "capacitance": 1.617471
         },
         "B2": {
             "direction": "input",
-            "capacitance": "1.620241"
+            "capacitance": 1.620241
         },
         "C1": {
             "direction": "input",
-            "capacitance": "1.596415"
+            "capacitance": 1.596415
         },
         "C2": {
             "direction": "input",
-            "capacitance": "1.571112"
+            "capacitance": 1.571112
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "20.065300",
+            "capacitance": 20.0653,
             "luts": {
                 "A1": [
                     {
@@ -80377,31 +80377,31 @@
     "OAI222_X2": {
         "A1": {
             "direction": "input",
-            "capacitance": "3.228228"
+            "capacitance": 3.228228
         },
         "A2": {
             "direction": "input",
-            "capacitance": "3.000864"
+            "capacitance": 3.000864
         },
         "B1": {
             "direction": "input",
-            "capacitance": "3.303845"
+            "capacitance": 3.303845
         },
         "B2": {
             "direction": "input",
-            "capacitance": "2.999420"
+            "capacitance": 2.99942
         },
         "C1": {
             "direction": "input",
-            "capacitance": "3.363464"
+            "capacitance": 3.363464
         },
         "C2": {
             "direction": "input",
-            "capacitance": "3.074139"
+            "capacitance": 3.074139
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "39.596600",
+            "capacitance": 39.5966,
             "luts": {
                 "A1": [
                     {
@@ -82125,31 +82125,31 @@
     "OAI222_X4": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.578915"
+            "capacitance": 1.578915
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.574249"
+            "capacitance": 1.574249
         },
         "B1": {
             "direction": "input",
-            "capacitance": "1.623590"
+            "capacitance": 1.62359
         },
         "B2": {
             "direction": "input",
-            "capacitance": "1.612659"
+            "capacitance": 1.612659
         },
         "C1": {
             "direction": "input",
-            "capacitance": "1.657646"
+            "capacitance": 1.657646
         },
         "C2": {
             "direction": "input",
-            "capacitance": "1.641558"
+            "capacitance": 1.641558
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "242.310000",
+            "capacitance": 242.31,
             "luts": {
                 "A1": [
                     {
@@ -83873,15 +83873,15 @@
     "OR2_X1": {
         "A1": {
             "direction": "input",
-            "capacitance": "0.946814"
+            "capacitance": 0.946814
         },
         "A2": {
             "direction": "input",
-            "capacitance": "0.941939"
+            "capacitance": 0.941939
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "60.577400",
+            "capacitance": 60.5774,
             "luts": {
                 "A1": [
                     {
@@ -84461,15 +84461,15 @@
     "OR2_X2": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.745940"
+            "capacitance": 1.74594
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.694286"
+            "capacitance": 1.694286
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "121.155000",
+            "capacitance": 121.155,
             "luts": {
                 "A1": [
                     {
@@ -85049,15 +85049,15 @@
     "OR2_X4": {
         "A1": {
             "direction": "input",
-            "capacitance": "3.384966"
+            "capacitance": 3.384966
         },
         "A2": {
             "direction": "input",
-            "capacitance": "3.454664"
+            "capacitance": 3.454664
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "242.310000",
+            "capacitance": 242.31,
             "luts": {
                 "A1": [
                     {
@@ -85637,19 +85637,19 @@
     "OR3_X1": {
         "A1": {
             "direction": "input",
-            "capacitance": "0.959052"
+            "capacitance": 0.959052
         },
         "A2": {
             "direction": "input",
-            "capacitance": "0.940092"
+            "capacitance": 0.940092
         },
         "A3": {
             "direction": "input",
-            "capacitance": "0.921561"
+            "capacitance": 0.921561
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "60.577400",
+            "capacitance": 60.5774,
             "luts": {
                 "A1": [
                     {
@@ -86515,19 +86515,19 @@
     "OR3_X2": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.747970"
+            "capacitance": 1.74797
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.693050"
+            "capacitance": 1.69305
         },
         "A3": {
             "direction": "input",
-            "capacitance": "1.672973"
+            "capacitance": 1.672973
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "121.155000",
+            "capacitance": 121.155,
             "luts": {
                 "A1": [
                     {
@@ -87393,19 +87393,19 @@
     "OR3_X4": {
         "A1": {
             "direction": "input",
-            "capacitance": "3.374939"
+            "capacitance": 3.374939
         },
         "A2": {
             "direction": "input",
-            "capacitance": "3.377189"
+            "capacitance": 3.377189
         },
         "A3": {
             "direction": "input",
-            "capacitance": "3.394655"
+            "capacitance": 3.394655
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "242.310000",
+            "capacitance": 242.31,
             "luts": {
                 "A1": [
                     {
@@ -88271,23 +88271,23 @@
     "OR4_X1": {
         "A1": {
             "direction": "input",
-            "capacitance": "0.941245"
+            "capacitance": 0.941245
         },
         "A2": {
             "direction": "input",
-            "capacitance": "0.938321"
+            "capacitance": 0.938321
         },
         "A3": {
             "direction": "input",
-            "capacitance": "0.923766"
+            "capacitance": 0.923766
         },
         "A4": {
             "direction": "input",
-            "capacitance": "0.914189"
+            "capacitance": 0.914189
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "60.577400",
+            "capacitance": 60.5774,
             "luts": {
                 "A1": [
                     {
@@ -89439,23 +89439,23 @@
     "OR4_X2": {
         "A1": {
             "direction": "input",
-            "capacitance": "1.723147"
+            "capacitance": 1.723147
         },
         "A2": {
             "direction": "input",
-            "capacitance": "1.675133"
+            "capacitance": 1.675133
         },
         "A3": {
             "direction": "input",
-            "capacitance": "1.648372"
+            "capacitance": 1.648372
         },
         "A4": {
             "direction": "input",
-            "capacitance": "1.636906"
+            "capacitance": 1.636906
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "120.850000",
+            "capacitance": 120.85,
             "luts": {
                 "A1": [
                     {
@@ -90607,23 +90607,23 @@
     "OR4_X4": {
         "A1": {
             "direction": "input",
-            "capacitance": "3.348292"
+            "capacitance": 3.348292
         },
         "A2": {
             "direction": "input",
-            "capacitance": "3.375615"
+            "capacitance": 3.375615
         },
         "A3": {
             "direction": "input",
-            "capacitance": "3.504744"
+            "capacitance": 3.504744
         },
         "A4": {
             "direction": "input",
-            "capacitance": "3.612474"
+            "capacitance": 3.612474
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "241.699000",
+            "capacitance": 241.699,
             "luts": {
                 "A1": [
                     {
@@ -91775,31 +91775,31 @@
     "SDFFRS_X1": {
         "D": {
             "direction": "input",
-            "capacitance": "1.143733"
+            "capacitance": 1.143733
         },
         "RN": {
             "direction": "input",
-            "capacitance": "2.248538"
+            "capacitance": 2.248538
         },
         "SE": {
             "direction": "input",
-            "capacitance": "2.143806"
+            "capacitance": 2.143806
         },
         "SI": {
             "direction": "input",
-            "capacitance": "0.860252"
+            "capacitance": 0.860252
         },
         "SN": {
             "direction": "input",
-            "capacitance": "1.523381"
+            "capacitance": 1.523381
         },
         "CK": {
             "direction": "input",
-            "capacitance": "0.954596"
+            "capacitance": 0.954596
         },
         "Q": {
             "direction": "output",
-            "capacitance": "60.272200",
+            "capacitance": 60.2722,
             "luts": {
                 "CK": [
                     {
@@ -92379,7 +92379,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": "60.577400",
+            "capacitance": 60.5774,
             "luts": {
                 "CK": [
                     {
@@ -92961,31 +92961,31 @@
     "SDFFRS_X2": {
         "D": {
             "direction": "input",
-            "capacitance": "1.123965"
+            "capacitance": 1.123965
         },
         "RN": {
             "direction": "input",
-            "capacitance": "2.632774"
+            "capacitance": 2.632774
         },
         "SE": {
             "direction": "input",
-            "capacitance": "2.016430"
+            "capacitance": 2.01643
         },
         "SI": {
             "direction": "input",
-            "capacitance": "0.863432"
+            "capacitance": 0.863432
         },
         "SN": {
             "direction": "input",
-            "capacitance": "1.835024"
+            "capacitance": 1.835024
         },
         "CK": {
             "direction": "input",
-            "capacitance": "0.938213"
+            "capacitance": 0.938213
         },
         "Q": {
             "direction": "output",
-            "capacitance": "120.850000",
+            "capacitance": 120.85,
             "luts": {
                 "CK": [
                     {
@@ -93565,7 +93565,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": "120.850000",
+            "capacitance": 120.85,
             "luts": {
                 "CK": [
                     {
@@ -94147,27 +94147,27 @@
     "SDFFR_X1": {
         "D": {
             "direction": "input",
-            "capacitance": "1.153532"
+            "capacitance": 1.153532
         },
         "RN": {
             "direction": "input",
-            "capacitance": "1.490977"
+            "capacitance": 1.490977
         },
         "SE": {
             "direction": "input",
-            "capacitance": "2.000805"
+            "capacitance": 2.000805
         },
         "SI": {
             "direction": "input",
-            "capacitance": "0.875562"
+            "capacitance": 0.875562
         },
         "CK": {
             "direction": "input",
-            "capacitance": "1.026344"
+            "capacitance": 1.026344
         },
         "Q": {
             "direction": "output",
-            "capacitance": "60.424800",
+            "capacitance": 60.4248,
             "luts": {
                 "CK": [
                     {
@@ -94603,7 +94603,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": "60.424800",
+            "capacitance": 60.4248,
             "luts": {
                 "CK": [
                     {
@@ -95041,27 +95041,27 @@
     "SDFFR_X2": {
         "D": {
             "direction": "input",
-            "capacitance": "1.137331"
+            "capacitance": 1.137331
         },
         "RN": {
             "direction": "input",
-            "capacitance": "1.527906"
+            "capacitance": 1.527906
         },
         "SE": {
             "direction": "input",
-            "capacitance": "1.922469"
+            "capacitance": 1.922469
         },
         "SI": {
             "direction": "input",
-            "capacitance": "0.878615"
+            "capacitance": 0.878615
         },
         "CK": {
             "direction": "input",
-            "capacitance": "0.962924"
+            "capacitance": 0.962924
         },
         "Q": {
             "direction": "output",
-            "capacitance": "120.544000",
+            "capacitance": 120.544,
             "luts": {
                 "CK": [
                     {
@@ -95497,7 +95497,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": "121.155000",
+            "capacitance": 121.155,
             "luts": {
                 "CK": [
                     {
@@ -95935,27 +95935,27 @@
     "SDFFS_X1": {
         "D": {
             "direction": "input",
-            "capacitance": "1.149948"
+            "capacitance": 1.149948
         },
         "SE": {
             "direction": "input",
-            "capacitance": "2.002657"
+            "capacitance": 2.002657
         },
         "SI": {
             "direction": "input",
-            "capacitance": "0.899169"
+            "capacitance": 0.899169
         },
         "SN": {
             "direction": "input",
-            "capacitance": "1.338417"
+            "capacitance": 1.338417
         },
         "CK": {
             "direction": "input",
-            "capacitance": "0.979064"
+            "capacitance": 0.979064
         },
         "Q": {
             "direction": "output",
-            "capacitance": "60.119600",
+            "capacitance": 60.1196,
             "luts": {
                 "CK": [
                     {
@@ -96391,7 +96391,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": "60.577400",
+            "capacitance": 60.5774,
             "luts": {
                 "CK": [
                     {
@@ -96829,27 +96829,27 @@
     "SDFFS_X2": {
         "D": {
             "direction": "input",
-            "capacitance": "1.119363"
+            "capacitance": 1.119363
         },
         "SE": {
             "direction": "input",
-            "capacitance": "1.912194"
+            "capacitance": 1.912194
         },
         "SI": {
             "direction": "input",
-            "capacitance": "0.912904"
+            "capacitance": 0.912904
         },
         "SN": {
             "direction": "input",
-            "capacitance": "2.224456"
+            "capacitance": 2.224456
         },
         "CK": {
             "direction": "input",
-            "capacitance": "0.961605"
+            "capacitance": 0.961605
         },
         "Q": {
             "direction": "output",
-            "capacitance": "120.544000",
+            "capacitance": 120.544,
             "luts": {
                 "CK": [
                     {
@@ -97285,7 +97285,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": "120.850000",
+            "capacitance": 120.85,
             "luts": {
                 "CK": [
                     {
@@ -97723,23 +97723,23 @@
     "SDFF_X1": {
         "D": {
             "direction": "input",
-            "capacitance": "1.119679"
+            "capacitance": 1.119679
         },
         "SE": {
             "direction": "input",
-            "capacitance": "1.889909"
+            "capacitance": 1.889909
         },
         "SI": {
             "direction": "input",
-            "capacitance": "0.918794"
+            "capacitance": 0.918794
         },
         "CK": {
             "direction": "input",
-            "capacitance": "0.958871"
+            "capacitance": 0.958871
         },
         "Q": {
             "direction": "output",
-            "capacitance": "60.577400",
+            "capacitance": 60.5774,
             "luts": {
                 "CK": [
                     {
@@ -98031,7 +98031,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": "60.424800",
+            "capacitance": 60.4248,
             "luts": {
                 "CK": [
                     {
@@ -98325,23 +98325,23 @@
     "SDFF_X2": {
         "D": {
             "direction": "input",
-            "capacitance": "1.126603"
+            "capacitance": 1.126603
         },
         "SE": {
             "direction": "input",
-            "capacitance": "1.853232"
+            "capacitance": 1.853232
         },
         "SI": {
             "direction": "input",
-            "capacitance": "0.898201"
+            "capacitance": 0.898201
         },
         "CK": {
             "direction": "input",
-            "capacitance": "0.983853"
+            "capacitance": 0.983853
         },
         "Q": {
             "direction": "output",
-            "capacitance": "120.544000",
+            "capacitance": 120.544,
             "luts": {
                 "CK": [
                     {
@@ -98633,7 +98633,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": "121.155000",
+            "capacitance": 121.155,
             "luts": {
                 "CK": [
                     {
@@ -98927,15 +98927,15 @@
     "TBUF_X1": {
         "A": {
             "direction": "input",
-            "capacitance": "1.879368"
+            "capacitance": 1.879368
         },
         "EN": {
             "direction": "input",
-            "capacitance": "1.726556"
+            "capacitance": 1.726556
         },
         "Z": {
             "direction": "output",
-            "capacitance": "1.053973",
+            "capacitance": 1.053973,
             "luts": {
                 "A": [
                     {
@@ -99515,15 +99515,15 @@
     "TBUF_X2": {
         "A": {
             "direction": "input",
-            "capacitance": "3.325056"
+            "capacitance": 3.325056
         },
         "EN": {
             "direction": "input",
-            "capacitance": "2.737893"
+            "capacitance": 2.737893
         },
         "Z": {
             "direction": "output",
-            "capacitance": "1.636401",
+            "capacitance": 1.636401,
             "luts": {
                 "A": [
                     {
@@ -100103,15 +100103,15 @@
     "TBUF_X4": {
         "A": {
             "direction": "input",
-            "capacitance": "3.380143"
+            "capacitance": 3.380143
         },
         "EN": {
             "direction": "input",
-            "capacitance": "2.436324"
+            "capacitance": 2.436324
         },
         "Z": {
             "direction": "output",
-            "capacitance": "3.222263",
+            "capacitance": 3.222263,
             "luts": {
                 "A": [
                     {
@@ -100691,15 +100691,15 @@
     "TBUF_X8": {
         "A": {
             "direction": "input",
-            "capacitance": "6.719670"
+            "capacitance": 6.71967
         },
         "EN": {
             "direction": "input",
-            "capacitance": "4.985662"
+            "capacitance": 4.985662
         },
         "Z": {
             "direction": "output",
-            "capacitance": "6.744279",
+            "capacitance": 6.744279,
             "luts": {
                 "A": [
                     {
@@ -101279,15 +101279,15 @@
     "TBUF_X16": {
         "A": {
             "direction": "input",
-            "capacitance": "6.520519"
+            "capacitance": 6.520519
         },
         "EN": {
             "direction": "input",
-            "capacitance": "4.928340"
+            "capacitance": 4.92834
         },
         "Z": {
             "direction": "output",
-            "capacitance": "13.066705",
+            "capacitance": 13.066705,
             "luts": {
                 "A": [
                     {
@@ -101867,15 +101867,15 @@
     "TINV_X1": {
         "EN": {
             "direction": "input",
-            "capacitance": "1.752043"
+            "capacitance": 1.752043
         },
         "I": {
             "direction": "input",
-            "capacitance": "1.444645"
+            "capacitance": 1.444645
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "0.799043",
+            "capacitance": 0.799043,
             "luts": {
                 "EN": [
                     {
@@ -102455,19 +102455,19 @@
     "TLAT_X1": {
         "D": {
             "direction": "input",
-            "capacitance": "1.139798"
+            "capacitance": 1.139798
         },
         "G": {
             "direction": "input",
-            "capacitance": "1.016017"
+            "capacitance": 1.016017
         },
         "OE": {
             "direction": "input",
-            "capacitance": "1.497228"
+            "capacitance": 1.497228
         },
         "Q": {
             "direction": "output",
-            "capacitance": "0.791880",
+            "capacitance": 0.79188,
             "luts": {
                 "D": [
                     {
@@ -103333,15 +103333,15 @@
     "XNOR2_X1": {
         "A": {
             "direction": "input",
-            "capacitance": "2.232754"
+            "capacitance": 2.232754
         },
         "B": {
             "direction": "input",
-            "capacitance": "2.573608"
+            "capacitance": 2.573608
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "26.016200",
+            "capacitance": 26.0162,
             "luts": {
                 "A": [
                     {
@@ -103921,15 +103921,15 @@
     "XNOR2_X2": {
         "A": {
             "direction": "input",
-            "capacitance": "4.003783"
+            "capacitance": 4.003783
         },
         "B": {
             "direction": "input",
-            "capacitance": "4.836936"
+            "capacitance": 4.836936
         },
         "ZN": {
             "direction": "output",
-            "capacitance": "52.032500",
+            "capacitance": 52.0325,
             "luts": {
                 "A": [
                     {
@@ -104509,15 +104509,15 @@
     "XOR2_X1": {
         "A": {
             "direction": "input",
-            "capacitance": "2.232144"
+            "capacitance": 2.232144
         },
         "B": {
             "direction": "input",
-            "capacitance": "2.411453"
+            "capacitance": 2.411453
         },
         "Z": {
             "direction": "output",
-            "capacitance": "25.329600",
+            "capacitance": 25.3296,
             "luts": {
                 "A": [
                     {
@@ -105097,15 +105097,15 @@
     "XOR2_X2": {
         "A": {
             "direction": "input",
-            "capacitance": "4.330455"
+            "capacitance": 4.330455
         },
         "B": {
             "direction": "input",
-            "capacitance": "4.500935"
+            "capacitance": 4.500935
         },
         "Z": {
             "direction": "output",
-            "capacitance": "50.506600",
+            "capacitance": 50.5066,
             "luts": {
                 "A": [
                     {

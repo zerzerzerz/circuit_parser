@@ -8,6 +8,7 @@ import src.extract_lut as extract_lut
 import src.extract_pipo_loc as extract_pipo_loc
 import src.add_graph_feature as add_graph_feature
 import src.get_pin2index as get_pin2index
+import src.extract_chip_area as extract_chip_area
 # import src.pin_in_or_out as pin_in_or_out
 # import src.extract_inter_connection as extract_inter_connection
 import utils.utils as utils
@@ -35,9 +36,10 @@ if __name__ == "__main__":
     timing_endpoint = get_timing_endpoint.get_timing_endpoint(sdc_file)
     cell_locs = extract_cell_loc.extract_cell_loc(def_file)
     at_rat_slew, net_delay, cell_delay = extract_timing.extract_timing(sdf_file)
-
+    chip_area = extract_chip_area.extract_chip_area(def_file)
 
     # save extracted information
+    utils.save_json(chip_area, join(res_dir, 'chip_area.json'))
     utils.save_json(cells, join(res_dir, 'cells.json'))
     utils.save_json(pipo_loc, join(res_dir, 'pipo_loc.json'))
     utils.save_json(at_rat_slew, join(res_dir, 'at_rat_slew.json'))
@@ -61,7 +63,11 @@ if __name__ == "__main__":
         cells,
         lut_info,
         at_rat_slew,
-        timing_endpoint
+        timing_endpoint,
+        pipos,
+        pipo_loc,
+        chip_area,
+        cell_locs
     )
 
 

@@ -11,6 +11,10 @@ def add_graph_feature(
     lut_info,
     at_rat_slew,
     timing_endpoint,
+    pipos,
+    pipo_loc,
+    chip_area,
+    cell_loc,
 ):
     '''
     node:
@@ -145,6 +149,73 @@ def add_graph_feature(
             continue
         g.nodes['node'].data['n_is_timing_endpt'][pin_index] = 1.0
 
+
+    print('Adding feature: node (nf, is primary or not)')
+    for pi in pipos['PI']:
+        pi_index = pin2index.get(pi)
+        if pi_index is None:
+            continue
+        g.nodes['node'].data['nf'][pi_index, 0] = 1.0
+        g.nodes['node'].data['nf'][pi_index, 1] = 1.0
+    for po in pipos['PO']:
+        po_index = pin2index.get(po)
+        if po_index is None:
+            continue
+        g.nodes['node'].data['nf'][po_index, 0] = 1.0
+        g.nodes['node'].data['nf'][po_index, 1] = 0.0
     
 
+    print('Adding feature: node (nf, location for PIPO)')
+    for item in pipo_loc:
+        pin_name = item[0]
+        x,y = item[1], item[2]
+        pin_index = pin2index.get(pin_name)
+        if pin_index is None:
+            continue
+        loc = torch.Tensor([
+            x - chip_area[0],
+            chip_area[2] - x,
+            y - chip_area[1],
+            chip_area[3] - y
+        ]).abs()
+        g.nodes['node'].data['nf'][pin_index, 2:6] = loc
+
+
+    print('Adding feature: node (nf)')
+    keys1 = set(cell_loc.keys())
+    keys2 = set(cells.keys())
+    keys_common = keys1.intersection(keys2)
+    for cell_name in keys_common:
+        cell_class = cell_loc[cell_name]['cell_class']
+        cell_location = cell_loc[cell_name]['location']
+        for tmp in cells[cell_name]['pins']:
+            pin_name = tmp['pin_name']
+
+            try:
+                direction = lut_info[cell_class][pin_name]['direction']
+            except KeyError:
+                direction = 'input'
+            direction = 0.0 if direction == 'input' else 1.0
+
+            try:
+                capacitance = lut_info[cell_class][pin_name]['capacitance']
+            except KeyError:
+                capacitance = 0.0
+            
+            pin_location = torch.Tensor([
+                cell_location[0] - chip_area[0],
+                cell_location[0] - chip_area[2],
+                cell_location[1] - chip_area[1],
+                cell_location[1] - chip_area[3],
+            ]).abs()
+
+            pin_index = pin2index.get(cell_name + '.' + pin_name)
+            if pin_index is None:
+                continue
+            else:
+                g.nodes['node'].data['nf'][pin_index, 1] = direction
+                g.nodes['node'].data['nf'][pin_index, 2:6] = pin_location
+                g.nodes['node'].data['nf'][pin_index, 6:10] = capacitance
+
+        
     return g
