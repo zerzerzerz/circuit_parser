@@ -6,7 +6,7 @@ import os
 import torch
 import pickle
 import time
-
+import shutil
 
 def load_json(path):
     with open(path,'r') as f:
@@ -60,9 +60,13 @@ class Logger():
         return
 
 
-def mkdir(dir):
+def mkdir(dir, rm=False):
     if os.path.isdir(dir):
-        pass
+        if rm:
+            shutil.rmtree(dir)
+            os.makedirs(dir)
+        else:
+            pass
     else:
         os.makedirs(dir)
 

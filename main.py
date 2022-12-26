@@ -22,7 +22,7 @@ if __name__ == "__main__":
     liberty_file = 'data\\NangateOpenCellLibrary_typical.lib'
     res_dir = 'res'
 
-    utils.mkdir(res_dir)
+    utils.mkdir(res_dir, rm=True)
 
     # extract information
     cells = extract_cell.extract_cell(verilog_file)
