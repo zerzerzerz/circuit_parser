@@ -122,6 +122,7 @@ def add_graph_feature(
 
 
     print('Adding feature: node (AT, RAT, slew)')
+    n = g.nodes['node'].data['n_ats'].shape[0]
     for pin_name, timing in at_rat_slew.items():
         pin_index = pin2index.get(pin_name)
         if pin_index is None:
@@ -129,9 +130,12 @@ def add_graph_feature(
         at = torch.Tensor(timing['AT'])
         rat = torch.Tensor(timing['RAT'])
         slew = torch.Tensor(timing['SLEW'])
-        g.nodes['node'].data['n_ats'][pin_index] = at[0:4]
-        g.nodes['node'].data['n_rats'][pin_index] = rat[0:4]
-        g.nodes['node'].data['n_slews'][pin_index] = slew[0:4]
+        if pin_index >= n:
+            continue
+        else:
+            g.nodes['node'].data['n_ats'][pin_index] = at[0:4]
+            g.nodes['node'].data['n_rats'][pin_index] = rat[0:4]
+            g.nodes['node'].data['n_slews'][pin_index] = slew[0:4]
 
 
     print('Adding feature: node (n_net_delays)')
@@ -145,34 +149,37 @@ def add_graph_feature(
 
 
     print('Adding feature: node (n_is_timing_endpt)')
+    n = g.nodes['node'].data['n_is_timing_endpt'].shape[0]
     for pin in timing_endpoint:
         pin_index = pin2index.get(pin)
-        if pin_index is None:
+        if pin_index is None or pin_index >= n:
             continue
         g.nodes['node'].data['n_is_timing_endpt'][pin_index] = 1.0
 
 
     print('Adding feature: node (nf, is primary or not)')
+    n = g.nodes['node'].data['nf'].shape[0]
     for pi in pipos['PI']:
         pi_index = pin2index.get(pi)
-        if pi_index is None:
+        if pi_index is None or pi_index >= n:
             continue
         g.nodes['node'].data['nf'][pi_index, 0] = 1.0
         g.nodes['node'].data['nf'][pi_index, 1] = 1.0
     for po in pipos['PO']:
         po_index = pin2index.get(po)
-        if po_index is None:
+        if po_index is None or po_index >= n:
             continue
         g.nodes['node'].data['nf'][po_index, 0] = 1.0
         g.nodes['node'].data['nf'][po_index, 1] = 0.0
     
 
     print('Adding feature: node (nf, location for PIPO)')
+    n = g.nodes['node'].data['nf'].shape[0]
     for item in pipo_loc:
         pin_name = item[0]
         x,y = item[1], item[2]
         pin_index = pin2index.get(pin_name)
-        if pin_index is None:
+        if pin_index is None or pin_index >= n:
             continue
         loc = torch.Tensor([
             x - chip_area[0],
@@ -184,6 +191,7 @@ def add_graph_feature(
 
 
     print('Adding feature: node (nf)')
+    n = g.nodes['node'].data['nf'].shape[0]
     keys1 = set(cell_loc.keys())
     keys2 = set(cells.keys())
     keys_common = keys1.intersection(keys2)
@@ -212,7 +220,7 @@ def add_graph_feature(
             ]).abs()
 
             pin_index = pin2index.get(cell_name + '.' + pin_name)
-            if pin_index is None:
+            if pin_index is None or pin_index >= n:
                 continue
             else:
                 g.nodes['node'].data['nf'][pin_index, 1] = direction
