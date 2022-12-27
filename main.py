@@ -4,7 +4,7 @@ import src.construct_graph as construct_graph
 import src.get_timing_endpoint as get_timing_endpoint
 import src.extract_cell_loc as extract_cell_loc
 import src.extract_timing as extract_timing
-import src.extract_lut as extract_lut
+import src.extract_lut2 as extract_lut
 import src.extract_pipo_loc as extract_pipo_loc
 import src.add_graph_feature as add_graph_feature
 import src.get_pin2index as get_pin2index

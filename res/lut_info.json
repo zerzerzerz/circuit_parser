@@ -42327,13 +42327,6 @@
             }
         }
     },
-    "FILLCELL_X1": {},
-    "TAPCELL_X1": {},
-    "FILLCELL_X2": {},
-    "FILLCELL_X4": {},
-    "FILLCELL_X8": {},
-    "FILLCELL_X16": {},
-    "FILLCELL_X32": {},
     "HA_X1": {
         "A": {
             "direction": "input",
@@ -45291,15 +45284,13 @@
     "LOGIC0_X1": {
         "Z": {
             "direction": "output",
-            "capacitance": 0.0,
-            "luts": {}
+            "capacitance": 0.0
         }
     },
     "LOGIC1_X1": {
         "Z": {
             "direction": "output",
-            "capacitance": 0.0,
-            "luts": {}
+            "capacitance": 0.0
         }
     },
     "MUX2_X1": {
