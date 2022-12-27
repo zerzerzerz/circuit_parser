@@ -1,3 +1,5 @@
+from config.config import CONNECTION_SEP
+
 def get_pin_fanin_or_fanout(lut_info):
     pin_fanin_or_fanout = {}
     for cell_class, cell in lut_info.items():

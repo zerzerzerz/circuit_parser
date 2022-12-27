@@ -1,3 +1,6 @@
+from config.config import CELL_PIN_SEP
+
+
 def get_pin2index(cells, pipos):
     '''
     Index dict for pin.
@@ -11,7 +14,7 @@ def get_pin2index(cells, pipos):
 
     for cell_name, cell in cells.items():
         for pin in cell['pins']:
-            pin_name = f"{cell_name}.{pin['pin_name']}"
+            pin_name = f"{cell_name}{CELL_PIN_SEP}{pin['pin_name']}"
             pins.append(pin_name)
     pin2index = {k:v for v,k in enumerate(pins)}
     return pin2index

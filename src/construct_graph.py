@@ -1,5 +1,6 @@
 from copy import deepcopy
 import dgl
+from config.config import CONNECTION_SEP
 
 def construct_cell_graph(cell_delay:dict, pin2index:dict):
     '''
@@ -10,7 +11,7 @@ def construct_cell_graph(cell_delay:dict, pin2index:dict):
     src = []
     dst = []
     for k in cell_delay.keys():
-        p1,p2 = k.split('->')
+        p1,p2 = k.split(CONNECTION_SEP)
         src.append(pin2index[p1])
         dst.append(pin2index[p2])
     return src, dst
@@ -25,7 +26,7 @@ def construct_net_graph(net_delay:dict, pin2index:dict):
     src = []
     dst = []
     for k in net_delay.keys():
-        p1,p2 = k.split('->')
+        p1,p2 = k.split(CONNECTION_SEP)
         src.append(pin2index[p1])
         dst.append(pin2index[p2])
     return src, dst

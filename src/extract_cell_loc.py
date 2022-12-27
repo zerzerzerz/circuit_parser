@@ -1,4 +1,6 @@
 import re
+from config.config import CONNECTION_SEP
+
 def extract_cell_loc(def_path):
     print("Extracting cell location to replace pin location")
     with open(def_path) as f:

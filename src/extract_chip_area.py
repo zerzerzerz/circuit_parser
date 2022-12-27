@@ -1,4 +1,5 @@
 import re
+from config.config import CONNECTION_SEP
 
 def extract_chip_area(def_file):
     print("Extracting chip area")

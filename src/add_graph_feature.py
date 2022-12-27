@@ -1,7 +1,8 @@
 import dgl
 import torch
 from config.config import LUT
-
+from config.config import CELL_PIN_SEP
+from config.config import CONNECTION_SEP
 def add_graph_feature(
     g: dgl.DGLHeteroGraph,
     pin2index,
@@ -59,7 +60,7 @@ def add_graph_feature(
     # add feature for net_out, net_in
     print('Adding feature: net_in, net_out')
     for k, delay in (net_delay.items()):
-        pin_src, pin_dst = k.split('->')
+        pin_src, pin_dst = k.split(CONNECTION_SEP)
         pin_src = pin2index.get(pin_src)
         pin_dst = pin2index.get(pin_dst)
         if pin_src is None or pin_dst is None:
@@ -71,7 +72,7 @@ def add_graph_feature(
     # add feature for cell_out (e_cell_delays)
     print('Adding feature: cell_out (e_cell_delays)')
     for k,delay in cell_delay.items():
-        fanin, fanout = k.split('->')
+        fanin, fanout = k.split(CONNECTION_SEP)
         fanin = pin2index.get(fanin)
         fanout = pin2index.get(fanout)
         if fanin is None or fanout is None:
@@ -86,8 +87,8 @@ def add_graph_feature(
         u,v = u.item(), v.item()
         edge_id = g.edge_ids(u,v,etype='cell_out')
         u,v = index2pin[u], index2pin[v]
-        cell_name, fanout_name = v.split('.')
-        fanin_name = u.split('.')[-1]
+        cell_name, fanout_name = v.split(CELL_PIN_SEP)
+        fanin_name = u.split(CELL_PIN_SEP)[-1]
         cell_class = cells[cell_name]['cell_class']
         try:
             luts = lut_info[cell_class][fanout_name]['luts'][fanin_name]
@@ -140,7 +141,7 @@ def add_graph_feature(
 
     print('Adding feature: node (n_net_delays)')
     for k,delay in net_delay.items():
-        pin_src, pin_dst = k.split('->')
+        pin_src, pin_dst = k.split(CONNECTION_SEP)
         pin_index = pin2index.get(pin_dst)
         if pin_index is None:
             continue
@@ -219,7 +220,7 @@ def add_graph_feature(
                 cell_location[1] - chip_area[3],
             ]).abs()
 
-            pin_index = pin2index.get(cell_name + '.' + pin_name)
+            pin_index = pin2index.get(cell_name + CELL_PIN_SEP + pin_name)
             if pin_index is None or pin_index >= n:
                 continue
             else:

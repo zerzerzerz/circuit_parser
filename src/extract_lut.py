@@ -3,6 +3,7 @@ import utils.utils as utils
 import numpy as np
 from einops import repeat
 from config.config import LUT
+from config.config import CONNECTION_SEP
 
 def extract_lut(liberty_files):
     print("Extracting LUTs")

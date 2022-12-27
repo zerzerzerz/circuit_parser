@@ -1,4 +1,5 @@
 import re
+from config.config import CONNECTION_SEP
 
 def get_PIPO(verilog_file_path) -> dict:
     '''

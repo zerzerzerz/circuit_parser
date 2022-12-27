@@ -1,4 +1,5 @@
 import re
+from config.config import CONNECTION_SEP
 
 def get_timing_endpoint(sdc_path):
     '''If a port is constrainted in .sdf file, then it is a timing endpoint'''

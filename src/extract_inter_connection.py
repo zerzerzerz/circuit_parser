@@ -1,11 +1,15 @@
 
+from config.config import CELL_PIN_SEP
+from config.config import CONNECTION_SEP
+
+
 def extract_inter_connection(cells:list, fanin_or_fanout:dict) -> dict:
     connections = {}
     for cell in cells:
         cell_name = cell['cell_name']
         cell_class = cell['cell_class']
         for pin in cell['pins']:
-            pin_name = cell_name + '.' + pin[0]
+            pin_name = cell_name + CELL_PIN_SEP + pin[0]
             wire_name = pin[1]
 
             if wire_name in connections.keys():

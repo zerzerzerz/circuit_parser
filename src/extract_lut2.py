@@ -3,6 +3,7 @@ import utils.utils as utils
 import collections
 from config.config import LUT
 import copy
+from config.config import CONNECTION_SEP
 
 def get_cell_content(liberty_file):
     '''

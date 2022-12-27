@@ -1,4 +1,5 @@
 import re
+from config.config import CONNECTION_SEP
 
 def extract_pipo_loc(def_file_path):
     '''extract PIPO locations from .def file'''
