@@ -12,7 +12,8 @@ def get_cell_content(liberty_file):
     '''
     with open(liberty_file) as f:
         c = f.read()
-    p = re.compile(r'cell\s*\(\"?(\w+)\"?\)\s*\{')
+    # cell ( "sky130_fd_sc_hd__sdfxbp_1" ) {
+    p = re.compile(r'cell\s*\(\s*\"?(\w+)\"?\s*\)\s*\{')
     cell_header = True
     cells = {}
     while cell_header is not None:
@@ -45,7 +46,8 @@ def get_pin_content(cell_contents):
     cell_class -> pin_name -> pin_content
     '''
     res = {}
-    p = re.compile(r'pin\s*\(\"?(\w+)\"?\)\s*{')
+    # pin ( "SCD" ) {
+    p = re.compile(r'pin\s*\(\s*\"?(\w+)\"?\s*\)\s*{')
     for cell_class, cell_content in cell_contents.items():
         res[cell_class] = {}
         pin_header = True
@@ -72,9 +74,11 @@ def get_pin_content(cell_contents):
 
 def parse_pin_content(cell_pin_dict):
     ans = collections.defaultdict(lambda : {})
+
     # direction : "input" ;
-    # capacitance : 0.0017320000 ;
     p_direction = re.compile(r'direction\s*\:\s*\"?(\w+)\"?\s*;')
+
+    # capacitance : 0.0017320000 ;
     p_cap = re.compile(r'capacitance\s*\:\s*([+-]?\d*\.?\d+)\s*;')
     for cell_class in cell_pin_dict.keys():
         for pin_name, pin_content in cell_pin_dict[cell_class].items():
@@ -119,7 +123,9 @@ def get_timing_content(pin_content):
         related_pin -> timing content
     '''
     ans = {}
+    # timing ( ) {
     p_timing = re.compile(r'timing\s*\(\s*\)\s*\{')
+    # related_pin : "B1" ;
     p_related_pin = re.compile(r'related_pin\s*\:\s*\"?(\w+)\"?\s*;')
 
     timing_header = True
