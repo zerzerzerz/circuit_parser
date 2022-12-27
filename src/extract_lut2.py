@@ -72,7 +72,9 @@ def get_pin_content(cell_contents):
 
 def parse_pin_content(cell_pin_dict):
     ans = collections.defaultdict(lambda : {})
-    p_direction = re.compile(r'direction\s*\:\s*\"?(\w+)\"?;')
+    # direction : "input" ;
+    # capacitance : 0.0017320000 ;
+    p_direction = re.compile(r'direction\s*\:\s*\"?(\w+)\"?\s*;')
     p_cap = re.compile(r'capacitance\s*\:\s*([+-]?\d*\.?\d+)\s*;')
     for cell_class in cell_pin_dict.keys():
         for pin_name, pin_content in cell_pin_dict[cell_class].items():
