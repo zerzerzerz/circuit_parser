@@ -29,12 +29,26 @@ def extract_atslew(sdf_file_content):
 
 
 def extract_net_delay(sdf_file_content):
-    p = re.compile(r'INTERCONNECT (\w+/?\w+) (\w+/?\w+) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\)')
+    # (INTERCONNECT req_msg[16] input8/A (0.000::0.000) (0.000::0.000))
+    # (INTERCONNECT req_msg[16] input8/A (0.000::0.000))
+    # \ maybe exists in this line
+    # p = re.compile(r'INTERCONNECT ([\w\[\]\.\\\/]*?) ([\w\[\]\.\\\/]*?) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\)')
+    p = re.compile(r'\(INTERCONNECT[\s\S]*?\n')
+    p_float = re.compile(r'[+-]?\d*\.?\d+')
     res = p.findall(sdf_file_content)
     net_delay = {}
     for r in res:
-        key = r[0].replace('/',CELL_PIN_SEP) + CONNECTION_SEP + r[1].replace('/',CELL_PIN_SEP)
-        net_delay[key] = [float(i) for i in r[2:]]
+        tmp = r.split(' ')
+        cell_pin1 = tmp[1].replace('\\', '').replace('/',CELL_PIN_SEP)
+        cell_pin2 = tmp[2].replace('\\', '').replace('/',CELL_PIN_SEP)
+        numbers = ''.join(tmp[3:])
+        numbers = p_float.findall(numbers)
+        while len(numbers) < 4:
+            numbers.append(0.0)
+
+
+        key = cell_pin1 + CONNECTION_SEP + cell_pin2
+        net_delay[key] = [float(i) for i in numbers]
     return dict(net_delay)
 
 
