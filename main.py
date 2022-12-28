@@ -15,6 +15,7 @@ import src.extract_cell_connection as extract_cell_connection
 import utils.utils as utils
 from os.path import join
 import dgl
+import torch
 
 def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
     utils.mkdir(res_dir, rm=False)
@@ -42,7 +43,7 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
     utils.save_json(cell_out, join(res_dir, 'cell_out.json'))
 
 
-    exit()
+    # exit()
 
     pin2index = get_pin2index.get_pin2index(cells, pipos)
     index2pin = {i:p for p,i in pin2index.items()}
@@ -71,7 +72,8 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
 
 
     # construct graph and add feature
-    graph = construct_graph.construct_graph(cell_delay, net_delay, pin2index)
+    graph = construct_graph.construct_graph2(cell_out, net_out, pin2index)
+    # graph = construct_graph.construct_graph2(cell_delay.keys(), net_out, pin2index)
     graph = add_graph_feature.add_graph_feature(
         graph,
         pin2index,
@@ -104,6 +106,15 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
             print(k,v)
     print(sep)
     dgl.save_graphs(join(res_dir,'graph.bin'),[graph])
+
+    n_src, n_dst = graph.edges(etype='net_out')
+    c_src, c_dst = graph.edges(etype='cell_out')
+    g_tmp = dgl.graph((
+        torch.cat([n_src, c_src]),
+        torch.cat([n_dst, c_dst]),
+    ))
+    dgl.topological_nodes_generator(g_tmp)
+    print("Topological sort success! No loop!")
 
 
 if __name__ == "__main__":
