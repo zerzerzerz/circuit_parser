@@ -16,33 +16,42 @@ from os.path import join
 import dgl
 
 def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
-    utils.mkdir(res_dir, rm=True)
+    utils.mkdir(res_dir, rm=False)
 
     # extract information
     cells = extract_cell.extract_cell(verilog_file)
+    utils.save_json(cells, join(res_dir, 'cells.json'))
+    exit()
+
     pipos = get_PIPO.get_PIPO(verilog_file)
+    utils.save_json(pipos, join(res_dir, 'pipos.json'))
+
     pin2index = get_pin2index.get_pin2index(cells, pipos)
     index2pin = {i:p for p,i in pin2index.items()}
-    pipo_loc = extract_pipo_loc.extract_pipo_loc(def_file)
-    lut_info = extract_lut.extract_lut(liberty_files)
-    timing_endpoint = get_timing_endpoint.get_timing_endpoint(sdc_file)
-    cell_locs = extract_cell_loc.extract_cell_loc(def_file)
-    at_rat_slew, net_delay, cell_delay = extract_timing.extract_timing(sdf_file)
-    chip_area = extract_chip_area.extract_chip_area(def_file)
-
-    # save extracted information
-    utils.save_json(chip_area, join(res_dir, 'chip_area.json'))
-    utils.save_json(cells, join(res_dir, 'cells.json'))
-    utils.save_json(pipo_loc, join(res_dir, 'pipo_loc.json'))
-    utils.save_json(at_rat_slew, join(res_dir, 'at_rat_slew.json'))
-    utils.save_json(lut_info, join(res_dir, 'lut_info.json'))
-    utils.save_json(net_delay, join(res_dir, 'net_delay.json'))
-    utils.save_json(cell_delay, join(res_dir, 'cell_delay.json'))
-    utils.save_json(timing_endpoint, join(res_dir, 'timing_endpoint.json'))
-    utils.save_json(pipos, join(res_dir, 'pipos.json'))
     utils.save_json(pin2index, join(res_dir, 'pin2index.json'))
     utils.save_json(index2pin, join(res_dir, 'index2pin.json'))
+
+    pipo_loc = extract_pipo_loc.extract_pipo_loc(def_file)
+    utils.save_json(pipo_loc, join(res_dir, 'pipo_loc.json'))
+
+    lut_info = extract_lut.extract_lut(liberty_files)
+    utils.save_json(lut_info, join(res_dir, 'lut_info.json'))
+
+    timing_endpoint = get_timing_endpoint.get_timing_endpoint(sdc_file)
+    utils.save_json(timing_endpoint, join(res_dir, 'timing_endpoint.json'))
+
+    cell_locs = extract_cell_loc.extract_cell_loc(def_file)
     utils.save_json(cell_locs, join(res_dir, 'cell_locs.json'))
+
+    at_rat_slew, net_delay, cell_delay = extract_timing.extract_timing(sdf_file)
+    utils.save_json(at_rat_slew, join(res_dir, 'at_rat_slew.json'))
+    utils.save_json(net_delay, join(res_dir, 'net_delay.json'))
+    utils.save_json(cell_delay, join(res_dir, 'cell_delay.json'))
+
+    chip_area = extract_chip_area.extract_chip_area(def_file)
+    utils.save_json(chip_area, join(res_dir, 'chip_area.json'))
+
+    
 
 
     # construct graph and add feature
