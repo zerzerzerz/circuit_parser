@@ -28,7 +28,7 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
     fanin_or_fanout = check_fanin_or_fanout.check_fanin_or_fanout(lut_info)
     utils.save_json(fanin_or_fanout, join(res_dir, 'fanin_or_fanout.json'))
 
-    exit()
+    # exit()
 
     pipos = get_PIPO.get_PIPO(verilog_file)
     utils.save_json(pipos, join(res_dir, 'pipos.json'))

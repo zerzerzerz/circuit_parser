@@ -1,7 +1,7 @@
 import re
 import utils.utils as utils
 import collections
-from config.config import LUT
+from config.config import CELL_PIN_SEP, LUT
 import copy
 from config.config import CONNECTION_SEP
 
@@ -10,6 +10,7 @@ def get_cell_content(liberty_file):
     return a dict
     cell_class -> cell_content
     '''
+    print("Extracting cell content")
     with open(liberty_file) as f:
         c = f.read()
     # cell ( "sky130_fd_sc_hd__sdfxbp_1" ) {
@@ -45,6 +46,7 @@ def get_pin_content(cell_contents):
     return a dict
     cell_class -> pin_name -> pin_content
     '''
+    print("Extract pin content")
     res = {}
     # pin ( "SCD" ) {
     p = re.compile(r'pin\s*\(\s*\"?(\w+)\"?\s*\)\s*{')
@@ -73,6 +75,7 @@ def get_pin_content(cell_contents):
 
 
 def parse_pin_content(cell_pin_dict):
+    print("Parsing pin content")
     ans = collections.defaultdict(lambda : {})
 
     # direction : "input" ;
@@ -89,6 +92,7 @@ def parse_pin_content(cell_pin_dict):
             else:
                 direction = direction.group(1)
             if direction not in ['input','output']:
+                print(f'direction of {cell_class}{CELL_PIN_SEP}{pin_name} is {direction}, not implemented, continue')
                 continue
             else:
                 pass
@@ -96,6 +100,7 @@ def parse_pin_content(cell_pin_dict):
             # find capacitance
             cap = p_cap.search(pin_content)
             if cap is None:
+                print(f'cap for {cell_class}{CELL_PIN_SEP}{pin_name} is not found, use 0.0 to replace')
                 cap = 0.0
             else:
                 cap = float(cap.group(1))
@@ -273,7 +278,10 @@ def regularize_lut(lut):
 
 
 def extract_lut_single_file(liberty_file):
-    return parse_pin_content(get_pin_content(get_cell_content(liberty_file)))
+    cell_content = get_cell_content(liberty_file)
+    pin_content = get_pin_content(cell_content)
+    res = parse_pin_content(pin_content)
+    return res
 
 
 def extract_lut(liberty_files):
@@ -281,8 +289,10 @@ def extract_lut(liberty_files):
     assert isinstance(liberty_files, list)
     tmp = []
     for f in liberty_files:
+        print(f"Extracting LUT in {f}")
         tmp.append(extract_lut_single_file(f))
     
+    print('Merging all .lib files together')
     ans = {}
     for item in tmp:
         for k,v in item.items():
@@ -292,13 +302,3 @@ def extract_lut(liberty_files):
                 ans[k] = v
     return ans
 
-
-if __name__ == '__main__':
-    
-    utils.save_json(extract_lut([
-        'data\\NangateOpenCellLibrary_typical.lib',
-        'tmp.lib'
-    ]), 'tmp.json')
-    # res = get_cell_content()
-    # res = get_cell_content('data\\NangateOpenCellLibrary_typical.lib')
-    
