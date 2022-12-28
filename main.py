@@ -9,7 +9,7 @@ import src.extract_pipo_loc as extract_pipo_loc
 import src.add_graph_feature as add_graph_feature
 import src.get_pin2index as get_pin2index
 import src.extract_chip_area as extract_chip_area
-# import src.pin_in_or_out as pin_in_or_out
+import src.check_fanin_or_fanout as check_fanin_or_fanout
 # import src.extract_inter_connection as extract_inter_connection
 import utils.utils as utils
 from os.path import join
@@ -21,6 +21,13 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
     # extract information
     cells = extract_cell.extract_cell(verilog_file)
     utils.save_json(cells, join(res_dir, 'cells.json'))
+
+    lut_info = extract_lut.extract_lut(liberty_files)
+    utils.save_json(lut_info, join(res_dir, 'lut_info.json'))
+
+    fanin_or_fanout = check_fanin_or_fanout.check_fanin_or_fanout(lut_info)
+    utils.save_json(fanin_or_fanout, join(res_dir, 'fanin_or_fanout.json'))
+
     exit()
 
     pipos = get_PIPO.get_PIPO(verilog_file)
@@ -34,8 +41,7 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
     pipo_loc = extract_pipo_loc.extract_pipo_loc(def_file)
     utils.save_json(pipo_loc, join(res_dir, 'pipo_loc.json'))
 
-    lut_info = extract_lut.extract_lut(liberty_files)
-    utils.save_json(lut_info, join(res_dir, 'lut_info.json'))
+    
 
     timing_endpoint = get_timing_endpoint.get_timing_endpoint(sdc_file)
     utils.save_json(timing_endpoint, join(res_dir, 'timing_endpoint.json'))
