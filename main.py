@@ -11,7 +11,7 @@ import src.get_pin2index as get_pin2index
 import src.extract_chip_area as extract_chip_area
 import src.check_fanin_or_fanout as check_fanin_or_fanout
 import src.extract_net_connection as extract_net_connection
-# import src.extract_inter_connection as extract_inter_connection
+import src.extract_cell_connection as extract_cell_connection
 import utils.utils as utils
 from os.path import join
 import dgl
@@ -37,6 +37,11 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
 
     net_out = extract_net_connection.extract_net_out(net_connections, pipos)
     utils.save_json(net_out, join(res_dir, 'net_out.json'))
+
+    cell_out = extract_cell_connection.extract_cell_connection(cells, lut_info)
+    utils.save_json(cell_out, join(res_dir, 'cell_out.json'))
+
+
     exit()
 
     pin2index = get_pin2index.get_pin2index(cells, pipos)
