@@ -32,10 +32,12 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
     net_connections = extract_net_connection.extract_net_connection(cells, fanin_or_fanout)
     utils.save_json(net_connections, join(res_dir, 'net_connections.json'))
 
-    exit()
-
     pipos = get_PIPO.get_PIPO(verilog_file)
     utils.save_json(pipos, join(res_dir, 'pipos.json'))
+
+    net_out = extract_net_connection.extract_net_out(net_connections, pipos)
+    utils.save_json(net_out, join(res_dir, 'net_out.json'))
+    exit()
 
     pin2index = get_pin2index.get_pin2index(cells, pipos)
     index2pin = {i:p for p,i in pin2index.items()}

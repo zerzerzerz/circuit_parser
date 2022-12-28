@@ -27,3 +27,18 @@ def extract_net_connection(cells, fanin_or_fanout):
 
     return wire2pin
 
+
+def extract_net_out(wire2pin, pipos):
+    print("Extract net_out")
+    res = []
+    for wire in wire2pin.keys():
+        driver = list(wire2pin[wire]['driver'])
+        sink = list(wire2pin[wire]['sink'])
+        assert len(driver) <= 1, f'wire = {wire} has more than one driver'
+        if wire in pipos["PI"]:
+            driver.append(wire)
+        if wire in pipos["PO"]:
+            sink.append(wire)
+        for s in sink:
+            res.append(f'{driver[0]}{CONNECTION_SEP}{s}')
+    return res
