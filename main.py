@@ -42,6 +42,8 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
     cell_out = extract_cell_connection.extract_cell_connection(cells, lut_info)
     utils.save_json(cell_out, join(res_dir, 'cell_out.json'))
 
+    all_edges = net_out + cell_out
+    utils.save_json(all_edges, join(res_dir, 'all_edges.json'))
 
     # exit()
 
@@ -119,11 +121,11 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
 
 if __name__ == "__main__":
     # settings
-    verilog_file = 'data\\6_final.v'
-    sdc_file = 'data\\6_final.sdc'
-    sdf_file = 'data\\6_final.sdf'
-    def_file = 'data\\6_final.def'
-    liberty_file = 'data\\NangateOpenCellLibrary_typical.lib'
+    verilog_file = join('data', '6_final.v')
+    sdc_file = join('data', '6_final.sdc')
+    sdf_file = join('data', '6_final.sdf')
+    def_file = join('data', '6_final.def')
+    liberty_file = join('data', 'NangateOpenCellLibrary_typical.lib')
     res_dir = 'res'
 
     main(verilog_file, sdc_file, sdf_file, def_file, [liberty_file], res_dir)
