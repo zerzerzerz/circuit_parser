@@ -61,9 +61,11 @@ def add_graph_feature(
     print('Adding feature: net_in, net_out')
     for k, delay in (net_delay.items()):
         pin_src, pin_dst = k.split(CONNECTION_SEP)
+        p1,p2 = pin_src, pin_dst
         pin_src = pin2index.get(pin_src)
         pin_dst = pin2index.get(pin_dst)
         if pin_src is None or pin_dst is None:
+            print(f'{p1} or {p2} is not registered in pin2index')
             continue
         g.edges['net_out'].data['ef'][g.edge_ids(pin_src, pin_dst, etype='net_out')] = torch.Tensor(delay[0:2])
         g.edges['net_in'].data['ef'][g.edge_ids(pin_dst, pin_src, etype='net_in')] = torch.Tensor(delay[2:4])
@@ -73,9 +75,11 @@ def add_graph_feature(
     print('Adding feature: cell_out (e_cell_delays)')
     for k,delay in cell_delay.items():
         fanin, fanout = k.split(CONNECTION_SEP)
+        f1, f2 = fanin, fanout
         fanin = pin2index.get(fanin)
         fanout = pin2index.get(fanout)
         if fanin is None or fanout is None:
+            print(f'{f1} or {f2} is not registered in pin2index')
             continue
         g.edges['cell_out'].data['e_cell_delays'][g.edge_ids(fanin, fanout, etype='cell_out')] = torch.Tensor(delay[0:4])
     
@@ -93,6 +97,7 @@ def add_graph_feature(
         try:
             luts = lut_info[cell_class][fanout_name]['luts'][fanin_name]
         except KeyError:
+            print(f'{cell_class}{CELL_PIN_SEP}{fanout_name} does not have lut relative to {fanin_name}')
             continue
         s = 0
         g.edges['cell_out'].data['ef'][edge_id][s:s+LUT.num_luts] = torch.ones(LUT.num_luts)
@@ -127,11 +132,13 @@ def add_graph_feature(
     for pin_name, timing in at_rat_slew.items():
         pin_index = pin2index.get(pin_name)
         if pin_index is None:
+            print(f'{pin_name} is not registered in pin2index')
             continue
         at = torch.Tensor(timing['AT'])
         rat = torch.Tensor(timing['RAT'])
         slew = torch.Tensor(timing['SLEW'])
         if pin_index >= n:
+            print(f'{pin_name} is not included in graph')
             continue
         else:
             g.nodes['node'].data['n_ats'][pin_index] = at[0:4]
@@ -144,6 +151,7 @@ def add_graph_feature(
         pin_src, pin_dst = k.split(CONNECTION_SEP)
         pin_index = pin2index.get(pin_dst)
         if pin_index is None:
+            print(f'{pin_dst} is not registered in pin2index')
             continue
         delay = torch.Tensor(delay)
         g.nodes['node'].data['n_net_delays'][pin_index] = delay[0:4]
@@ -154,6 +162,7 @@ def add_graph_feature(
     for pin in timing_endpoint:
         pin_index = pin2index.get(pin)
         if pin_index is None or pin_index >= n:
+            print(f'{pin} is not registered in pin2index or not included in graph')
             continue
         g.nodes['node'].data['n_is_timing_endpt'][pin_index] = 1.0
 
@@ -163,12 +172,14 @@ def add_graph_feature(
     for pi in pipos['PI']:
         pi_index = pin2index.get(pi)
         if pi_index is None or pi_index >= n:
+            print(f'{pi} is not registered in pin2index or not included in graph')
             continue
         g.nodes['node'].data['nf'][pi_index, 0] = 1.0
         g.nodes['node'].data['nf'][pi_index, 1] = 1.0
     for po in pipos['PO']:
         po_index = pin2index.get(po)
         if po_index is None or po_index >= n:
+            print(f'{po} is not registered in pin2index or not included in graph')
             continue
         g.nodes['node'].data['nf'][po_index, 0] = 1.0
         g.nodes['node'].data['nf'][po_index, 1] = 0.0
@@ -181,6 +192,7 @@ def add_graph_feature(
         x,y = item[1], item[2]
         pin_index = pin2index.get(pin_name)
         if pin_index is None or pin_index >= n:
+            print(f'{pin_name} is not registered in pin2index or not included in graph')
             continue
         loc = torch.Tensor([
             x - chip_area[0],
@@ -205,12 +217,14 @@ def add_graph_feature(
             try:
                 direction = lut_info[cell_class][pin_name]['direction']
             except KeyError:
+                print(f'{cell_class}{CELL_PIN_SEP}{pin_name} does not have direction, use `input` to replace')
                 direction = 'input'
             direction = 0.0 if direction == 'input' else 1.0
 
             try:
                 capacitance = lut_info[cell_class][pin_name]['capacitance']
             except KeyError:
+                print(f'{cell_class}{CELL_PIN_SEP}{pin_name} does not have capacitance, use `0.0` to replace')
                 capacitance = 0.0
             
             pin_location = torch.Tensor([
@@ -222,6 +236,7 @@ def add_graph_feature(
 
             pin_index = pin2index.get(cell_name + CELL_PIN_SEP + pin_name)
             if pin_index is None or pin_index >= n:
+                print(f'{cell_name + CELL_PIN_SEP + pin_name} is not registered in pin2index or not included in graph')
                 continue
             else:
                 g.nodes['node'].data['nf'][pin_index, 1] = direction
