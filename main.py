@@ -18,6 +18,7 @@ import utils.utils as utils
 from os.path import join
 import dgl
 import torch
+from glob import glob
 
 def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
     utils.mkdir(res_dir, rm=False)
@@ -132,13 +133,14 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
 
 if __name__ == "__main__":
     # settings
-    verilog_file = join('data', '6_final.v')
-    sdc_file = join('data', '6_final.sdc')
-    sdf_file = join('data', '6_final.sdf')
-    def_file = join('data', '6_final.def')
-    liberty_file = join('data', 'NangateOpenCellLibrary_typical.lib')
+    data_dir = 'data'
+    verilog_file = join(data_dir, '6_final.v')
+    sdc_file = join(data_dir, '6_final.sdc')
+    sdf_file = join(data_dir, '6_final.sdf')
+    def_file = join(data_dir, '6_final.def')
+    liberty_files = glob(join(data_dir, '*.lib'))
     res_dir = 'res'
 
-    main(verilog_file, sdc_file, sdf_file, def_file, [liberty_file], res_dir)
+    main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir)
     
     
