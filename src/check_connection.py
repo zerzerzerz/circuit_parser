@@ -22,9 +22,11 @@ def check_cell_connection(cell_out, cell_delay):
     diff = sorted(list(n1.difference(n2)))
     if len(diff) > 0:
         print("cell connection in verilog but bot in .sdf")
-        print(diff)
+        for d in diff:
+            print(d)
     
     diff = sorted(list(n2.difference(n1)))
     if len(diff) > 0:
         print("cell connection in .sdf but bot in verilog")
-        print(diff)
+        for d in diff:
+            print(d)
