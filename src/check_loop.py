@@ -1,4 +1,5 @@
 import dgl
+from collections import Counter
 
 def check_loop(g:dgl.graph, index2pin):
     '''
@@ -42,8 +43,13 @@ def find_a_loop(g:dgl.graph, index2pin={}):
         # was been visited, loop
         else:
             loop.append(i.item())
+            c = Counter(loop)
             for k in loop:
-                print(index2pin.get(k,k))
+                if c[k] > 1:
+                    loop_flag = ' !!!'
+                else:
+                    loop_flag = ''
+                print(index2pin.get(k,k) + loop_flag)
             return True
         
         for j in g.successors(i):
