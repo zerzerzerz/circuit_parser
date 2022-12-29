@@ -56,11 +56,12 @@ def construct_graph2(cell_out, net_out, pin2index) -> dgl.heterograph:
     dst_cell_out = []
     for k in cell_out:
         s,d = k.split(CONNECTION_SEP)
+        ss,dd = s,d
         try:
             s = pin2index[s]
             d = pin2index[d]
         except KeyError:
-            print(f'cell_out: {s} or {d} are not registered in pin2index')
+            print(f'cell_out: {ss} or {dd} are not registered in pin2index')
             continue
         src_cell_out.append(s)
         dst_cell_out.append(d)
@@ -72,11 +73,12 @@ def construct_graph2(cell_out, net_out, pin2index) -> dgl.heterograph:
     dst_net_out = []
     for k in net_out:
         s,d = k.split(CONNECTION_SEP)
+        ss,dd = s,d
         try:
             s = pin2index[s]
             d = pin2index[d]
         except KeyError:
-            print(f'net_out: {s} or {d} are not registered in pin2index')
+            print(f'net_out: {ss} or {dd} are not registered in pin2index')
             continue
         src_net_out.append(s)
         dst_net_out.append(d)
