@@ -33,20 +33,20 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
     fanin_or_fanout = check_fanin_or_fanout.check_fanin_or_fanout(lut_info)
     utils.save_json(fanin_or_fanout, join(res_dir, 'fanin_or_fanout.json'))
 
-    net_connections = extract_net_connection.extract_net_connection(cells, fanin_or_fanout)
-    utils.save_json(net_connections, join(res_dir, 'net_connections.json'))
+    # net_connections = extract_net_connection.extract_net_connection(cells, fanin_or_fanout)
+    # utils.save_json(net_connections, join(res_dir, 'net_connections.json'))
 
     pipos = get_PIPO.get_PIPO(verilog_file)
     utils.save_json(pipos, join(res_dir, 'pipos.json'))
 
-    net_out = extract_net_connection.extract_net_out(net_connections, pipos)
-    utils.save_json(net_out, join(res_dir, 'net_out.json'))
+    # net_out = extract_net_connection.extract_net_out(net_connections, pipos)
+    # utils.save_json(net_out, join(res_dir, 'net_out.json'))
 
-    cell_out = extract_cell_connection.extract_cell_connection(cells, lut_info)
-    utils.save_json(cell_out, join(res_dir, 'cell_out.json'))
+    # cell_out = extract_cell_connection.extract_cell_connection(cells, lut_info)
+    # utils.save_json(cell_out, join(res_dir, 'cell_out.json'))
 
-    all_edges = net_out + cell_out
-    utils.save_json(all_edges, join(res_dir, 'all_edges.json'))
+    # all_edges = net_out + cell_out
+    # utils.save_json(all_edges, join(res_dir, 'all_edges.json'))
 
     # exit()
 
@@ -75,13 +75,14 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
 
     
     # check net connection
-    check_connection.check_net_connection(net_out, net_delay)
-    check_connection.check_cell_connection(cell_out, cell_delay)
+    # check_connection.check_net_connection(net_out, net_delay)
+    # check_connection.check_cell_connection(cell_out, cell_delay)
 
 
     # construct graph and add feature
     # graph = construct_graph.construct_graph2(cell_out, net_out, pin2index)
-    graph = construct_graph.construct_graph2(cell_delay.keys(), net_out, pin2index)
+    # graph = construct_graph.construct_graph2(cell_delay.keys(), net_out, pin2index)
+    graph = construct_graph.construct_graph2(cell_delay.keys(), net_delay.keys(), pin2index)
     graph = add_graph_feature.add_graph_feature(
         graph,
         pin2index,
