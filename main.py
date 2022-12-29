@@ -124,7 +124,7 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
     # dgl.topological_nodes_generator(g_tmp)
     loop_point = check_loop.check_loop(g_tmp, index2pin)
     if len(loop_point) == 0:
-        print("Topological sort success! No loop!")
+        print("Topological sort OK! No loop!")
     else:
         print("Loop!")
         # print(loop_point)
