@@ -44,11 +44,11 @@ def extract_net_delay(sdf_file_content):
         cell_pin2 = tmp[2].replace('/',CELL_PIN_SEP)
 
         if '\\' in cell_pin1:
-            print(f"\\ is in {cell_pin1}, remove it")
+            # print(f"\\ is in {cell_pin1}, remove it")
             cell_pin1 = cell_pin1.replace('\\', '')
         
         if '\\' in cell_pin2:
-            print(f"\\ is in {cell_pin2}, remove it")
+            # print(f"\\ is in {cell_pin2}, remove it")
             cell_pin2 = cell_pin2.replace('\\', '')
 
         numbers = ''.join(tmp[3:])

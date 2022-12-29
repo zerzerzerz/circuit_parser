@@ -45,7 +45,7 @@ def extract_cell(verilog_file_path:str) -> list:
                 pin_name = tmp[0][1:]
                 connected_wire = tmp[1][0:-1]
                 if '\\' in connected_wire:
-                    print(f'\\ is in wire {connected_wire}, remove it')
+                    # print(f'\\ is in wire {connected_wire}, remove it')
                     connected_wire = connected_wire.replace('\\', '')
                 pins.append({
                     "pin_name": pin_name,

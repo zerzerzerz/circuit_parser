@@ -12,6 +12,8 @@ import src.extract_chip_area as extract_chip_area
 import src.check_fanin_or_fanout as check_fanin_or_fanout
 import src.extract_net_connection as extract_net_connection
 import src.extract_cell_connection as extract_cell_connection
+import src.check_connection as check_connection
+import src.check_loop as check_loop
 import utils.utils as utils
 from os.path import join
 import dgl
@@ -71,6 +73,9 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
     utils.save_json(chip_area, join(res_dir, 'chip_area.json'))
 
     
+    # check net connection
+    check_connection.check_net_connection(net_out, net_delay)
+    check_connection.check_cell_connection(cell_out, cell_delay)
 
 
     # construct graph and add feature
@@ -115,8 +120,14 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
         torch.cat([n_src, c_src]),
         torch.cat([n_dst, c_dst]),
     ))
-    dgl.topological_nodes_generator(g_tmp)
-    print("Topological sort success! No loop!")
+    # dgl.topological_nodes_generator(g_tmp)
+    loop_point = check_loop.check_loop(g_tmp, index2pin)
+    if len(loop_point) == 0:
+        print("Topological sort success! No loop!")
+    else:
+        print("Loop!")
+        # print(loop_point)
+        check_loop.find_a_loop(g_tmp, index2pin)
 
 
 if __name__ == "__main__":
