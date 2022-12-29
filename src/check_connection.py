@@ -3,15 +3,18 @@ def check_net_connection(net_out, net_delay):
     n1 = set(net_out)
     n2 = set(net_delay.keys())
 
-    diff = n1.difference(n2)
-    if len(diff) > 0:
+    diff1 = n1.difference(n2)
+    if len(diff1) > 0:
         print("net connection in verilog but bot in .sdf")
-        print(diff)
+        print(diff1)
     
-    diff = n2.difference(n1)
-    if len(diff) > 0:
+    diff2 = n2.difference(n1)
+    if len(diff2) > 0:
         print("net connection in .sdf but bot in verilog")
-        print(diff)
+        print(diff2)
+    
+    if len(diff1) == 0 and len(diff2) == 0:
+        print("net connection is the same between .sdf and .v")
 
 
 def check_cell_connection(cell_out, cell_delay):
@@ -19,14 +22,17 @@ def check_cell_connection(cell_out, cell_delay):
     n1 = set(cell_out)
     n2 = set(cell_delay.keys())
 
-    diff = sorted(list(n1.difference(n2)))
-    if len(diff) > 0:
+    diff1 = sorted(list(n1.difference(n2)))
+    if len(diff1) > 0:
         print("cell connection in verilog but bot in .sdf")
-        for d in diff:
+        for d in diff1:
             print(d)
     
-    diff = sorted(list(n2.difference(n1)))
-    if len(diff) > 0:
+    diff2 = sorted(list(n2.difference(n1)))
+    if len(diff2) > 0:
         print("cell connection in .sdf but bot in verilog")
-        for d in diff:
+        for d in diff2:
             print(d)
+    
+    if len(diff1) == 0 and len(diff2) == 0:
+        print("cell connection is the same between .sdf and .v")

@@ -80,8 +80,8 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
 
 
     # construct graph and add feature
-    graph = construct_graph.construct_graph2(cell_out, net_out, pin2index)
-    # graph = construct_graph.construct_graph2(cell_delay.keys(), net_out, pin2index)
+    # graph = construct_graph.construct_graph2(cell_out, net_out, pin2index)
+    graph = construct_graph.construct_graph2(cell_delay.keys(), net_out, pin2index)
     graph = add_graph_feature.add_graph_feature(
         graph,
         pin2index,
