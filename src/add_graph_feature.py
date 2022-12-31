@@ -16,6 +16,7 @@ def add_graph_feature(
     pipo_loc,
     chip_area,
     cell_loc,
+    unit:float
 ):
     '''
     node:
@@ -200,6 +201,7 @@ def add_graph_feature(
             y - chip_area[1],
             chip_area[3] - y
         ]).abs()
+        loc /= unit
         g.nodes['node'].data['nf'][pin_index, 2:6] = loc
 
 
@@ -233,6 +235,7 @@ def add_graph_feature(
                 cell_location[1] - chip_area[1],
                 cell_location[1] - chip_area[3],
             ]).abs()
+            pin_location /= unit
 
             pin_index = pin2index.get(cell_name + CELL_PIN_SEP + pin_name)
             if pin_index is None or pin_index >= n:
