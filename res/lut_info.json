@@ -10,7 +10,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 60.5774,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -598,7 +598,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 120.85,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -1186,7 +1186,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 241.699,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -1778,7 +1778,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 60.4248,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -2656,7 +2656,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 120.544,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -3534,7 +3534,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 241.089,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -4416,7 +4416,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 60.2722,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -5584,7 +5584,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 120.392,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -6752,7 +6752,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 241.089,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -7922,7 +7922,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 25.3296,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -8800,7 +8800,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 50.6592,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -9678,7 +9678,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 101.013,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -10560,7 +10560,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 24.6048,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -11728,7 +11728,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 49.1333,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -12896,7 +12896,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 97.9614,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -14064,7 +14064,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 14.4959,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -15232,7 +15232,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 28.9917,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -16400,7 +16400,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 242.31,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -17572,7 +17572,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 13.8092,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -19030,7 +19030,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 27.6184,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -20488,7 +20488,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 242.31,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -21950,7 +21950,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 13.0081,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -23698,7 +23698,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 25.6348,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -25446,7 +25446,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 242.31,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -27174,7 +27174,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 60.6537,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -27472,7 +27472,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 121.155,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -27770,7 +27770,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 242.31,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -28068,7 +28068,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 484.009,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -28366,7 +28366,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 965.576,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -28664,7 +28664,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 1904.3,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -28962,7 +28962,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 60.73,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -29260,7 +29260,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 121.46,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -29558,7 +29558,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 181.885,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -29864,7 +29864,7 @@
         },
         "GCK": {
             "direction": "output",
-            "capacitance": 60.73,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -30028,7 +30028,7 @@
         },
         "GCK": {
             "direction": "output",
-            "capacitance": 121.46,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -30192,7 +30192,7 @@
         },
         "GCK": {
             "direction": "output",
-            "capacitance": 242.92,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -30356,7 +30356,7 @@
         },
         "GCK": {
             "direction": "output",
-            "capacitance": 484.619,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -30516,7 +30516,7 @@
         },
         "GCK": {
             "direction": "output",
-            "capacitance": 60.73,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -30676,7 +30676,7 @@
         },
         "GCK": {
             "direction": "output",
-            "capacitance": 121.307,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -30836,7 +30836,7 @@
         },
         "GCK": {
             "direction": "output",
-            "capacitance": 242.31,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -30996,7 +30996,7 @@
         },
         "GCK": {
             "direction": "output",
-            "capacitance": 484.619,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -31164,7 +31164,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 60.6537,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -31744,7 +31744,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": 60.2722,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -32342,7 +32342,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 120.85,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -32922,7 +32922,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": 120.85,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -33516,7 +33516,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 60.5774,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -33952,7 +33952,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": 60.2722,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -34402,7 +34402,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 120.85,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -34838,7 +34838,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": 120.544,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -35288,7 +35288,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 60.6537,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -35724,7 +35724,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": 60.2722,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -36174,7 +36174,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 121.155,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -36610,7 +36610,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": 120.544,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -37056,7 +37056,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 60.73,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -37348,7 +37348,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": 60.2722,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -37650,7 +37650,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 121.155,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -37942,7 +37942,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": 120.544,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -38244,7 +38244,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 60.5774,
+            "capacitance": 0.0,
             "luts": {
                 "D": [
                     {
@@ -38832,7 +38832,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 120.697,
+            "capacitance": 0.0,
             "luts": {
                 "D": [
                     {
@@ -39420,7 +39420,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 60.2722,
+            "capacitance": 0.0,
             "luts": {
                 "D": [
                     {
@@ -40008,7 +40008,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 120.544,
+            "capacitance": 0.0,
             "luts": {
                 "D": [
                     {
@@ -40600,7 +40600,7 @@
         },
         "CO": {
             "direction": "output",
-            "capacitance": 60.1196,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -41464,7 +41464,7 @@
         },
         "S": {
             "direction": "output",
-            "capacitance": 60.2722,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -42338,7 +42338,7 @@
         },
         "CO": {
             "direction": "output",
-            "capacitance": 60.5774,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -42916,7 +42916,7 @@
         },
         "S": {
             "direction": "output",
-            "capacitance": 25.2533,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -43500,7 +43500,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 60.73,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -43798,7 +43798,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 121.46,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -44096,7 +44096,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 242.92,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -44394,7 +44394,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 485.229,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -44692,7 +44692,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 969.238,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -44990,7 +44990,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 1923.83,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -45308,7 +45308,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 60.5011,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -46186,7 +46186,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 120.85,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -47060,7 +47060,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 59.3567,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -47648,7 +47648,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 118.713,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -48236,7 +48236,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 237.427,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -48828,7 +48828,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 58.3649,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -49706,7 +49706,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 116.272,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -50584,7 +50584,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 233.154,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -51466,7 +51466,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 55.9998,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -52634,7 +52634,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 111.542,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -53802,7 +53802,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 222.778,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -54962,7 +54962,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 26.7029,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -55550,7 +55550,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 53.4058,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -56138,7 +56138,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 106.811,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -56730,7 +56730,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 16.0217,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -57608,7 +57608,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 31.7383,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -58486,7 +58486,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 63.324,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -59368,7 +59368,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 10.4713,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -60536,7 +60536,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 20.9045,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -61704,7 +61704,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 41.5039,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -62868,7 +62868,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 26.0544,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -63746,7 +63746,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 52.1088,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -64624,7 +64624,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 104.065,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -65506,7 +65506,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 23.2315,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -66674,7 +66674,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 46.3104,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -67842,7 +67842,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 92.4683,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -69018,7 +69018,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 11.4822,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -70758,7 +70758,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 25.5585,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -71926,7 +71926,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 50.8118,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -73094,7 +73094,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 101.624,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -74266,7 +74266,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 22.1634,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -75724,7 +75724,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 43.869,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -77182,7 +77182,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 242.31,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -78644,7 +78644,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 20.0653,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -80392,7 +80392,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 39.5966,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -82140,7 +82140,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 242.31,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -83872,7 +83872,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 60.5774,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -84460,7 +84460,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 121.155,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -85048,7 +85048,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 242.31,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -85640,7 +85640,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 60.5774,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -86518,7 +86518,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 121.155,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -87396,7 +87396,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 242.31,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -88278,7 +88278,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 60.5774,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -89446,7 +89446,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 120.85,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -90614,7 +90614,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 241.699,
+            "capacitance": 0.0,
             "luts": {
                 "A1": [
                     {
@@ -91790,7 +91790,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 60.2722,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -92370,7 +92370,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": 60.5774,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -92976,7 +92976,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 120.85,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -93556,7 +93556,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": 120.85,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -94158,7 +94158,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 60.4248,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -94594,7 +94594,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": 60.4248,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -95052,7 +95052,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 120.544,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -95488,7 +95488,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": 121.155,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -95946,7 +95946,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 60.1196,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -96382,7 +96382,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": 60.5774,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -96840,7 +96840,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 120.544,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -97276,7 +97276,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": 120.85,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -97730,7 +97730,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 60.5774,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -98022,7 +98022,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": 60.4248,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -98332,7 +98332,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 120.544,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -98624,7 +98624,7 @@
         },
         "QN": {
             "direction": "output",
-            "capacitance": 121.155,
+            "capacitance": 0.0,
             "luts": {
                 "CK": [
                     {
@@ -103332,7 +103332,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 26.0162,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -103920,7 +103920,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 52.0325,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -104508,7 +104508,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 25.3296,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -105096,7 +105096,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 50.5066,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {

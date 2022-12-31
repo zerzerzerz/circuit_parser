@@ -82,7 +82,11 @@ def parse_pin_content(cell_pin_dict):
     p_direction = re.compile(r'direction\s*\:\s*\"?(\w+)\"?\s*;')
 
     # capacitance : 0.0017320000 ;
-    p_cap = re.compile(r'capacitance\s*\:\s*([+-]?\d*\.?\d+)\s*;')
+    # fall_capacitance	: 1.093689 ;
+    # rise_capacitance	: 1.162619 ;
+    # max_capacitance		: 484.619000 ;
+    # only match capacitance for input pin!!!
+    p_cap = re.compile(r'\bcapacitance\s*\:\s*([+-]?\d*\.?\d+)\s*;')
     for cell_class in cell_pin_dict.keys():
         for pin_name, pin_content in cell_pin_dict[cell_class].items():
             # find direction
