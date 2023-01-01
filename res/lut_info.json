@@ -98926,7 +98926,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 1.053973,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -99514,7 +99514,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 1.636401,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -100102,7 +100102,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 3.222263,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -100690,7 +100690,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 6.744279,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -101278,7 +101278,7 @@
         },
         "Z": {
             "direction": "output",
-            "capacitance": 13.066705,
+            "capacitance": 0.0,
             "luts": {
                 "A": [
                     {
@@ -101866,7 +101866,7 @@
         },
         "ZN": {
             "direction": "output",
-            "capacitance": 0.799043,
+            "capacitance": 0.0,
             "luts": {
                 "EN": [
                     {
@@ -102458,7 +102458,7 @@
         },
         "Q": {
             "direction": "output",
-            "capacitance": 0.79188,
+            "capacitance": 0.0,
             "luts": {
                 "D": [
                     {

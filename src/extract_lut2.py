@@ -102,12 +102,15 @@ def parse_pin_content(cell_pin_dict):
                 pass
 
             # find capacitance
-            cap = p_cap.search(pin_content)
-            if cap is None:
-                print(f'cap for {cell_class}{CELL_PIN_SEP}{pin_name} is not found, use 0.0 to replace')
-                cap = 0.0
+            if direction == "input":
+                cap = p_cap.search(pin_content)
+                if cap is None:
+                    print(f'cap for {cell_class}{CELL_PIN_SEP}{pin_name} is not found, use 0.0 to replace')
+                    cap = 0.0
+                else:
+                    cap = float(cap.group(1))
             else:
-                cap = float(cap.group(1))
+                cap = 0.0
             
             ans[cell_class][pin_name] = {
                 "direction": direction,
