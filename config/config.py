@@ -9,3 +9,6 @@ CELL_PIN_SEP = '@'
 # this separator is to indicate connection direction
 # _345_@A>>>_345_@ZN
 CONNECTION_SEP = '>>>'
+
+
+IGNORED_KEYS_FOR_FILTERATING_INVALID_DATA = []

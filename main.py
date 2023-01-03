@@ -15,6 +15,7 @@ from src.utils import merge_pin_loc
 # import src.extract_cell_connection as extract_cell_connection
 # import src.check_connection as check_connection
 import src.extract_unit as extract_unit
+import src.filterate_invalid_data as filterate_invalid_data
 import src.check_loop as check_loop
 import utils.utils as utils
 from os.path import join
@@ -109,6 +110,8 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
         unit,
         all_pin_loc
     )
+
+    graph = filterate_invalid_data.filterate_invalid_data(graph)
 
 
     # display information
