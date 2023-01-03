@@ -96,7 +96,7 @@ def parse_pin_content(cell_pin_dict):
             else:
                 direction = direction.group(1)
             if direction not in ['input','output']:
-                print(f'direction of {cell_class}{CELL_PIN_SEP}{pin_name} is {direction}, not implemented, continue')
+                # print(f'direction of {cell_class}{CELL_PIN_SEP}{pin_name} is {direction}, not implemented, continue')
                 continue
             else:
                 pass

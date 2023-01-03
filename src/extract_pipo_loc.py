@@ -14,5 +14,11 @@ def extract_pipo_loc(def_file_path):
     res = p2.findall(c)
     # return res
     res = [[i[0], float(i[1]), float(i[2])] for i in res]
+    # return res
+
+    res = {
+        i[0]:[i[1], i[2]] for i in res
+    }
+
     return res
     

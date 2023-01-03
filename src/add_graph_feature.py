@@ -16,7 +16,8 @@ def add_graph_feature(
     pipo_loc,
     chip_area,
     cell_loc,
-    unit:float
+    unit:float,
+    all_pin_loc
 ):
     '''
     node:
@@ -60,16 +61,29 @@ def add_graph_feature(
 
     # add feature for net_out, net_in
     print('Adding feature: net_in, net_out')
-    for k, delay in (net_delay.items()):
-        pin_src, pin_dst = k.split(CONNECTION_SEP)
-        p1,p2 = pin_src, pin_dst
-        pin_src = pin2index.get(pin_src)
-        pin_dst = pin2index.get(pin_dst)
-        if pin_src is None or pin_dst is None:
-            print(f'Adding feature: net_in, net_out, {p1} or {p2} is not registered in pin2index')
+    for k in net_delay.keys():
+        pin_src_name, pin_dst_name = k.split(CONNECTION_SEP)
+        
+        pin_src_index = pin2index.get(pin_src_name)
+        pin_dst_index = pin2index.get(pin_dst_name)
+        
+        if pin_src_index is None or pin_dst_index is None:
+            print(f'Adding feature: net_in, net_out, {pin_src_name} or {pin_dst_name} is not registered in pin2index')
             continue
-        g.edges['net_out'].data['ef'][g.edge_ids(pin_src, pin_dst, etype='net_out')] = torch.Tensor(delay[0:2])
-        g.edges['net_in'].data['ef'][g.edge_ids(pin_dst, pin_src, etype='net_in')] = torch.Tensor(delay[2:4])
+
+        src_loc = all_pin_loc.get(pin_src_name)
+        dst_loc = all_pin_loc.get(pin_dst_name)
+
+        if src_loc is None or dst_loc is None:
+            print(f'Adding feature: net_in, net_out, {pin_src_name} or {pin_dst_name} does not have locations in all_pin_loc.json')
+            continue
+
+        src_loc = torch.Tensor(src_loc) / unit
+        dst_loc = torch.Tensor(dst_loc) / unit
+
+        
+        g.edges['net_out'].data['ef'][g.edge_ids(pin_src_index, pin_dst_index, etype='net_out')] = dst_loc - src_loc
+        g.edges['net_in'].data['ef'][g.edge_ids(pin_dst_index, pin_src_index, etype='net_in')] = src_loc - dst_loc
 
 
     # add feature for cell_out (e_cell_delays)
@@ -128,6 +142,7 @@ def add_graph_feature(
             s += LUT.lut_size**2
 
 
+    # adding feature for AT, RAT and slew
     print('Adding feature: node (AT, RAT, slew)')
     n = g.nodes['node'].data['n_ats'].shape[0]
     for pin_name, timing in at_rat_slew.items():
@@ -188,9 +203,8 @@ def add_graph_feature(
 
     print('Adding feature: node (nf, location for PIPO)')
     n = g.nodes['node'].data['nf'].shape[0]
-    for item in pipo_loc:
-        pin_name = item[0]
-        x,y = item[1], item[2]
+    for pin_name,loc_xy in pipo_loc.items():
+        x,y = loc_xy[0], loc_xy[1]
         pin_index = pin2index.get(pin_name)
         if pin_index is None or pin_index >= n:
             print(f'Adding feature: node (nf, location for PIPO), {pin_name} is not registered in pin2index or not included in graph')
