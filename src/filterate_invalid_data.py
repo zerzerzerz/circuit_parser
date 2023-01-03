@@ -6,7 +6,11 @@ def filterate_invalid_data(g:dgl.heterograph):
     print(f"Filterating invalid data")
 
     # process AT and slew
-    invalid_pins = torch.abs(g.ndata['n_ats']) > 1e20
+    is_too_large = torch.abs(g.ndata['n_ats']) > 1e20
+    is_nan = torch.isnan(g.ndata['n_ats'])
+    is_inf = torch.isinf(g.ndata['n_ats'])
+    invalid_pins = torch.logical_or(is_too_large, is_nan)
+    invalid_pins = torch.logical_or(invalid_pins, is_inf)
     g.ndata['n_ats'][invalid_pins] = 0.0
     g.ndata['n_slews'][invalid_pins] = 0.0
 
