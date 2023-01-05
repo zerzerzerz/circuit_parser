@@ -115,8 +115,12 @@ def add_graph_feature(
             print(f'Adding feature: cell_out (ef), {cell_class}{CELL_PIN_SEP}{fanout_name} does not have lut relative to {fanin_name}')
             continue
         s = 0
+
+        # add valid bit, which indicates whether this lut is valid or not
         g.edges['cell_out'].data['ef'][edge_id][s:s+LUT.num_luts] = torch.ones(LUT.num_luts)
         s += LUT.num_luts
+
+        # add index1 and index2
         for i in range(LUT.num_luts):
             lut = luts[i%len(luts)]
 
@@ -132,6 +136,7 @@ def add_graph_feature(
             g.edges['cell_out'].data['ef'][edge_id][s:s+LUT.lut_size] = index2[0:LUT.lut_size]
             s += LUT.lut_size
 
+        # add values
         for i in range(LUT.num_luts):
             lut = luts[i%len(luts)]
 
