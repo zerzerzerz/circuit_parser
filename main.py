@@ -9,7 +9,7 @@ import src.extract_pipo_loc as extract_pipo_loc
 import src.add_graph_feature as add_graph_feature
 import src.get_pin2index as get_pin2index
 import src.extract_chip_area as extract_chip_area
-from src.utils import merge_pin_loc
+from src.utils import check_graph_data_range, merge_pin_loc
 # import src.check_fanin_or_fanout as check_fanin_or_fanout
 # import src.extract_net_connection as extract_net_connection
 # import src.extract_cell_connection as extract_cell_connection
@@ -122,12 +122,12 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
         print(sep)
         print(ntype)
         for k,v in graph.node_attr_schemes(ntype).items():
-            print(k,v)
+            print("{:<20} {}".format(k, str(v)))
     for etype in graph.etypes:
         print(sep)
         print(etype)
         for k,v in graph.edge_attr_schemes(etype).items():
-            print(k,v)
+            print("{:<20} {}".format(k, str(v)))
     print(sep)
     dgl.save_graphs(join(res_dir,'graph.bin'),[graph])
 
@@ -145,6 +145,9 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
         print("Loop!")
         # print(loop_point)
         check_loop.find_a_loop(g_tmp, index2pin)
+    
+
+    check_graph_data_range(graph)
 
 
 if __name__ == "__main__":

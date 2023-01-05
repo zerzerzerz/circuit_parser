@@ -114,15 +114,15 @@ def add_graph_feature(
         except KeyError:
             print(f'Adding feature: cell_out (ef), {cell_class}{CELL_PIN_SEP}{fanout_name} does not have lut relative to {fanin_name}')
             continue
+
+
         s = 0
-
-        # add valid bit, which indicates whether this lut is valid or not
-        g.edges['cell_out'].data['ef'][edge_id][s:s+LUT.num_luts] = torch.ones(LUT.num_luts)
-        s += LUT.num_luts
-
-        # add index1 and index2
         for i in range(LUT.num_luts):
             lut = luts[i%len(luts)]
+
+            # add valid bit, which indicates whether this lut is valid or not
+            g.edges['cell_out'].data['ef'][edge_id][s] = 1.0
+            s += 1
 
             index1 = torch.Tensor(lut['index1'])
             if index1.shape[0] < LUT.lut_size:
@@ -153,7 +153,7 @@ def add_graph_feature(
     for pin_name, timing in at_rat_slew.items():
         pin_index = pin2index.get(pin_name)
         if pin_index is None:
-            print(f'Adding feature: node (AT, RAT, slew), {pin_name} is not registered in pin2index')
+            # print(f'Adding feature: node (AT, RAT, slew), {pin_name} is not registered in pin2index')
             continue
         at = torch.Tensor(timing['AT'])
         rat = torch.Tensor(timing['RAT'])

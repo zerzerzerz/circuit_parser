@@ -54,7 +54,7 @@ def extract_net_delay(sdf_file_content):
         numbers = ''.join(tmp[3:])
         numbers = p_float.findall(numbers)
         if len(numbers) < 4:
-            print(f"interconnection delay for {cell_pin1}{CONNECTION_SEP}{cell_pin2} is not enough as 4 elements, only {len(numbers)}")
+            # print(f"interconnection delay for {cell_pin1}{CONNECTION_SEP}{cell_pin2} is not enough as 4 elements, only {len(numbers)}")
             if len(numbers) == 0:
                 numbers = [0.0] * 4
             else:

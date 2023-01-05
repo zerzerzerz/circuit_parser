@@ -39,3 +39,43 @@ def check_graph_is_invalid(g:dgl.DGLHeteroGraph):
             
             if invalid.any():
                 print("{:<20} {:<20} {:<.6f}".format(t,k,(invalid.sum()/invalid.nelement()).item()))
+
+
+def check_graph_data_range(g:dgl.DGLHeteroGraph, n_dim=16, statistics:str='mean'):
+    for t in sorted(g.ntypes):
+        for k in sorted(g.node_attr_schemes(t)):
+            data = g.nodes[t].data[k]
+            if len(data.shape) == 1:
+                data.unsqueeze_(-1)
+
+            if statistics == 'mean':
+                data = data[:,0:n_dim].mean(dim=0).tolist()
+            elif statistics == 'max':
+                data = data[:,0:n_dim].max(dim=0).tolist()
+            elif statistics == 'min':
+                data = data[:,0:n_dim].min(dim=0).tolist()
+            else:
+                raise NotImplementedError
+
+            data = map(lambda x:round(x,3), data)
+            data = str(list(data))
+            print("{:<10} {:<18} {:<}".format(t,k,data))
+    
+    for t in sorted(g.etypes):
+        for k in sorted(g.edge_attr_schemes(t)):
+            data = g.edges[t].data[k]
+            if len(data.shape) == 1:
+                data.unsqueeze_(-1)
+
+            if statistics == 'mean':
+                data = data[:,0:n_dim].mean(dim=0).tolist()
+            elif statistics == 'max':
+                data = data[:,0:n_dim].max(dim=0).tolist()
+            elif statistics == 'min':
+                data = data[:,0:n_dim].min(dim=0).tolist()
+            else:
+                raise NotImplementedError
+
+            data = map(lambda x:round(x,3), data)
+            data = str(list(data))
+            print("{:<10} {:<18} {:<}".format(t,k,data))
