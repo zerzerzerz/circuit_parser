@@ -23,7 +23,7 @@ import dgl
 import torch
 from glob import glob
 
-def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
+def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res_dir):
     utils.mkdir(res_dir, rm=True)
 
     # extract information
@@ -71,7 +71,7 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
     utils.save_json(all_pin_loc, join(res_dir, 'all_pin_loc.json'))
     
 
-    timing_endpoint = get_timing_endpoint.get_timing_endpoint(sdc_file)
+    timing_endpoint = get_timing_endpoint.get_timing_endpoint2(path_summary_file)
     utils.save_json(timing_endpoint, join(res_dir, 'timing_endpoint.json'))
 
     
@@ -115,7 +115,7 @@ def main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir):
 
 
     # display information
-    sep = '*'*50
+    sep = '*'*100
     print(sep)
     print(graph)
     for ntype in graph.ntypes:
@@ -154,12 +154,13 @@ if __name__ == "__main__":
     # settings
     data_dir = 'data'
     verilog_file = join(data_dir, '6_final.v')
-    sdc_file = join(data_dir, '6_final.sdc')
+    # sdc_file = join(data_dir, '6_final.sdc')
+    path_summary_file = join(data_dir, 'path_summary.log')
     sdf_file = join(data_dir, '6_final.sdf')
     def_file = join(data_dir, '6_final.def')
     liberty_files = glob(join(data_dir, '*.lib'))
     res_dir = 'res'
 
-    main(verilog_file, sdc_file, sdf_file, def_file, liberty_files, res_dir)
+    main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res_dir)
     
     

@@ -1,5 +1,5 @@
 import re
-from config.config import CONNECTION_SEP
+from config.config import CELL_PIN_SEP, CONNECTION_SEP
 
 def get_timing_endpoint(sdc_path):
     '''If a port is constrainted in .sdf file, then it is a timing endpoint'''
@@ -11,5 +11,25 @@ def get_timing_endpoint(sdc_path):
     return res
 
 
-if __name__ == "__main__":
-    print(get_timing_endpoint('data\\6_final.sdc'))
+def get_timing_endpoint2(path_report):
+    print("Extracting which pins are timing endpoints")
+    with open(path_report) as f:
+        lines = f.readlines()
+    
+    pattern = re.compile(r"\s+")
+    p_start = re.compile(r"^\s*")
+    p_end = re.compile(r"\s*$")
+
+    res = []
+
+    # _697_/Q (gcd)                        resp_msg[15] (output)                  -0.087461
+    for line in lines[2:]:
+        line = p_start.sub("", line)
+        line = p_end.sub("", line)
+        line = pattern.sub(" ", line)
+        if line == "":
+            continue
+        endpoint = line.split(' ')[2].replace('/', CELL_PIN_SEP)
+        res.append(endpoint)
+        
+    return res
