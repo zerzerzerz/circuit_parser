@@ -87,5 +87,6 @@ def construct_graph2(cell_out, net_out, pin2index) -> dgl.heterograph:
     print("Constructing graph (net_in)")
     res[('node', 'net_in', 'node')] = (dst_net_out, src_net_out)
 
-    return dgl.heterograph(res)
+    g = dgl.heterograph(res).int()
+    return g
     

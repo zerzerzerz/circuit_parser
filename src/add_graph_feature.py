@@ -49,8 +49,8 @@ def add_graph_feature(
     g.nodes['node'].data['n_is_timing_endpt'] = torch.zeros(g.num_nodes('node'),)
 
     # cell_out
-    g.edges['cell_out'].data['ef'] = torch.zeros(g.num_edges('cell_out'), 512)
-    g.edges['cell_out'].data['e_cell_delays'] = torch.zeros(g.num_edges('cell_out'), 4)
+    g.edges['cell_out'].data['ef'] = torch.zeros(g.num_edges('cell_out'), 512, dtype=torch.float64)
+    g.edges['cell_out'].data['e_cell_delays'] = torch.zeros(g.num_edges('cell_out'), 4, dtype=torch.float64)
 
     # net_in
     g.edges['net_in'].data['ef'] = torch.zeros(g.num_edges('net_in'), 2)
