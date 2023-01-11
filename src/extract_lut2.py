@@ -302,7 +302,7 @@ def regularize_lut(lut):
 
     if len_index1 == 0 and len_index2 == 0:
         if values.nelement() > 0:
-            values = [values[0]] * LUT.lut_size**2
+            values = [values.flatten()[0].item()] * LUT.lut_size**2
         else:
             values = [0.0] * LUT.lut_size**2
 
@@ -339,6 +339,9 @@ def regularize_lut(lut):
     #     values = values + [0.0] * (LUT.lut_size**2 - len(values))
     # else:
     #     values = values[0:LUT.lut_size**2]
+
+    if not isinstance(values, list):
+        values = values.flatten().tolist()
     
     return {
         "index1": index1,
