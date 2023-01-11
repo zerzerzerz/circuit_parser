@@ -1,9 +1,13 @@
 import re
+from einops import rearrange, repeat
 import utils.utils as utils
 import collections
 from config.config import CELL_PIN_SEP, LUT
 import copy
 from config.config import CONNECTION_SEP
+import numpy as np
+import torch
+
 
 def get_cell_content(liberty_file):
     '''
@@ -211,21 +215,35 @@ def parse_lut(timing_content):
             table = table.replace(char,'')
         
         table_split = table.split(';')
+
+        # these len are original length of index and table
+        len_index1 = len_index2 = len_values = 0
         if len(table_split) == 4:
             index1, index2, values, _ = table_split
             index1 = parse_index_or_value(index1)
             index2 = parse_index_or_value(index2)
             values = parse_index_or_value(values)
+            len_index1 = len(index1)
+            len_index2 = len(index2)
+            len_values = len(values)
+            
         elif len(table_split) == 3:
             index1, values, _ = table_split
             index1 = parse_index_or_value(index1)
             index2 = copy.copy(index1)
             values = parse_index_or_value(values)
+            len_index1 = len(index1)
+            len_index2 = 0
+            len_values = len(values)
+
         elif len(table_split) == 2:
             index1 = [0.0 for i in range(LUT.lut_size)]
             index2 = [0.0 for i in range(LUT.lut_size)]
             values, _ = table_split
             values = parse_index_or_value(values)
+            len_index1 = 0
+            len_index2 = 0
+            len_values = len(values)
         else:
             raise NotImplementedError
         
@@ -233,6 +251,9 @@ def parse_lut(timing_content):
             "index1": index1,
             "index2": index2,
             "values": values,
+            "len_index1": len_index1,
+            "len_index2": len_index2,
+            "len_values": len_values,
         }))
 
     return res
@@ -254,8 +275,9 @@ def regularize_lut(lut):
     '''
     lut is a dict
     index1, index2, values are its keys
+    len_index1, len_index2, len_values are also its keys to represent the original length of index and value
+    regularize index and value to have a size of LUT.size and LUT.size ** 2
     '''
-    res = {}
     # for index1
     index1 = lut['index1']
     if len(index1) < LUT.lut_size:
@@ -271,11 +293,52 @@ def regularize_lut(lut):
         index2 = index2[0:LUT.lut_size]
     
     # for values
-    values = lut['values']
-    if len(values) < LUT.lut_size**2:
-        values = values + [0.0] * (LUT.lut_size**2 - len(values))
+    # get original length of index and value
+    len_index1 = lut['len_index1']
+    len_index2 = lut['len_index2']
+
+    # this is a 1d tensor
+    values = torch.Tensor(lut['values'])
+
+    if len_index1 == 0 and len_index2 == 0:
+        if values.nelement() > 0:
+            values = [values[0]] * LUT.lut_size**2
+        else:
+            values = [0.0] * LUT.lut_size**2
+
+    elif len_index1 != 0 and len_index2 == 0:
+        if len_index1 < LUT.lut_size:
+            values = torch.cat([values, torch.zeros(LUT.lut_size - len_index1)], dim=0)
+        else:
+            values = values[0:LUT.lut_size]
+        values = repeat(values, 'a -> a b', b=LUT.lut_size).flatten().tolist()
+
+    elif len_index1 != 0 and len_index2 != 0:
+        values = values.reshape(len_index1, len_index2)
+        if len_index1 < LUT.lut_size:
+            values = torch.cat([
+                values,
+                torch.zeros(LUT.lut_size-len_index1, values.shape[1])
+            ], dim=0)
+        else:
+            values = values[0:LUT.lut_size,:]
+
+        if len_index2 < LUT.lut_size:
+            values = torch.cat([
+                values,
+                torch.zeros(values.shape[0], LUT.lut_size - len_index2)
+            ], dim=1)
+        else:
+            values = values[:,0:LUT.lut_size]
+
+        values = values[0:LUT.lut_size, 0:LUT.lut_size].flatten().tolist()
     else:
-        values = values[0:LUT.lut_size**2]
+        raise NotImplementedError(f'len_index1 = {len_index1}, len_index2 = {len_index2}')
+
+    # if len(values) < LUT.lut_size**2:
+    #     values = values + [0.0] * (LUT.lut_size**2 - len(values))
+    # else:
+    #     values = values[0:LUT.lut_size**2]
     
     return {
         "index1": index1,
