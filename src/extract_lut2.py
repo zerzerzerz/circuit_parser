@@ -8,11 +8,18 @@ from config.config import CONNECTION_SEP
 import numpy as np
 import torch
 
+'''
+If a function starts with `get`, it means only get the string without parsing it
+Real parsing function starts with `parse`
+'''
+
 
 def get_cell_content(liberty_file):
     '''
     return a dict
     cell_class -> cell_content
+    each cell corresponds to a string which contains pin information
+    cell_content = pin(){}, pin(){}, pin(){}, ..., pin(){}
     '''
     print("Extracting cell content")
     with open(liberty_file) as f:
@@ -49,6 +56,7 @@ def get_pin_content(cell_contents):
     '''
     return a dict
     cell_class -> pin_name -> pin_content
+    each pin corresponds to a string
     '''
     print("Extract pin content")
     res = {}
@@ -135,6 +143,7 @@ def parse_pin_content(cell_pin_dict):
 def get_timing_content(pin_content):
     '''
     There are many `timing ( ) { }` in a pin content
+    A timing content corresponds to a related_pin
     return a dict:
         related_pin -> timing content
     '''
@@ -332,6 +341,7 @@ def regularize_lut(lut):
             values = values[:,0:LUT.lut_size]
 
         values = values[0:LUT.lut_size, 0:LUT.lut_size].flatten().tolist()
+
     else:
         raise NotImplementedError(f'len_index1 = {len_index1}, len_index2 = {len_index2}')
 
@@ -351,6 +361,9 @@ def regularize_lut(lut):
 
 
 def extract_lut_single_file(liberty_file):
+    """
+    Extract information from a single liberty file
+    """
     cell_content = get_cell_content(liberty_file)
     pin_content = get_pin_content(cell_content)
     res = parse_pin_content(pin_content)
@@ -358,6 +371,9 @@ def extract_lut_single_file(liberty_file):
 
 
 def extract_lut(liberty_files):
+    """
+    Extract information in many .lib (liberty) files
+    """
     print("Extracting LUTs")
     assert isinstance(liberty_files, list)
     tmp = []
