@@ -1,3 +1,8 @@
+'''
+Extract LUT information from .lib file.
+If a function starts with `get`, it means only get the string without parsing it.
+Real parsing function starts with `parse`.
+'''
 import re
 from einops import rearrange, repeat
 import utils.utils as utils
@@ -8,10 +13,7 @@ from config.config import CONNECTION_SEP
 import numpy as np
 import torch
 
-'''
-If a function starts with `get`, it means only get the string without parsing it
-Real parsing function starts with `parse`
-'''
+
 
 
 def get_cell_content(liberty_file):

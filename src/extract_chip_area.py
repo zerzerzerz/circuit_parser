@@ -1,7 +1,8 @@
+"""Extract chip area from .def file"""
 import re
-from config.config import CONNECTION_SEP
 
 def extract_chip_area(def_file):
+    """Extract chip area from .def file"""
     print("Extracting chip area")
     with open(def_file) as f:
         c = f.read()

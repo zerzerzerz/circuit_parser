@@ -1,6 +1,7 @@
+"""
+Extract all cells from verilog file (.v)
+"""
 import re
-from config.config import CONNECTION_SEP
-from warnings import warn
 
 def extract_cell(verilog_file_path:str) -> list:
     '''extract all cells from verilog file'''

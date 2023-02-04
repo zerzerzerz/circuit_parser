@@ -1,4 +1,6 @@
-from copy import deepcopy
+"""
+Construct graph based on cell_delay and net_delay
+"""
 import dgl
 from config.config import CONNECTION_SEP
 
@@ -32,21 +34,8 @@ def construct_net_graph(net_delay:dict, pin2index:dict):
     return src, dst
 
 
-def construct_graph(
-    cell_delay: dict,
-    net_delay: dict,
-    pin2index: dict
-) -> dgl.DGLHeteroGraph:
-    raise NotImplementedError
-    print("Constructing graph")
-    res = {}
-    res[('node','cell_out','node')] = construct_cell_graph(cell_delay, pin2index)
-    res[('node','net_out','node')] = construct_net_graph(net_delay, pin2index)
-    res[('node','net_in','node')] = deepcopy(res[('node','net_out','node')])[::-1]
-    return dgl.heterograph(res)
 
-
-def construct_graph2(cell_out, net_out, pin2index) -> dgl.heterograph:
+def construct_graph(cell_out, net_out, pin2index) -> dgl.heterograph:
     print("Constructing graph")
     res = {}
 

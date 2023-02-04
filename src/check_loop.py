@@ -1,3 +1,8 @@
+'''
+Check whether there exists a loop in circuit graph
+pin - cell_out - pin
+pin - net_out - pin
+'''
 import dgl
 from collections import Counter
 

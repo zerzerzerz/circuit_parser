@@ -1,7 +1,10 @@
+"""
+Get timing endpoints from .sdf file or STA report
+"""
 import re
-from config.config import CELL_PIN_SEP, CONNECTION_SEP
+from config.config import CELL_PIN_SEP
 
-def get_timing_endpoint(sdc_path):
+def get_timing_endpoint_from_sdc(sdc_path):
     '''If a port is constrainted in .sdf file, then it is a timing endpoint'''
     print("Extracting which pins are timing endpoints")
     with open(sdc_path) as f:
@@ -11,7 +14,8 @@ def get_timing_endpoint(sdc_path):
     return res
 
 
-def get_timing_endpoint2(path_report):
+def get_timing_endpoint_from_STA_report(path_report):
+    """Get timing endpoints from STA report"""
     print("Extracting which pins are timing endpoints")
     with open(path_report) as f:
         lines = f.readlines()

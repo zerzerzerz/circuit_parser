@@ -54,7 +54,7 @@ def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res
     utils.save_json(all_pin_loc, join(res_dir, 'all_pin_loc.json'))
     
 
-    timing_endpoint = get_timing_endpoint.get_timing_endpoint2(path_summary_file)
+    timing_endpoint = get_timing_endpoint.get_timing_endpoint_from_STA_report(path_summary_file)
     utils.save_json(timing_endpoint, join(res_dir, 'timing_endpoint.json'))
 
     
@@ -68,7 +68,7 @@ def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res
     utils.save_json(chip_area, join(res_dir, 'chip_area.json'))
 
     
-    graph = construct_graph.construct_graph2(cell_delay.keys(), net_delay.keys(), pin2index)
+    graph = construct_graph.construct_graph(cell_delay.keys(), net_delay.keys(), pin2index)
     graph = add_graph_feature.add_graph_feature(
         graph,
         pin2index,
@@ -112,13 +112,11 @@ def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res
         torch.cat([n_src, c_src]),
         torch.cat([n_dst, c_dst]),
     ))
-    # dgl.topological_nodes_generator(g_tmp)
     loop_point = check_loop.check_loop(g_tmp, index2pin)
     if len(loop_point) == 0:
         print("Topological sort OK! No loop!")
     else:
         print("Loop!")
-        # print(loop_point)
         check_loop.find_a_loop(g_tmp, index2pin)
     
 

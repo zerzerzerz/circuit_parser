@@ -1,3 +1,6 @@
+"""
+Add node features and edge features to dgl.DGLHeteroGraph
+"""
 import dgl
 import torch
 from config.config import LUT

@@ -1,3 +1,4 @@
+'''extract PIPO locations from .def file'''
 import re
 from config.config import CONNECTION_SEP
 

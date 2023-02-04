@@ -1,7 +1,12 @@
+"""
+Extract location of each cell from .def file
+"""
 import re
-from config.config import CONNECTION_SEP
 
 def extract_cell_loc(def_path):
+    """
+    Extract location of each cell from .def file
+    """
     print("Extracting cell location to replace pin location")
     with open(def_path) as f:
         content = f.read()

@@ -1,3 +1,4 @@
+"""Extract timing information from .sdf file"""
 import re
 from collections import defaultdict
 import numpy as np
@@ -6,6 +7,7 @@ from config.config import CONNECTION_SEP
 import copy
 
 def extract_timing(sdf_file):
+    """Extract timing information from .sdf file, which returns AT, RAT, Slew"""
     print("Extracting timing (AT, RAT, slew)")
     with open(sdf_file) as f:
         c = f.read()

@@ -1,5 +1,9 @@
+'''
+Extract PIPO from verilog file.
+PI PO are ports of top level module.
+'''
+
 import re
-from config.config import CONNECTION_SEP
 
 def get_PIPO(verilog_file_path) -> dict:
     '''
