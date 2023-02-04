@@ -127,12 +127,12 @@ if __name__ == "__main__":
     # settings
     data_dir = 'data'
     verilog_file = join(data_dir, '6_final.v')
-    path_summary_file = join(data_dir, 'path_summary.log')
+    STA_path_summary_file = join(data_dir, 'path_summary.log')
     sdf_file = join(data_dir, '6_final.sdf')
     def_file = join(data_dir, '6_final.def')
     liberty_files = glob(join(data_dir, '*.lib'))
     res_dir = 'res'
 
-    main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res_dir)
+    main(verilog_file, STA_path_summary_file, sdf_file, def_file, liberty_files, res_dir)
     
     
