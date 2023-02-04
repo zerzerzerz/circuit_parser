@@ -1,27 +1,24 @@
-import src.extract_cell as extract_cell
-import src.get_PIPO as get_PIPO
-import src.construct_graph as construct_graph
-import src.get_timing_endpoint as get_timing_endpoint
-import src.extract_cell_loc as extract_cell_loc
-import src.extract_timing as extract_timing
-import src.extract_lut2 as extract_lut
-import src.extract_pipo_loc as extract_pipo_loc
-import src.add_graph_feature as add_graph_feature
-import src.get_pin2index as get_pin2index
-import src.extract_chip_area as extract_chip_area
+from src import extract_cell
+from src import get_PIPO
+from src import construct_graph
+from src import get_timing_endpoint
+from src import extract_cell_loc
+from src import extract_timing
+from src import extract_lut
+from src import extract_pipo_loc
+from src import add_graph_feature
+from src import get_pin2index 
+from src import extract_chip_area
 from src.utils import check_graph_data_range, merge_pin_loc
-# import src.check_fanin_or_fanout as check_fanin_or_fanout
-# import src.extract_net_connection as extract_net_connection
-# import src.extract_cell_connection as extract_cell_connection
-# import src.check_connection as check_connection
-import src.extract_unit as extract_unit
-import src.filterate_invalid_data as filterate_invalid_data
-import src.check_loop as check_loop
-import utils.utils as utils
+from src import extract_unit
+from src import filterate_invalid_data
+from src import check_loop
 from os.path import join
-import dgl
-import torch
 from glob import glob
+
+import dgl
+import utils
+import torch
 
 def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res_dir):
     utils.mkdir(res_dir, rm=True)
@@ -33,11 +30,7 @@ def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res
     lut_info = extract_lut.extract_lut(liberty_files)
     utils.save_json(lut_info, join(res_dir, 'lut_info.json'))
 
-    # fanin_or_fanout = check_fanin_or_fanout.check_fanin_or_fanout(lut_info)
-    # utils.save_json(fanin_or_fanout, join(res_dir, 'fanin_or_fanout.json'))
 
-    # net_connections = extract_net_connection.extract_net_connection(cells, fanin_or_fanout)
-    # utils.save_json(net_connections, join(res_dir, 'net_connections.json'))
 
     pipos = get_PIPO.get_PIPO(verilog_file)
     utils.save_json(pipos, join(res_dir, 'pipos.json'))
@@ -45,16 +38,6 @@ def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res
     unit = extract_unit.extract_unit(def_file)
     utils.save_json({"unit":unit}, join(res_dir, 'unit.json'))
 
-    # net_out = extract_net_connection.extract_net_out(net_connections, pipos)
-    # utils.save_json(net_out, join(res_dir, 'net_out.json'))
-
-    # cell_out = extract_cell_connection.extract_cell_connection(cells, lut_info)
-    # utils.save_json(cell_out, join(res_dir, 'cell_out.json'))
-
-    # all_edges = net_out + cell_out
-    # utils.save_json(all_edges, join(res_dir, 'all_edges.json'))
-
-    # exit()
 
     pin2index = get_pin2index.get_pin2index(cells, pipos)
     index2pin = {i:p for p,i in pin2index.items()}
@@ -85,14 +68,6 @@ def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res
     utils.save_json(chip_area, join(res_dir, 'chip_area.json'))
 
     
-    # check net connection
-    # check_connection.check_net_connection(net_out, net_delay)
-    # check_connection.check_cell_connection(cell_out, cell_delay)
-
-
-    # construct graph and add feature
-    # graph = construct_graph.construct_graph2(cell_out, net_out, pin2index)
-    # graph = construct_graph.construct_graph2(cell_delay.keys(), net_out, pin2index)
     graph = construct_graph.construct_graph2(cell_delay.keys(), net_delay.keys(), pin2index)
     graph = add_graph_feature.add_graph_feature(
         graph,
@@ -154,7 +129,6 @@ if __name__ == "__main__":
     # settings
     data_dir = 'data'
     verilog_file = join(data_dir, '6_final.v')
-    # sdc_file = join(data_dir, '6_final.sdc')
     path_summary_file = join(data_dir, 'path_summary.log')
     sdf_file = join(data_dir, '6_final.sdf')
     def_file = join(data_dir, '6_final.def')
