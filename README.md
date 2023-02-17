@@ -2,9 +2,13 @@
 ## Documentation for DGL
 - [https://docs.dgl.ai/index.html](https://docs.dgl.ai/index.html)
 
-## Data Format
-#### `cell_out`
-cell arcs.
+## Data Format from Repo
+- [https://github.com/TimingPredict/Dataset](https://github.com/TimingPredict/Dataset)
+
+## Edges (3 types)
+### `cell_out`
+- fanin $\rightarrow$ fanout
+- cell arcs.
 
 Features:
 
@@ -17,14 +21,24 @@ Features:
   - fea_name = e_cell_delays, fea_scheme = Scheme(shape=(4,), dtype=torch.float32)
   - fea_name = ef, fea_scheme = Scheme(shape=(512,), dtype=torch.float32)
 
-- Edge type = net_in
-  - fea_name = ef, fea_scheme = Scheme(shape=(2,), dtype=torch.float32)
-
+### `net_out`
+- net arc
+- net driver $\rightarrow$ net sink
+- `2x`: relative position
 - Edge type = net_out
   - fea_name = ef, fea_scheme = Scheme(shape=(2,), dtype=torch.float32)
 
+### `net_in`
+- net arc
+- net sink $\rightarrow$ net driver
+- `2x`: relative position
+- Edge type = net_in
+  - fea_name = ef, fea_scheme = Scheme(shape=(2,), dtype=torch.float32)
 
-### Node/Pin
+
+### Node (1 type)
+#### `node`
+each node is pin
 Features:
 *   `1x`: is primary I/O pin (1) or not (0)
 *   `1x`: is fanin (0) or fanout (1)
