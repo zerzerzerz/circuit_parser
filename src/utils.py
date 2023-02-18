@@ -4,6 +4,7 @@ import dgl
 
 def merge_pin_loc(pipo_loc, cell_locs, pin2index):
     '''merge all locations of PI, PO and pins'''
+    print("Merging all locations of PI, PO and pins")
     res = {}
     for pipo, loc_xy in pipo_loc.items():
         res[pipo] = loc_xy

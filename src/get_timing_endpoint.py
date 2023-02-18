@@ -16,7 +16,7 @@ def get_timing_endpoint_from_sdc(sdc_path):
 
 def get_timing_endpoint_from_STA_report(path_report):
     """Get timing endpoints from STA report"""
-    print("Extracting which pins are timing endpoints")
+    print("Extracting which pins are timing endpoints from STA report")
     with open(path_report) as f:
         lines = f.readlines()
     

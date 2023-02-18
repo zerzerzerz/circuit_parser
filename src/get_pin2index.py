@@ -11,7 +11,7 @@ def get_pin2index(at_rat_slew, net_delay:dict=None, cell_delay:dict=None, pipos:
     Given a pin, get its index.
     pin is like '_347_{CELL_PIN_SEP}A1', where '_347_' is the instance name of cell, 'A1' is the pin.
     '''
-    print(f"Constructing mapping between cell{CELL_PIN_SEP}pin to index")
+    print(f"Constructing mapping from cell{CELL_PIN_SEP}pin to index")
     pins = set()
 
     if isinstance(at_rat_slew, dict):

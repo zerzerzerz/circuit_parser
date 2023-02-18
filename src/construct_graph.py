@@ -2,7 +2,7 @@
 Construct graph based on cell_delay and net_delay
 """
 import dgl
-from config import CONNECTION_SEP
+from config import CONNECTION_SEP,VERBOSE
 
 def construct_cell_graph(cell_delay:dict, pin2index:dict):
     '''
@@ -40,7 +40,7 @@ def construct_graph(cell_out, net_out, pin2index) -> dgl.heterograph:
     res = {}
 
     # cell_out
-    print("Constructing graph (cell_out)")
+    print("\tConstructing graph (cell_out)")
     src_cell_out = []
     dst_cell_out = []
     for k in cell_out:
@@ -50,14 +50,15 @@ def construct_graph(cell_out, net_out, pin2index) -> dgl.heterograph:
             s = pin2index[s]
             d = pin2index[d]
         except KeyError:
-            print(f'cell_out: {ss} or {dd} are not registered in pin2index')
+            if VERBOSE:
+                print(f'\t\tcell_out: {ss} or {dd} are not registered in pin2index')
             continue
         src_cell_out.append(s)
         dst_cell_out.append(d)
     res[('node', 'cell_out', 'node')] = (src_cell_out, dst_cell_out)
 
     # net_out
-    print("Constructing graph (net_out)")
+    print("\tConstructing graph (net_out)")
     src_net_out = []
     dst_net_out = []
     for k in net_out:
@@ -67,13 +68,14 @@ def construct_graph(cell_out, net_out, pin2index) -> dgl.heterograph:
             s = pin2index[s]
             d = pin2index[d]
         except KeyError:
-            print(f'net_out: {ss} or {dd} are not registered in pin2index')
+            if VERBOSE:
+                print(f'\t\tnet_out: {ss} or {dd} are not registered in pin2index')
             continue
         src_net_out.append(s)
         dst_net_out.append(d)
     res[('node', 'net_out', 'node')] = (src_net_out, dst_net_out)
     
-    print("Constructing graph (net_in)")
+    print("\tConstructing graph (net_in) (reverse net_out)")
     res[('node', 'net_in', 'node')] = (dst_net_out, src_net_out)
 
     g = dgl.heterograph(res).int()

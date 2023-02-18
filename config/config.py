@@ -10,5 +10,7 @@ CELL_PIN_SEP = '@'
 # _345_@A>>>_345_@ZN
 CONNECTION_SEP = '>>>'
 
+# whether to print all information
+VERBOSE = False
 
 IGNORED_KEYS_FOR_FILTERATING_INVALID_DATA = []

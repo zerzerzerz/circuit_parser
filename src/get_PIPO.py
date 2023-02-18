@@ -10,7 +10,7 @@ def get_PIPO(verilog_file_path) -> dict:
     extract PIPO from verilog file
     PI PO are ports of top level module
     '''
-    print("Extracting which pins are PIPO")
+    print("Extracting which pins are PIPO from .v")
     with open(verilog_file_path) as f:
         circuit = f.read()
 

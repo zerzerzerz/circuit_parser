@@ -16,9 +16,17 @@ from src import extract_connections_from_sdf
 from os.path import join
 from glob import glob
 
+import argparse
 import dgl
 import utils
 import torch
+
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--verbose", action="store_true", default=False)
+    args = parser.parse_args()
+    return args
+
 
 def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res_dir):
     utils.mkdir(res_dir, rm=True)
@@ -33,6 +41,7 @@ def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res
     utils.save_json(inner_connections, join(res_dir, 'inner_connections.json'))
 
 
+    print("Constructing mapping from cell name to cell type")
     cell_name_to_cell_class = {}
     for item in inner_connections:
         cell_name_to_cell_class[item["cell_name"]] = item["cell_type"]
@@ -48,6 +57,7 @@ def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res
     index2pin = {i:p for p,i in pin2index.items()}
     utils.save_json(pin2index, join(res_dir, 'pin2index.json'))
     utils.save_json(index2pin, join(res_dir, 'index2pin.json'))
+
 
     lut_info = extract_lut.extract_lut(liberty_files)
     utils.save_json(lut_info, join(res_dir, 'lut_info.json'))

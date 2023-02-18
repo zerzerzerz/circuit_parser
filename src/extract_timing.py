@@ -6,8 +6,7 @@ remove all slash
 import re
 from collections import defaultdict
 import numpy as np
-from config import CELL_PIN_SEP
-from config import CONNECTION_SEP
+from config import CELL_PIN_SEP, VERBOSE, CONNECTION_SEP
 import copy
 
 def extract_timing(sdf_file):
@@ -15,7 +14,6 @@ def extract_timing(sdf_file):
     Extract timing information from .sdf file, which returns AT, RAT, Slew.
     Instance name maybe ugly like RAM\.MUX\.MUX\[21\]
     """
-    print("Extracting timing (AT, RAT, slew)")
     with open(sdf_file) as f:
         c = f.read()
     atslew = extract_atslew(c)
@@ -34,6 +32,7 @@ def extract_atslew(sdf_file_content):
     # \
     # /
     # so this match above chars [\w\.\[\]\\\/]
+    print("Extracting AT, RAT, SlEW from .sdf")
     p = re.compile(r'\((AT|RAT|SLEW) ([\w\.\[\]\\\/]*?) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\)\)')
     res = p.findall(sdf_file_content)
     atslew = {}
@@ -52,6 +51,7 @@ def extract_net_delay(sdf_file_content):
     # (INTERCONNECT req_msg[16] input8/A (0.000::0.000))
     # \ maybe exists in this line
     # p = re.compile(r'INTERCONNECT ([\w\[\]\.\\\/]*?) ([\w\[\]\.\\\/]*?) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\)')
+    print("Extracting net delay from .sdf")
     p = re.compile(r'\(INTERCONNECT.*?\n')
     p_float = re.compile(r'[+-]?\d*\.?\d+')
     res = p.findall(sdf_file_content)
@@ -64,7 +64,8 @@ def extract_net_delay(sdf_file_content):
         numbers = ''.join(tmp[3:])
         numbers = p_float.findall(numbers)
         if len(numbers) < 4:
-            # print(f"interconnection delay for {cell_pin1}{CONNECTION_SEP}{cell_pin2} is not enough as 4 elements, only {len(numbers)}")
+            if VERBOSE:
+                print(f"interconnection delay for {cell_pin1}{CONNECTION_SEP}{cell_pin2} is not enough as 4 elements, only {len(numbers)}")
             if len(numbers) == 0:
                 numbers = [0.0] * 4
             else:
@@ -79,6 +80,7 @@ def extract_net_delay(sdf_file_content):
 
 
 def extract_cell_delay(sdf_file_content):
+    print("Extracting cell delay from .sdf")
     p = re.compile(r'\(CELLTYPE "(\w+)"\)\s+\(INSTANCE ([\w\.\[\]\\\/]*?)\)|IOPATH (\w+) (\w+) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\)')
     res = p.findall(sdf_file_content)
     cell = pin_src = pin_src = None
@@ -93,10 +95,3 @@ def extract_cell_delay(sdf_file_content):
     for k in ans.keys():
         ans[k] = np.stack(ans[k], axis=0).mean(axis=0).tolist()
     return dict(ans)
-
-
-
-if __name__ == "__main__":
-    res = extract_timing('data\\6_final.sdf')
-    for item in res[0].items():
-        print(item)

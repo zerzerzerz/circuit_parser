@@ -8,7 +8,8 @@ def extract_cell_loc(def_path):
     Extract location of each cell from .def file
     - FILLER_16_235 FILLCELL_X1 + SOURCE DIST + PLACED ( 109440 67200 ) N ;
     """
-    print("Extracting cell location to replace pin location")
+
+    print("Extracting cell location to replace pin location from .def")
     with open(def_path) as f:
         content = f.read()
 
@@ -22,6 +23,3 @@ def extract_cell_loc(def_path):
             } for c in content
         }
         return content
-
-if __name__ == "__main__":
-    print(extract_cell_loc('data\\6_final.def'))

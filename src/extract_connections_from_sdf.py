@@ -20,6 +20,7 @@ def extract_inter_connections_from_sdf_content(sdf_content):
     """
     INTERCONNECT req_msg[31] input25/A (
     """
+    print("Extracting inter-connections from .sdf")
     inter_connections = []
     p = re.compile(r"INTERCONNECT\s+([\w\.\[\]\\\/]*?)\s+([\w\.\[\]\\\/]*?)[\s\(\)]")
     for item in p.findall(sdf_content):
@@ -42,6 +43,7 @@ def extract_inner_connections_from_sdf_content(sdf_content):
         )
     )
     """
+    print("Extracting inner-connections from .sdf")
     # CELLTYPE "NAND2_X4" ) ( INSTANCE _415_ )
     # IOPATH A2 ZN (
     p = re.compile(r"(CELLTYPE)\s*\"?(\w+)\"?\s*\)\s*\(\s*INSTANCE\s*([\w\.\[\]\\\/]*?)\s*\)|(IOPATH)\s+(\w+)\s+(\w+)[\s\(\)]")

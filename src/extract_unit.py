@@ -4,6 +4,7 @@ Extract one micron is how many units
 import re
 
 def extract_unit(def_file_path):
+    print("Extracting units (one micron is how many units)")
     with open(def_file_path) as f:
         c = f.read()
 
