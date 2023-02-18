@@ -12,7 +12,7 @@ def extract_cell_loc(def_path):
     with open(def_path) as f:
         content = f.read()
 
-        pattern = re.compile(r'- (\w+) (\w+)[\s\S]*? (PLACED|FIXED|COVER) \( (\d+) (\d+) \) \w+ ;')
+        pattern = re.compile(r'- ([\w\.\[\]\\\/]*?) (\w+)[\s\S]*? (PLACED|FIXED|COVER) \( (\d+) (\d+) \) \w+ ;')
         content = pattern.findall(content)
         content = {
             c[0]:{

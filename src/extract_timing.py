@@ -1,4 +1,7 @@
-"""Extract timing information from .sdf file"""
+"""
+Extract timing information from .sdf file.
+Instance name maybe ugly like RAM\.MUX\.MUX\[21\].
+"""
 import re
 from collections import defaultdict
 import numpy as np

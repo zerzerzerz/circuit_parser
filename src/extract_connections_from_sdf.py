@@ -63,7 +63,7 @@ def extract_inner_connections_from_sdf_content(sdf_content):
         else:
             raise RuntimeError(f"item = {item}")
 
-    tmp = list(set(inner_connections))
+    tmp = sorted(list(set(inner_connections)))
     inner_connections = []
     for item in tmp:
         inner_connections.append({
