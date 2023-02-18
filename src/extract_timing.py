@@ -7,7 +7,10 @@ from config import CONNECTION_SEP
 import copy
 
 def extract_timing(sdf_file):
-    """Extract timing information from .sdf file, which returns AT, RAT, Slew"""
+    """
+    Extract timing information from .sdf file, which returns AT, RAT, Slew.
+    Instance name maybe ugly like RAM\.MUX\.MUX\[21\]
+    """
     print("Extracting timing (AT, RAT, slew)")
     with open(sdf_file) as f:
         c = f.read()
@@ -18,7 +21,16 @@ def extract_timing(sdf_file):
 
 
 def extract_atslew(sdf_file_content):
-    p = re.compile(r'\((\w+) (\w+/\w+) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\)\)')
+    # (AT output52/A (0.216::0.381) (0.202::0.372))
+    # (AT req_msg[0] (0.092::0.092) (0.092::0.092))
+    # \w
+    # .
+    # [
+    # ]
+    # \
+    # /
+    # so this match above chars [\w\.\[\]\\\/]
+    p = re.compile(r'\((AT|RAT|SLEW) (.*?) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\)\)')
     res = p.findall(sdf_file_content)
     atslew = {}
     for r in res:
@@ -36,7 +48,7 @@ def extract_net_delay(sdf_file_content):
     # (INTERCONNECT req_msg[16] input8/A (0.000::0.000))
     # \ maybe exists in this line
     # p = re.compile(r'INTERCONNECT ([\w\[\]\.\\\/]*?) ([\w\[\]\.\\\/]*?) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\)')
-    p = re.compile(r'\(INTERCONNECT[\s\S]*?\n')
+    p = re.compile(r'\(INTERCONNECT.*?\n')
     p_float = re.compile(r'[+-]?\d*\.?\d+')
     res = p.findall(sdf_file_content)
     net_delay = {}

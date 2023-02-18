@@ -1,4 +1,3 @@
-from src import extract_cell
 from src import get_PIPO
 from src import construct_graph
 from src import get_timing_endpoint
@@ -13,6 +12,7 @@ from src.utils import check_graph_data_range, merge_pin_loc
 from src import extract_unit
 from src import filterate_invalid_data
 from src import check_loop
+from src import extract_connections_from_sdf
 from os.path import join
 from glob import glob
 
@@ -23,26 +23,39 @@ import torch
 def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res_dir):
     utils.mkdir(res_dir, rm=True)
 
-    # extract information
-    cells = extract_cell.extract_cell(verilog_file)
-    utils.save_json(cells, join(res_dir, 'cells.json'))
+    at_rat_slew, net_delay, cell_delay = extract_timing.extract_timing(sdf_file)
+    utils.save_json(at_rat_slew, join(res_dir, 'at_rat_slew.json'))
+    utils.save_json(net_delay, join(res_dir, 'net_delay.json'))
+    utils.save_json(cell_delay, join(res_dir, 'cell_delay.json'))
 
-    lut_info = extract_lut.extract_lut(liberty_files)
-    utils.save_json(lut_info, join(res_dir, 'lut_info.json'))
+    inter_connections, inner_connections = extract_connections_from_sdf.extract_connections_from_sdf(sdf_file)
+    utils.save_json(inter_connections, join(res_dir, 'inter_connections.json'))
+    utils.save_json(inner_connections, join(res_dir, 'inner_connections.json'))
 
+
+    cell_name_to_cell_class = {}
+    for item in inner_connections:
+        cell_name_to_cell_class[item["cell_name"]] = item["cell_type"]
+    utils.save_json(cell_name_to_cell_class, join(res_dir, 'cell_name_to_cell_class.json'))
+    
 
 
     pipos = get_PIPO.get_PIPO(verilog_file)
     utils.save_json(pipos, join(res_dir, 'pipos.json'))
 
-    unit = extract_unit.extract_unit(def_file)
-    utils.save_json({"unit":unit}, join(res_dir, 'unit.json'))
 
-
-    pin2index = get_pin2index.get_pin2index(cells, pipos)
+    pin2index = get_pin2index.get_pin2index(at_rat_slew)
     index2pin = {i:p for p,i in pin2index.items()}
     utils.save_json(pin2index, join(res_dir, 'pin2index.json'))
     utils.save_json(index2pin, join(res_dir, 'index2pin.json'))
+
+    lut_info = extract_lut.extract_lut(liberty_files)
+    utils.save_json(lut_info, join(res_dir, 'lut_info.json'))
+
+
+    unit = extract_unit.extract_unit(def_file)
+    utils.save_json({"unit":unit}, join(res_dir, 'unit.json'))
+
 
     pipo_loc = extract_pipo_loc.extract_pipo_loc(def_file)
     utils.save_json(pipo_loc, join(res_dir, 'pipo_loc.json'))
@@ -57,16 +70,11 @@ def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res
     timing_endpoint = get_timing_endpoint.get_timing_endpoint_from_STA_report(path_summary_file)
     utils.save_json(timing_endpoint, join(res_dir, 'timing_endpoint.json'))
 
-    
-
-    at_rat_slew, net_delay, cell_delay = extract_timing.extract_timing(sdf_file)
-    utils.save_json(at_rat_slew, join(res_dir, 'at_rat_slew.json'))
-    utils.save_json(net_delay, join(res_dir, 'net_delay.json'))
-    utils.save_json(cell_delay, join(res_dir, 'cell_delay.json'))
 
     chip_area = extract_chip_area.extract_chip_area(def_file)
     utils.save_json(chip_area, join(res_dir, 'chip_area.json'))
 
+    # exit()
     
     graph = construct_graph.construct_graph(cell_delay.keys(), net_delay.keys(), pin2index)
     graph = add_graph_feature.add_graph_feature(
@@ -74,7 +82,7 @@ def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res
         pin2index,
         net_delay,
         cell_delay,
-        cells,
+        cell_name_to_cell_class,
         lut_info,
         at_rat_slew,
         timing_endpoint,

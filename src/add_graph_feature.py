@@ -11,7 +11,7 @@ def add_graph_feature(
     pin2index,
     net_delay,
     cell_delay,
-    cells,
+    cell_name_to_cell_class,
     lut_info,
     at_rat_slew,
     timing_endpoint,
@@ -111,7 +111,7 @@ def add_graph_feature(
         u,v = index2pin[u], index2pin[v]
         cell_name, fanout_name = v.split(CELL_PIN_SEP)
         fanin_name = u.split(CELL_PIN_SEP)[-1]
-        cell_class = cells[cell_name]['cell_class']
+        cell_class = cell_name_to_cell_class[cell_name]
         try:
             luts = lut_info[cell_class][fanout_name]['luts'][fanin_name]
         except KeyError:
@@ -229,15 +229,15 @@ def add_graph_feature(
 
     print('Adding feature: node (nf)')
     n = g.nodes['node'].data['nf'].shape[0]
-    keys1 = set(cell_loc.keys())
-    keys2 = set(cells.keys())
-    keys_common = keys1.intersection(keys2)
-    for cell_name in keys_common:
+    cell_names_1 = set(cell_loc.keys())
+    cell_names_2 = set(cell_name_to_cell_class.keys())
+    cell_names_common = cell_names_1.intersection(cell_names_2)
+
+    for cell_name in cell_names_common:
         cell_class = cell_loc[cell_name]['cell_class']
         cell_location = cell_loc[cell_name]['location']
-        for tmp in cells[cell_name]['pins']:
-            pin_name = tmp['pin_name']
-
+        
+        for pin_name in lut_info[cell_class].keys():
             try:
                 direction = lut_info[cell_class][pin_name]['direction']
             except KeyError:
@@ -267,6 +267,6 @@ def add_graph_feature(
                 g.nodes['node'].data['nf'][pin_index, 1] = direction
                 g.nodes['node'].data['nf'][pin_index, 2:6] = pin_location
                 g.nodes['node'].data['nf'][pin_index, 6:10] = capacitance
-
+        
         
     return g

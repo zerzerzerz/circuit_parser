@@ -2,6 +2,12 @@ import re
 from config import CELL_PIN_SEP
 
 def extract_connections_from_sdf(sdf_file):
+    """
+    input:
+        @sdf_file: path to .sdf file
+    output:
+        inter_connections, inner_connections
+    """
     with open(sdf_file, 'r') as f:
         sdf_content = f.read()
     
