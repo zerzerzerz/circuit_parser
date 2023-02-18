@@ -112,7 +112,10 @@ def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res
         for k,v in graph.edge_attr_schemes(etype).items():
             print("{:<20} {}".format(k, str(v)))
     print(sep)
+
     dgl.save_graphs(join(res_dir,'graph.bin'),[graph])
+
+    check_graph_data_range(graph)
 
     n_src, n_dst = graph.edges(etype='net_out')
     c_src, c_dst = graph.edges(etype='cell_out')
@@ -125,10 +128,10 @@ def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res
         print("Topological sort OK! No loop!")
     else:
         print("Loop!")
-        check_loop.find_a_loop(g_tmp, index2pin)
+        raise RuntimeError("Has a loop!")
+        # check_loop.find_a_loop(g_tmp, index2pin)
     
 
-    check_graph_data_range(graph)
 
 
 if __name__ == "__main__":
