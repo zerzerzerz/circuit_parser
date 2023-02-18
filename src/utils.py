@@ -18,6 +18,23 @@ def merge_pin_loc(pipo_loc, cell_locs, pin2index):
     return res
 
 
+def display_graph(graph:dgl.heterograph):
+    sep = '*'*100
+    print(sep)
+    print(graph)
+    for ntype in graph.ntypes:
+        print(sep)
+        print(ntype)
+        for k,v in graph.node_attr_schemes(ntype).items():
+            print("{:<20} {}".format(k, str(v)))
+    for etype in graph.etypes:
+        print(sep)
+        print(etype)
+        for k,v in graph.edge_attr_schemes(etype).items():
+            print("{:<20} {}".format(k, str(v)))
+    print(sep)
+
+
 def check_graph_is_invalid(g:dgl.DGLHeteroGraph):
     for t in g.ntypes:
         for k in g.node_attr_schemes(t).keys():

@@ -8,10 +8,10 @@ from src import extract_pipo_loc
 from src import add_graph_feature
 from src import get_pin2index 
 from src import extract_chip_area
-from src.utils import check_graph_data_range, merge_pin_loc
+from src.utils import check_graph_data_range, display_graph, merge_pin_loc
 from src import extract_unit
 from src import filterate_invalid_data
-from src import check_loop
+from src import check_topo
 from src import extract_connections_from_sdf
 from os.path import join
 from glob import glob
@@ -84,7 +84,6 @@ def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res
     chip_area = extract_chip_area.extract_chip_area(def_file)
     utils.save_json(chip_area, join(res_dir, 'chip_area.json'))
 
-    # exit()
     
     graph = construct_graph.construct_graph(cell_delay.keys(), net_delay.keys(), pin2index)
     graph = add_graph_feature.add_graph_feature(
@@ -105,42 +104,10 @@ def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res
     )
 
     graph = filterate_invalid_data.filterate_invalid_data(graph)
-
-
-    # display information
-    sep = '*'*100
-    print(sep)
-    print(graph)
-    for ntype in graph.ntypes:
-        print(sep)
-        print(ntype)
-        for k,v in graph.node_attr_schemes(ntype).items():
-            print("{:<20} {}".format(k, str(v)))
-    for etype in graph.etypes:
-        print(sep)
-        print(etype)
-        for k,v in graph.edge_attr_schemes(etype).items():
-            print("{:<20} {}".format(k, str(v)))
-    print(sep)
-
-    dgl.save_graphs(join(res_dir,'graph.bin'),[graph])
-
+    display_graph(graph)
     check_graph_data_range(graph)
-
-    n_src, n_dst = graph.edges(etype='net_out')
-    c_src, c_dst = graph.edges(etype='cell_out')
-    g_tmp = dgl.graph((
-        torch.cat([n_src, c_src]),
-        torch.cat([n_dst, c_dst]),
-    ))
-    loop_point = check_loop.check_loop(g_tmp, index2pin)
-    if len(loop_point) == 0:
-        print("Topological sort OK! No loop!")
-    else:
-        print("Loop!")
-        raise RuntimeError("Has a loop!")
-        # check_loop.find_a_loop(g_tmp, index2pin)
-    
+    check_topo.check_topo(graph)
+    dgl.save_graphs(join(res_dir,'graph.bin'),[graph])
 
 
 

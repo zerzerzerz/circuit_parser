@@ -5,6 +5,27 @@ pin - net_out - pin
 '''
 import dgl
 from collections import Counter
+import torch
+
+def check_topo(g:dgl.heterograph):
+    n_src, n_dst = g.edges(etype='net_out')
+    c_src, c_dst = g.edges(etype='cell_out')
+    g_homo = dgl.graph((
+        torch.cat([n_src, c_src]),
+        torch.cat([n_dst, c_dst]),
+    ))
+    try:
+        topo_levels = dgl.topological_nodes_generator(g_homo)
+        num_topo_levels = len(topo_levels)
+        if num_topo_levels % 2 == 0:
+            return True
+        else:
+            print(f"Number of topo levels is {num_topo_levels}, which must be even")
+            return False
+    except dgl.DGLError as e:
+        print(repr(e))
+        return False
+
 
 def check_loop(g:dgl.graph, index2pin):
     '''
