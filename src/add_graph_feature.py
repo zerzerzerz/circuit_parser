@@ -62,7 +62,7 @@ def add_graph_feature(
 
 
     # add feature for net_out, net_in
-    print('Adding feature: net_in, net_out')
+    print('Adding feature: net_in, net_out (ef)')
     for k in net_delay.keys():
         pin_src_name, pin_dst_name = k.split(CONNECTION_SEP)
         
@@ -154,7 +154,7 @@ def add_graph_feature(
 
 
     # adding feature for AT, RAT and slew
-    print('Adding feature: node (AT, RAT, slew)')
+    print('Adding feature: node (AT, RAT, slew) (n_ats, n_rats. n_slews)')
     n = g.nodes['node'].data['n_ats'].shape[0]
     for pin_name, timing in at_rat_slew.items():
         pin_index = pin2index.get(pin_name)

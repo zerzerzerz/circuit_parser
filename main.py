@@ -53,7 +53,7 @@ def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res
     utils.save_json(pipos, join(res_dir, 'pipos.json'))
 
 
-    pin2index = get_pin2index.get_pin2index(at_rat_slew)
+    pin2index = get_pin2index.get_pin2index(net_delay, cell_delay)
     index2pin = {i:p for p,i in pin2index.items()}
     utils.save_json(pin2index, join(res_dir, 'pin2index.json'))
     utils.save_json(index2pin, join(res_dir, 'index2pin.json'))
