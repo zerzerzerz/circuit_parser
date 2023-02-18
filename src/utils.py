@@ -1,4 +1,4 @@
-from config.config import CELL_PIN_SEP
+from config import CELL_PIN_SEP
 import torch
 import dgl
 

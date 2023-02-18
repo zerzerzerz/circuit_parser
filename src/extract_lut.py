@@ -7,9 +7,9 @@ import re
 from einops import rearrange, repeat
 import utils.utils as utils
 import collections
-from config.config import CELL_PIN_SEP, LUT
+from config import CELL_PIN_SEP, LUT
 import copy
-from config.config import CONNECTION_SEP
+from config import CONNECTION_SEP
 import numpy as np
 import torch
 

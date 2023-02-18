@@ -3,7 +3,7 @@ Set the values which fall out of valid range to 0
 """
 import dgl
 import torch
-from config.config import IGNORED_KEYS_FOR_FILTERATING_INVALID_DATA
+from config import IGNORED_KEYS_FOR_FILTERATING_INVALID_DATA
 
 def filterate_invalid_data(g:dgl.heterograph):
     print(f"Filterating invalid data")

@@ -2,7 +2,7 @@
 Construct graph based on cell_delay and net_delay
 """
 import dgl
-from config.config import CONNECTION_SEP
+from config import CONNECTION_SEP
 
 def construct_cell_graph(cell_delay:dict, pin2index:dict):
     '''

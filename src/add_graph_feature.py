@@ -3,9 +3,9 @@ Add node features and edge features to dgl.DGLHeteroGraph
 """
 import dgl
 import torch
-from config.config import LUT
-from config.config import CELL_PIN_SEP
-from config.config import CONNECTION_SEP
+from config import LUT
+from config import CELL_PIN_SEP
+from config import CONNECTION_SEP
 def add_graph_feature(
     g: dgl.DGLHeteroGraph,
     pin2index,

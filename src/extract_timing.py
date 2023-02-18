@@ -2,8 +2,8 @@
 import re
 from collections import defaultdict
 import numpy as np
-from config.config import CELL_PIN_SEP
-from config.config import CONNECTION_SEP
+from config import CELL_PIN_SEP
+from config import CONNECTION_SEP
 import copy
 
 def extract_timing(sdf_file):

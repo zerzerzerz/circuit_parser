@@ -2,7 +2,7 @@
 Construct a mapping from each pin to integer.
 Pins are extracted from cells and PI/PO
 """
-from config.config import CELL_PIN_SEP
+from config import CELL_PIN_SEP
 
 
 def get_pin2index(cells, pipos):

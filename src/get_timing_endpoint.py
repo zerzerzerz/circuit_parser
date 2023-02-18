@@ -2,7 +2,7 @@
 Get timing endpoints from .sdf file or STA report
 """
 import re
-from config.config import CELL_PIN_SEP
+from config import CELL_PIN_SEP
 
 def get_timing_endpoint_from_sdc(sdc_path):
     '''If a port is constrainted in .sdf file, then it is a timing endpoint'''
