@@ -23,8 +23,8 @@ def extract_inter_connections_from_sdf_content(sdf_content):
     inter_connections = []
     p = re.compile(r"INTERCONNECT\s+([\w\.\[\]\\\/]*?)\s+([\w\.\[\]\\\/]*?)[\s\(\)]")
     for item in p.findall(sdf_content):
-        src = item[0].replace('/', CELL_PIN_SEP)
-        dst = item[1].replace('/', CELL_PIN_SEP)
+        src = item[0].replace('/', CELL_PIN_SEP).replace('\\', '')
+        dst = item[1].replace('/', CELL_PIN_SEP).replace('\\', '')
         inter_connections.append((src, dst))
     return inter_connections
 
@@ -68,7 +68,7 @@ def extract_inner_connections_from_sdf_content(sdf_content):
     for item in tmp:
         inner_connections.append({
             "cell_type": item[0],
-            "cell_name": item[1],
+            "cell_name": item[1].replace('\\', ''),
             "src_pin": item[2],
             "dst_pin": item[3],
         })

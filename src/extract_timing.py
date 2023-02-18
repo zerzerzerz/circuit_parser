@@ -1,6 +1,7 @@
 """
 Extract timing information from .sdf file.
 Instance name maybe ugly like RAM\.MUX\.MUX\[21\].
+remove all slash
 """
 import re
 from collections import defaultdict
@@ -37,12 +38,12 @@ def extract_atslew(sdf_file_content):
     res = p.findall(sdf_file_content)
     atslew = {}
     for r in res:
-        pin_name = r[1].replace('/',CELL_PIN_SEP)
+        pin_name = r[1].replace('/',CELL_PIN_SEP).replace('\\', '')
         if pin_name in atslew.keys():
             pass
         else:
             atslew[pin_name] = {}
-        atslew[pin_name][r[0]] = [float(i) for i in r[2:]]
+        atslew[pin_name.replace('\\', '')][r[0]] = [float(i) for i in r[2:]]
     return atslew
 
 
@@ -57,16 +58,8 @@ def extract_net_delay(sdf_file_content):
     net_delay = {}
     for r in res:
         tmp = r.split(' ')
-        cell_pin1 = tmp[1].replace('/',CELL_PIN_SEP)
-        cell_pin2 = tmp[2].replace('/',CELL_PIN_SEP)
-
-        if '\\' in cell_pin1:
-            # print(f"\\ is in {cell_pin1}, remove it")
-            cell_pin1 = cell_pin1.replace('\\', '')
-        
-        if '\\' in cell_pin2:
-            # print(f"\\ is in {cell_pin2}, remove it")
-            cell_pin2 = cell_pin2.replace('\\', '')
+        cell_pin1 = tmp[1].replace('/',CELL_PIN_SEP).replace('\\', '')
+        cell_pin2 = tmp[2].replace('/',CELL_PIN_SEP).replace('\\', '')
 
         numbers = ''.join(tmp[3:])
         numbers = p_float.findall(numbers)
@@ -81,7 +74,7 @@ def extract_net_delay(sdf_file_content):
 
 
         key = cell_pin1 + CONNECTION_SEP + cell_pin2
-        net_delay[key] = [float(i) for i in numbers[0:4]]
+        net_delay[key.replace('\\', '')] = [float(i) for i in numbers[0:4]]
     return dict(net_delay)
 
 
@@ -98,7 +91,7 @@ def extract_cell_delay(sdf_file_content):
             pin_dst = cell + CELL_PIN_SEP + r[3]
             ans[pin_src + CONNECTION_SEP + pin_dst].append([float(i) for i in list(r[4:])])
     for k in ans.keys():
-        ans[k] = np.stack(ans[k], axis=0).mean(axis=0).tolist()
+        ans[k.replace('\\', '')] = np.stack(ans[k], axis=0).mean(axis=0).tolist()
     return dict(ans)
 
 

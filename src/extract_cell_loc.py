@@ -15,7 +15,7 @@ def extract_cell_loc(def_path):
         pattern = re.compile(r'- ([\w\.\[\]\\\/]*?) (\w+)[\s\S]*? (PLACED|FIXED|COVER) \( (\d+) (\d+) \) \w+ ;')
         content = pattern.findall(content)
         content = {
-            c[0]:{
+            c[0].replace('\\',''):{
                 "cell_class": c[1],
                 "location_type": c[2],
                 "location": [float(c[3]), float(c[4])]
