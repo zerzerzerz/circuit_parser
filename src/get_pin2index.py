@@ -21,7 +21,7 @@ def get_pin2index(net_delay:dict, cell_delay:dict):
             pins.add(p2)
     
     if isinstance(cell_delay, dict):
-        for pin_pin in net_delay.keys():
+        for pin_pin in cell_delay.keys():
             p1, p2 = pin_pin.split(CONNECTION_SEP)
             pins.add(p1)
             pins.add(p2)
