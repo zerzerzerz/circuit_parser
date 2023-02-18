@@ -89,9 +89,9 @@ def extract_cell_delay(sdf_file_content):
         else:
             pin_src = cell + CELL_PIN_SEP + r[2]
             pin_dst = cell + CELL_PIN_SEP + r[3]
-            ans[pin_src + CONNECTION_SEP + pin_dst].append([float(i) for i in list(r[4:])])
+            ans[(pin_src + CONNECTION_SEP + pin_dst).replace('\\', '')].append([float(i) for i in list(r[4:])])
     for k in ans.keys():
-        ans[k.replace('\\', '')] = np.stack(ans[k], axis=0).mean(axis=0).tolist()
+        ans[k] = np.stack(ans[k], axis=0).mean(axis=0).tolist()
     return dict(ans)
 
 
