@@ -35,7 +35,7 @@ def get_pin2index(at_rat_slew, net_delay:dict=None, cell_delay:dict=None, pipos:
         pins.union(set(pipos["PO"]))
     
     pin2index = {}
-    for i,pin in enumerate(pins):
+    for i,pin in enumerate(sorted(list(pins))):
         pin2index[pin] = i
 
     return pin2index

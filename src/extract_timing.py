@@ -30,7 +30,7 @@ def extract_atslew(sdf_file_content):
     # \
     # /
     # so this match above chars [\w\.\[\]\\\/]
-    p = re.compile(r'\((AT|RAT|SLEW) (.*?) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\)\)')
+    p = re.compile(r'\((AT|RAT|SLEW) ([\w\.\[\]\\\/]*?) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\)\)')
     res = p.findall(sdf_file_content)
     atslew = {}
     for r in res:
@@ -83,7 +83,7 @@ def extract_net_delay(sdf_file_content):
 
 
 def extract_cell_delay(sdf_file_content):
-    p = re.compile(r'\(CELLTYPE "(\w+)"\)\s+\(INSTANCE (\w+)\)|IOPATH (\w+) (\w+) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\)')
+    p = re.compile(r'\(CELLTYPE "(\w+)"\)\s+\(INSTANCE ([\w\.\[\]\\\/]*?)\)|IOPATH (\w+) (\w+) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\) \(([-+]?[0-9]*\.?[0-9]+)\:\:([-+]?[0-9]*\.?[0-9]+)\)')
     res = p.findall(sdf_file_content)
     cell = pin_src = pin_src = None
     ans = defaultdict(lambda: [])
