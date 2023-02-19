@@ -1,4 +1,8 @@
 ﻿# Circuit Parser
+## Graph Construction
+- Put `.v` and `.lib` to OpenSTA to generate `.sdf` file, which contains cell delay and net delay, we can construct the circuit graph based on these connections
+
+
 ## Documentation for DGL
 - [https://docs.dgl.ai/index.html](https://docs.dgl.ai/index.html)
 
@@ -40,15 +44,16 @@ Features:
 #### `node`
 each node is pin
 Features:
-*   `1x`: is primary I/O pin (1) or not (0)
-*   `1x`: is fanin (0) or fanout (1)
-*   `4x`: relative to the top/left/right/bottom of die area
-*   `4x`: capacitance information (EL/RF) in cell library
-*   `4x`: net delay annotations (EL/RF) for fanin pins
-*   `4x`: arrival time annotations (EL/RF)
-*   `4x`: slew annotations (EL/RF)
-*   `1x`: is timing endpoint (i.e. has constraint) (1) or not (0)
-*   `4x`: required arrival time annotations (EL/RF)
+- `nf`
+  - `1x`: is primary I/O pin (1) or not (0)
+  - `1x`: is fanin (0) or fanout (1)
+  - `4x`: relative to the top/left/right/bottom of die area
+  - `4x`: capacitance information (EL/RF) in cell library
+- `4x`: net delay annotations (EL/RF) for fanin pins
+- `4x`: arrival time annotations (EL/RF)
+- `4x`: slew annotations (EL/RF)
+- `1x`: is timing endpoint (i.e. has constraint) (1) or not (0)
+- `4x`: required arrival time annotations (EL/RF)
 
 Node type = node
 - fea_name = n_rats, fea_scheme = Scheme(shape=(4,), dtype=torch.float32)
