@@ -1,4 +1,4 @@
-from config import CELL_PIN_SEP
+from config import CELL_PIN_SEP, VERBOSE
 import torch
 import dgl
 
@@ -13,7 +13,13 @@ def merge_pin_loc(pipo_loc, cell_locs, pin2index):
         # this is a pin of cell
         if CELL_PIN_SEP in pin_name:
             cell_name, _ = pin_name.split(CELL_PIN_SEP)
-            cell_loc_xy = cell_locs[cell_name]["location"]
+            try:
+                cell_loc_xy = cell_locs[cell_name]["location"]
+            except:
+                cell_loc_xy = [.0, .0]
+                if VERBOSE:
+                    print(f"pin {pin_name} does not have location")
+                    
             res[pin_name] = cell_loc_xy
     res = {
         k: res[k] for k in sorted(res.keys())

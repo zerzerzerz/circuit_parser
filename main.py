@@ -1,25 +1,26 @@
-from src import get_PIPO
-from src import construct_graph
-from src import get_timing_endpoint
-from src import extract_cell_loc
-from src import extract_timing
-from src import extract_lut
-from src import extract_pipo_loc
-from src import add_graph_feature
-from src import get_pin2index 
-from src import extract_chip_area
-from src.utils import check_graph_data_range, display_graph, merge_pin_loc
-from src import extract_unit
-from src import filterate_invalid_data
-from src import check_topo
-from src import extract_connections_from_sdf
+from src import (
+    get_PIPO,
+    construct_graph,
+    get_timing_endpoint,
+    extract_cell_loc,
+    extract_timing,
+    extract_lut,
+    extract_pipo_loc,
+    add_graph_feature,
+    get_pin2index,
+    extract_chip_area,
+    extract_unit,
+    filterate_invalid_data,
+    check_topo,
+)
+
 from os.path import join
 from glob import glob
+from src.utils import check_graph_data_range, display_graph, merge_pin_loc
 
 import argparse
 import dgl
 import utils
-import torch
 
 def get_args():
     parser = argparse.ArgumentParser()

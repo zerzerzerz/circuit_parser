@@ -104,8 +104,8 @@ def extract_cell_delay(sdf_file_content):
             cell = r[1]
             cell_name_to_cell_class[cell] = cell_class
         else:
-            pin_src = cell + CELL_PIN_SEP + r[2].replace(BACKWARD_SLASH, '')
-            pin_dst = cell + CELL_PIN_SEP + r[3].replace(BACKWARD_SLASH, '')
+            pin_src = (cell + CELL_PIN_SEP + r[2]).replace(BACKWARD_SLASH, '')
+            pin_dst = (cell + CELL_PIN_SEP + r[3]).replace(BACKWARD_SLASH, '')
             ans[(pin_src + CONNECTION_SEP + pin_dst)].append([float(i) for i in list(r[4:])])
 
     for k in ans.keys():
