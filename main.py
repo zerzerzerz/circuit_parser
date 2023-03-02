@@ -28,7 +28,7 @@ def get_args():
     return args
 
 
-def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res_dir):
+def main(primary_input_file, primary_output_file, path_summary_file, sdf_file, def_file, liberty_files, res_dir):
     utils.mkdir(res_dir, rm=True)
 
     at_rat_slew, net_delay, cell_delay = extract_timing.extract_timing(sdf_file)
@@ -49,7 +49,7 @@ def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res
     
 
 
-    pipos = get_PIPO.get_PIPO(verilog_file)
+    pipos = get_PIPO.get_PIPO(primary_input_file, primary_output_file)
     utils.save_json(pipos, join(res_dir, 'pipos.json'))
 
 
@@ -114,13 +114,14 @@ def main(verilog_file, path_summary_file, sdf_file, def_file, liberty_files, res
 if __name__ == "__main__":
     # settings
     data_dir = 'data'
-    verilog_file = join(data_dir, '6_final.v')
+    primary_input_file = join(data_dir, 'primary_input')
+    primary_output_file = join(data_dir, 'primary_output')
     STA_path_summary_file = join(data_dir, 'path_summary.log')
     sdf_file = join(data_dir, '6_final.sdf')
     def_file = join(data_dir, '6_final.def')
     liberty_files = glob(join(data_dir, '*.lib'))
     res_dir = 'res'
 
-    main(verilog_file, STA_path_summary_file, sdf_file, def_file, liberty_files, res_dir)
+    main(primary_input_file, primary_output_file, STA_path_summary_file, sdf_file, def_file, liberty_files, res_dir)
     
     
