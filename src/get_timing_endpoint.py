@@ -36,4 +36,4 @@ def get_timing_endpoint_from_STA_report(path_report):
         endpoint = line.split(' ')[2].replace('/', CELL_PIN_SEP)
         res.append(endpoint)
         
-    return res
+    return sorted(res)

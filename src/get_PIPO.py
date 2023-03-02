@@ -11,7 +11,7 @@ def get_PIPO(primary_input_file, primary_output_file) -> dict:
         ans = []
         with open(file) as f:
             for line in f.readlines():
-                line = p.sub(line, '')
+                line = p.sub('', line)
                 if line != "":
                     ans.append(line)
         return sorted(ans)
