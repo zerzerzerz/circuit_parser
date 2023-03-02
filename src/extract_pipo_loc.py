@@ -23,5 +23,9 @@ def extract_pipo_loc(def_file_path):
         i[0]:[i[1], i[2]] for i in res
     }
 
+    res = {
+        k: res[k] for k in sorted(res.keys())
+    }
+
     return res
     

@@ -15,6 +15,9 @@ def merge_pin_loc(pipo_loc, cell_locs, pin2index):
             cell_name, _ = pin_name.split(CELL_PIN_SEP)
             cell_loc_xy = cell_locs[cell_name]["location"]
             res[pin_name] = cell_loc_xy
+    res = {
+        k: res[k] for k in sorted(res.keys())
+    }
     return res
 
 

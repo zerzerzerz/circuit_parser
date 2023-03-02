@@ -392,5 +392,8 @@ def extract_lut(liberty_files):
                 continue
             else:
                 ans[k] = v
+    ans = {
+        k: ans[k] for k in sorted(ans.keys())
+    }
     return ans
 

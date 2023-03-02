@@ -31,22 +31,16 @@ def get_args():
 def main(primary_input_file, primary_output_file, path_summary_file, sdf_file, def_file, liberty_files, res_dir):
     utils.mkdir(res_dir, rm=True)
 
-    at_rat_slew, net_delay, cell_delay = extract_timing.extract_timing(sdf_file)
+    at_rat_slew, net_delay, cell_delay, cell_name_to_cell_class = extract_timing.extract_timing(sdf_file)
     utils.save_json(at_rat_slew, join(res_dir, 'at_rat_slew.json'))
     utils.save_json(net_delay, join(res_dir, 'net_delay.json'))
     utils.save_json(cell_delay, join(res_dir, 'cell_delay.json'))
-
-    inter_connections, inner_connections = extract_connections_from_sdf.extract_connections_from_sdf(sdf_file)
-    utils.save_json(inter_connections, join(res_dir, 'inter_connections.json'))
-    utils.save_json(inner_connections, join(res_dir, 'inner_connections.json'))
-
-
-    print("Constructing mapping from cell name to cell type")
-    cell_name_to_cell_class = {}
-    for item in inner_connections:
-        cell_name_to_cell_class[item["cell_name"]] = item["cell_type"]
     utils.save_json(cell_name_to_cell_class, join(res_dir, 'cell_name_to_cell_class.json'))
-    
+    # exit()
+
+    # inter_connections, inner_connections = extract_connections_from_sdf.extract_connections_from_sdf(sdf_file)
+    # utils.save_json(inter_connections, join(res_dir, 'inter_connections.json'))
+    # utils.save_json(inner_connections, join(res_dir, 'inner_connections.json'))
 
 
     pipos = get_PIPO.get_PIPO(primary_input_file, primary_output_file)
