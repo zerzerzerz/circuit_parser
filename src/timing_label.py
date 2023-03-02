@@ -1,5 +1,5 @@
 """
-Extract timing information from .sdf file.
+Extract timing label from .sdf file.
 Instance name maybe ugly like RAM\.MUX\.MUX\[21\].
 remove all back slash (\\)
 """
@@ -13,6 +13,7 @@ def extract_timing(sdf_file):
     """
     Extract timing information from .sdf file, which returns AT, RAT, Slew.
     Instance name maybe ugly like RAM\.MUX\.MUX\[21\]
+    remove all back slash (\\)
     """
     with open(sdf_file) as f:
         c = f.read()

@@ -33,3 +33,7 @@ def get_pin2index(net_delay:dict, cell_delay:dict):
     return pin2index
     
 
+def get_index2pin(pin2index:dict):
+    return {
+        int(index): pin for pin, index in pin2index.items()
+    }

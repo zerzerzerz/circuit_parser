@@ -1,4 +1,4 @@
-from config import CELL_PIN_SEP, VERBOSE
+from config import CELL_PIN_SEP, VERBOSE, LINE
 import torch
 import dgl
 
@@ -28,20 +28,21 @@ def merge_pin_loc(pipo_loc, cell_locs, pin2index):
 
 
 def display_graph(graph:dgl.heterograph):
-    sep = '*'*100
-    print(sep)
+    LINE = '*'*100
+    print(LINE)
     print(graph)
     for ntype in graph.ntypes:
-        print(sep)
+        print(LINE)
         print(ntype)
         for k,v in graph.node_attr_schemes(ntype).items():
             print("{:<20} {}".format(k, str(v)))
     for etype in graph.etypes:
-        print(sep)
+        print(LINE)
         print(etype)
         for k,v in graph.edge_attr_schemes(etype).items():
             print("{:<20} {}".format(k, str(v)))
-    print(sep)
+    print(LINE)
+
 
 
 def check_graph_is_invalid(g:dgl.DGLHeteroGraph):
@@ -66,6 +67,7 @@ def check_graph_is_invalid(g:dgl.DGLHeteroGraph):
             
             if invalid.any():
                 print("{:<20} {:<20} {:<.6f}".format(t,k,(invalid.sum()/invalid.nelement()).item()))
+
 
 
 def check_graph_data_range(g:dgl.DGLHeteroGraph, n_dim=16, statistics:str='mean'):
@@ -106,3 +108,12 @@ def check_graph_data_range(g:dgl.DGLHeteroGraph, n_dim=16, statistics:str='mean'
             data = map(lambda x:round(x,3), data)
             data = str(list(data))
             print("{:<10} {:<18} {:<}".format(t,k,data))
+
+
+def display_extracted_information(**kwds):
+    print(LINE)
+    for k in sorted(kwds.keys()):
+        try:
+            print("Len of {:25} = {}".format(k, len(kwds[k])))
+        except:
+            continue

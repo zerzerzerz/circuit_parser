@@ -6,6 +6,7 @@ from config import CELL_PIN_SEP
 
 def get_timing_endpoint_from_sdc(sdc_path):
     '''If a port is constrainted in .sdf file, then it is a timing endpoint'''
+    raise NotImplementedError
     print("Extracting which pins are timing endpoints")
     with open(sdc_path) as f:
         content = f.read()

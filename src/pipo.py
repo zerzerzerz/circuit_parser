@@ -1,6 +1,6 @@
 '''
-Extract PIPO from verilog file.
-PI PO are ports of top level module.
+Extract all PI/PO and their location
+PI/PO are ports of top-level module
 '''
 
 import re
@@ -22,11 +22,40 @@ def get_PIPO(primary_input_file, primary_output_file) -> dict:
     return ans
 
 
+def extract_pipo_loc(def_file_path):
+    '''extract PIPO locations from .def file'''
+    print("Extracting locations of PIPO from .def")
+    with open(def_file_path) as f:
+        c = f.read()
+    
+    p1 = re.compile(r'PINS\s*?\d+\s*?;([\s\S]*?)END PINS')
+    c = p1.search(c).group(1)
+
+    # - resp_val + NET resp_val + DIRECTION OUTPUT + USE SIGNAL
+    #   + PORT
+    #     + LAYER metal6 ( -140 -140 ) ( 140 140 )
+    #     + PLACED ( 76350 139860 ) N ;
+    p2 = re.compile(r'([\w\[\]\\\/]+)[\s\S]*?PLACED\s*?\(\s*?(\d+)\s*?(\d+)\s*?\)\s*?\w+\s*?;')
+    res = p2.findall(c)
+    res = [[i[0], float(i[1]), float(i[2])] for i in res]
+
+    res = {
+        i[0]:[i[1], i[2]] for i in res
+    }
+
+    res = {
+        k: res[k] for k in sorted(res.keys())
+    }
+
+    return res
+
+
 def get_PIPO_from_verilog(verilog_file_path) -> dict:
     '''
     extract PIPO from verilog file
     PI PO are ports of top level module
     '''
+    raise NotImplementedError
     print("Extracting which pins are PIPO from .v")
     with open(verilog_file_path) as f:
         circuit = f.read()
