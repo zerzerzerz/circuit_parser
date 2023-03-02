@@ -5,7 +5,24 @@ PI PO are ports of top level module.
 
 import re
 
-def get_PIPO(verilog_file_path) -> dict:
+def get_PIPO(primary_input_file, primary_output_file) -> dict:
+    def read_from_file(file) -> list:
+        p = re.compile(r"\s")
+        ans = []
+        with open(file) as f:
+            for line in f.readlines():
+                line = p.sub(line, '')
+                if line != "":
+                    ans.append(line)
+        return sorted(ans)
+    
+    ans = {}
+    ans['PI'] = read_from_file(primary_input_file)
+    ans['PO'] = read_from_file(primary_output_file)
+    return ans
+
+
+def get_PIPO_from_verilog(verilog_file_path) -> dict:
     '''
     extract PIPO from verilog file
     PI PO are ports of top level module
