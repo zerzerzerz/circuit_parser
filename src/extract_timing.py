@@ -100,8 +100,8 @@ def extract_cell_delay(sdf_file_content):
     cell_name_to_cell_class = {}
     for r in res:
         if r[1] != '':
-            cell_class = r[0]
-            cell = r[1]
+            cell_class = r[0].replace(BACKWARD_SLASH, '')
+            cell = r[1].replace(BACKWARD_SLASH, '')
             cell_name_to_cell_class[cell] = cell_class
         else:
             pin_src = (cell + CELL_PIN_SEP + r[2]).replace(BACKWARD_SLASH, '')
