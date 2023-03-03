@@ -7,6 +7,7 @@ import dgl
 import torch
 from config import TOPO
 from typing import List
+import networkx as nx
 
 def create_homo_graph(graph:dgl.heterograph) -> dgl.graph:
     n_src, n_dst = graph.edges(etype='net_out')
@@ -85,6 +86,18 @@ class FindAllLoop:
         return self.loops
 
 
+def find_all_loops_johnson(g:dgl.heterograph):
+    """
+    https://stackoverflow.com/questions/546655/finding-all-cycles-in-a-directed-graph
+    """
+    g_homo = create_homo_graph(g)
+    g_nx = nx.DiGraph([(src.item(), dst.item()) for src, dst in zip(*g_homo.edges())])
+    loops = nx.simple_cycles(g_nx)
+    for i in range(len(loops)):
+        loops[i].append(loops[i][0])
+    return loops
+
+
 class RemoveAllLoops:
     def __init__(self, g:dgl.heterograph) -> None:
         self.g = g
@@ -107,8 +120,9 @@ class RemoveAllLoops:
     def run(self,):
         loops = [1]
         while len(loops) > 0:
-            loops = FindAllLoop(self.g).run()
+            # loops = FindAllLoop(self.g).run()
+            loops = find_all_loops_johnson(self.g)
             if len(loops) > 0:
                 self.remove_loop(loops)
-                print(f"Remove {len(loops)} loop(s)")
+                # print(f"Remove {len(loops)} loop(s)")
         return self.g
