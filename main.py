@@ -57,6 +57,26 @@ def main(primary_input_file, primary_output_file, path_summary_file, sdf_file, d
 
     
     graph = src.construct_graph(cell_delay.keys(), net_delay.keys(), pin2index)
+
+    g_homo = src.topo.create_homo_graph(graph)
+    topo_flag = src.check_topo(g_homo)
+    if topo_flag == TOPO.success:
+        print(f'topo sort success')
+    elif topo_flag == TOPO.has_loop:
+        print("loop detected")
+        graph = src.RemoveAllLoops(graph).run()
+        g_homo = src.topo.create_homo_graph(graph)
+        topo_flag = src.check_topo(g_homo)
+        if topo_flag == TOPO.success:
+            print(f"After removing loops, status = success")
+        elif topo_flag == TOPO.has_loop:
+            print(f"After removing loops, status = has_loop")
+        elif topo_flag == TOPO.odd_level:
+            print(f"After removing loops, status = odd_level")
+    elif topo_flag == TOPO.odd_level:
+        print('odd level')
+
+
     graph = src.add_graph_feature(
         graph,
         pin2index,
@@ -97,25 +117,7 @@ def main(primary_input_file, primary_output_file, path_summary_file, sdf_file, d
         chip_area = chip_area,
     )
 
-    g_homo = src.topo.create_homo_graph(graph)
-    topo_flag = src.check_topo(g_homo)
-    if topo_flag == TOPO.success:
-        print(f'topo sort success')
-    elif topo_flag == TOPO.has_loop:
-        print("loop detected")
-        graph = src.RemoveAllLoops(graph).run()
-
-        g_homo = src.topo.create_homo_graph(graph)
-        topo_flag = src.check_topo(g_homo)
-        if topo_flag == TOPO.success:
-            print(f"After removing loops, status = success")
-        elif topo_flag == TOPO.has_loop:
-            print(f"After removing loops, status = has_loop")
-        elif topo_flag == TOPO.odd_level:
-            print(f"After removing loops, status = odd_level")
-            
-    elif topo_flag == TOPO.odd_level:
-        print('odd level')
+    
 
 
 

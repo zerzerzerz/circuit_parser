@@ -175,9 +175,18 @@ def add_graph_feature(
         pin_src_index = pin2index.get(pin_src_name)
         pin_dst_index = pin2index.get(pin_dst_name)
         
+
         if pin_src_index is None or pin_dst_index is None:
             if VERBOSE:
                 print(f'\tAdding feature: net_in, net_out, {pin_src_name} or {pin_dst_name} is not registered in pin2index')
+            continue
+        
+        try:
+            edge_id_net_out = g.edge_ids(pin_src_index, pin_dst_index, etype='net_out')
+            edge_id_net_in  = g.edge_ids(pin_dst_index, pin_src_index, etype='net_in')
+        except dgl.DGLError as e:
+            if VERBOSE:
+                print(f'\t{repr(e)}')
             continue
 
         src_loc = all_pin_loc.get(pin_src_name)
@@ -191,9 +200,9 @@ def add_graph_feature(
         src_loc = torch.Tensor(src_loc) / unit
         dst_loc = torch.Tensor(dst_loc) / unit
 
-        
-        g.edges['net_out'].data['ef'][g.edge_ids(pin_src_index, pin_dst_index, etype='net_out')] = dst_loc - src_loc
-        g.edges['net_in'].data['ef'][g.edge_ids(pin_dst_index, pin_src_index, etype='net_in')] = src_loc - dst_loc
+        g.edges['net_out'].data['ef'][edge_id_net_out] = dst_loc - src_loc
+        g.edges['net_in'].data['ef'][edge_id_net_in] = src_loc - dst_loc
+
 
 
     # add feature for cell_out (e_cell_delays)
@@ -207,7 +216,14 @@ def add_graph_feature(
             if VERBOSE:
                 print(f'\tAdding feature: cell_out (e_cell_delays), {f1} or {f2} is not registered in pin2index')
             continue
-        g.edges['cell_out'].data['e_cell_delays'][g.edge_ids(fanin, fanout, etype='cell_out')] = torch.Tensor(delay[0:4])
+        try:
+            edge_cell_out = g.edge_ids(fanin, fanout, etype='cell_out')
+        except dgl.DGLError as e:
+            if VERBOSE:
+                print(repr(e))
+            continue
+
+        g.edges['cell_out'].data['e_cell_delays'][edge_cell_out] = torch.Tensor(delay[0:4])
     
 
     # add feature for cell_out (LUT, ef)
