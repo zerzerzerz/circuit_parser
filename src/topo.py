@@ -102,7 +102,7 @@ class RemoveAllLoops:
 
     def run(self,):
         loops = [1]
-        while len(loops > 0):
+        while len(loops) > 0:
             loops = FindAllLoop(self.g).run()
             if len(loops) > 0:
                 self.remove_loop(loops)
