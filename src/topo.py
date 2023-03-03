@@ -92,7 +92,7 @@ def find_all_loops_johnson(g:dgl.heterograph):
     """
     g_homo = create_homo_graph(g)
     g_nx = nx.DiGraph([(src.item(), dst.item()) for src, dst in zip(*g_homo.edges())])
-    loops = nx.simple_cycles(g_nx)
+    loops = list(nx.simple_cycles(g_nx))
     for i in range(len(loops)):
         loops[i].append(loops[i][0])
     return loops
