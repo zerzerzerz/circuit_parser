@@ -107,3 +107,4 @@ class RemoveAllLoops:
             if len(loops) > 0:
                 self.remove_loop(loops)
                 print(f"Remove {len(loops)} loop(s)")
+        return self.g

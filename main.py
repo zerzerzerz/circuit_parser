@@ -103,6 +103,17 @@ def main(primary_input_file, primary_output_file, path_summary_file, sdf_file, d
         print(f'topo sort success')
     elif topo_flag == TOPO.has_loop:
         print("loop detected")
+        graph = src.RemoveAllLoops(graph).run()
+
+        g_homo = src.topo.create_homo_graph(graph)
+        topo_flag = src.check_topo(g_homo)
+        if topo_flag == TOPO.success:
+            print(f"After removing loops, status = success")
+        elif topo_flag == TOPO.has_loop:
+            print(f"After removing loops, status = has_loop")
+        elif topo_flag == TOPO.odd_level:
+            print(f"After removing loops, status = odd_level")
+            
     elif topo_flag == TOPO.odd_level:
         print('odd level')
 
