@@ -1,9 +1,10 @@
 import src
 import dgl
 import utils
-
+import torch
 from os.path import join
 from glob import glob
+from config import TOPO
 
 
 
@@ -77,14 +78,14 @@ def main(primary_input_file, primary_output_file, path_summary_file, sdf_file, d
     graph = src.filterate_invalid_data(graph)
     src.display_graph(graph)
     src.check_graph_data_range(graph)
-    src.check_topo(graph)
     dgl.save_graphs(join(res_dir,'graph.bin'),[graph])
     src.display_extracted_information(
         at_rat_slew = at_rat_slew,
         net_delay = net_delay,
         cell_delay = cell_delay,
         cell_name_to_cell_class = cell_name_to_cell_class,
-        pipos = pipos,
+        pi = pipos["PI"],
+        po = pipos["PO"],
         pin2index = pin2index,
         index2pin = index2pin,
         lut_info = lut_info,
@@ -95,6 +96,16 @@ def main(primary_input_file, primary_output_file, path_summary_file, sdf_file, d
         timing_endpoint = timing_endpoint,
         chip_area = chip_area,
     )
+
+    g_homo = src.topo.create_homo_graph(graph)
+    topo_flag = src.check_topo(g_homo)
+    if topo_flag == TOPO.success:
+        print(f'topo sort success')
+    elif topo_flag == TOPO.has_loop:
+        for loop in src.FindAllLoop(g_homo).run():
+            print(loop)
+    elif topo_flag == TOPO.odd_level:
+        print('odd level')
 
 
 

@@ -117,3 +117,4 @@ def display_extracted_information(**kwds):
             print("Len of {:25} = {}".format(k, len(kwds[k])))
         except:
             continue
+    print(LINE.replace('\n', ''))

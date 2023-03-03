@@ -25,3 +25,9 @@ IGNORED_KEYS_FOR_FILTERATING_INVALID_DATA = []
 FORWARD_SLASH = '/'
 BACKWARD_SLASH = '\\'
 LINE = '\n' + '*' * 100
+
+
+class TOPO:
+    success = 0
+    has_loop = 1
+    odd_level = 2
