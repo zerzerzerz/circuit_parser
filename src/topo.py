@@ -90,15 +90,19 @@ class RemoveAllLoops:
         self.g = g
     
     def remove_loop(self, loops):
-        src = []
-        dst = []
         for loop in loops:
-            src.append(loop[-2])
-            dst.append(loop[-1])
-        src = torch.IntTensor(src)
-        dst = torch.IntTensor(dst)
-        edge_ids = self.g.edge_ids(src,dst)
-        self.g = dgl.remove_edges(self.g, edge_ids)
+            src = loop[-2]
+            dst = loop[-1]
+            for etype in ['cell_out', 'net_out']:
+                try:
+                    edge_ids = self.g.edge_ids(src, dst, etype=etype)
+                    self.g = dgl.remove_edges(self.g, edge_ids, etype=etype)
+                    if etype == 'net_out':
+                        edge_ids = self.g.edge_ids(dst, src, etype='net_in')
+                        self.g = dgl.remove_edges(self.g, edge_ids, etype='net_in')
+                except dgl.DGLError as e:
+                    # print(repr(e))
+                    continue
 
     def run(self,):
         loops = [1]
