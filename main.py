@@ -102,8 +102,7 @@ def main(primary_input_file, primary_output_file, path_summary_file, sdf_file, d
     if topo_flag == TOPO.success:
         print(f'topo sort success')
     elif topo_flag == TOPO.has_loop:
-        for loop in src.FindAllLoop(g_homo).run():
-            print(loop)
+        print("loop detected")
     elif topo_flag == TOPO.odd_level:
         print('odd level')
 

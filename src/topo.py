@@ -4,11 +4,11 @@ pin - cell_out - pin
 pin - net_out - pin
 '''
 import dgl
-from collections import Counter
 import torch
 from config import TOPO
+from typing import List
 
-def create_homo_graph(graph:dgl.heterograph):
+def create_homo_graph(graph:dgl.heterograph) -> dgl.graph:
     n_src, n_dst = graph.edges(etype='net_out')
     c_src, c_dst = graph.edges(etype='cell_out')
     g_homo = dgl.graph((
@@ -18,7 +18,7 @@ def create_homo_graph(graph:dgl.heterograph):
     return g_homo
 
 
-def check_topo(g_homo:dgl.DGLGraph):
+def check_topo(g_homo:dgl.DGLGraph) -> int:
     try:
         topo_levels = dgl.topological_nodes_generator(g_homo)
         num_topo_levels = len(topo_levels)
@@ -32,85 +32,17 @@ def check_topo(g_homo:dgl.DGLGraph):
         return TOPO.has_loop
 
 
-def check_loop(g:dgl.graph, index2pin):
-    '''
-    topological sort to check whether there exists a loop
-    '''
-    in_degrees = [0] * g.num_nodes()
-    for i in range(g.num_nodes()):
-        in_degrees[i] = len(g.predecessors(i))
-    
-
-    while True:
-        flag = False
-        for i in range(g.num_nodes()):
-            if in_degrees[i] == 0:
-                flag = True
-                in_degrees[i] = -1
-                for j in g.successors(i):
-                    in_degrees[j] -= 1
-        if not flag:
-            break
-
-    ans = []
-    for i in range(g.num_nodes()):
-        if in_degrees[i] != -1:
-            ans.append(index2pin[i])
-    return ans
-
-
-def find_a_loop(g:dgl.graph, index2pin={}):
-    start_points = []
-    for i in g.nodes():
-        if g.in_degrees(i) == 0:
-            start_points.append(i)
-    
-    def func(i, g, loop, map, index2pin):
-        # was not been visited
-        if map[i] == False:
-            loop.append(i.item())
-            map[i] = True
-
-        # was been visited, loop
-        else:
-            loop.append(i.item())
-            c = Counter(loop)
-            for k in loop:
-                if c[k] > 1:
-                    loop_flag = ' !!!'
-                else:
-                    loop_flag = ''
-                print(index2pin.get(k,k) + loop_flag)
-            return True
-        
-        for j in g.successors(i):
-            has_loop = func(j, g, loop, map, index2pin)
-            if has_loop:
-                return True
-
-        map[i] = False
-        loop.pop()
-    
-    loop = []
-    map = [False] * g.num_nodes()
-    for i in start_points:
-        has_loop = func(i,g,loop,map,index2pin)
-        if has_loop:
-            return True
-
-
 class FindAllLoop:
     WHITE = 0
     GRAY = 1
     BLACK = 2
     SEP = '*' * 50
 
-    def __init__(self, g:dgl.DGLGraph) -> None:
-        self.g = g
+    def __init__(self, g_hetero:dgl.heterograph) -> None:
+        self.g = create_homo_graph(g_hetero)
         self.color = [FindAllLoop.WHITE] * self.g.num_nodes()
         self.pre = [None] * self.g.num_nodes()
         self.loops = []
-        # self.find_all_loop()
         self.run = self.find_all_loop
 
     def build_loop(self, start, end):
@@ -142,7 +74,7 @@ class FindAllLoop:
         self.color[i] = FindAllLoop.BLACK
 
     
-    def find_all_loop(self):
+    def find_all_loop(self) -> List[List]:
         for i in self.g.nodes():
             i = i.item()
             if self.color[i] == FindAllLoop.WHITE:
@@ -152,3 +84,26 @@ class FindAllLoop:
             print(i)
         return self.loops
 
+
+class RemoveAllLoops:
+    def __init__(self, g:dgl.heterograph) -> None:
+        self.g = g
+    
+    def remove_loop(self, loops):
+        src = []
+        dst = []
+        for loop in loops:
+            src.append(loop[-2])
+            dst.append(loop[-1])
+        src = torch.IntTensor(src)
+        dst = torch.IntTensor(dst)
+        edge_ids = self.g.edge_ids(src,dst)
+        self.g = dgl.remove_edges(self.g, edge_ids)
+
+    def run(self,):
+        loops = [1]
+        while len(loops > 0):
+            loops = FindAllLoop(self.g).run()
+            if len(loops) > 0:
+                self.remove_loop(loops)
+                print(f"Remove {len(loops)} loop(s)")

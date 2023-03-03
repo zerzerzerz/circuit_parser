@@ -6,40 +6,58 @@ import dgl
 import torch
 from config import LUT
 from config import CONNECTION_SEP, VERBOSE, CELL_PIN_SEP
+import utils
 
-
-def construct_cell_graph(cell_delay:dict, pin2index:dict):
-    '''
-    construct cell graph from cell_delay.
-    src is fanin of cell.
-    dst is fanout of cell.
-    '''
+def extract_src_dst(connections:list, pin2index:dict):
     src = []
     dst = []
-    for k in cell_delay.keys():
-        p1,p2 = k.split(CONNECTION_SEP)
-        src.append(pin2index[p1])
-        dst.append(pin2index[p2])
+    for pin_pin in connections:
+        pin_src, pin_dst = pin_pin.split(CONNECTION_SEP)
+        pin_index_src = pin2index.get(pin_src)
+        pin_index_dst = pin2index.get(pin_dst)
+
+        if pin_index_src is not None and pin_index_dst is not None:
+            src.append(pin_index_src)
+            dst.append(pin_index_dst)
+        else:
+            if VERBOSE:
+                if pin_index_src is None:
+                    print(f"{pin_src} is not registered in pin2index")
+                if pin_index_dst is None:
+                    print(f"{pin_dst} is not registered in pin2index")
     return src, dst
-
-
-def construct_net_graph(net_delay:dict, pin2index:dict):
-    '''
-    construct net graph through net_delay (net_out).
-    src is driver of net.
-    dst is sink of net.
-    '''
-    src = []
-    dst = []
-    for k in net_delay.keys():
-        p1,p2 = k.split(CONNECTION_SEP)
-        src.append(pin2index[p1])
-        dst.append(pin2index[p2])
-    return src, dst
-
 
 
 def construct_graph(cell_out, net_out, pin2index) -> dgl.heterograph:
+    print("Constructing graph")
+    res = {}
+
+    # cell_out
+    print("\tConstructing graph (cell_out)")
+    src_cell_out, dst_cell_out = extract_src_dst(cell_out, pin2index)
+    res[('node', 'cell_out', 'node')] = (src_cell_out, dst_cell_out)
+    
+    # utils.save_json(src_cell_out, 'src_cell_out_new.json')
+    # utils.save_json(dst_cell_out, 'dst_cell_out_new.json')
+
+    # net_out
+    print("\tConstructing graph (net_out)")
+    src_net_out, dst_net_out = extract_src_dst(net_out, pin2index)
+    
+    
+    # utils.save_json(src_net_out, 'src_net_out_new.json')
+    # utils.save_json(dst_net_out, 'dst_net_out_new.json')
+
+    res[('node', 'net_out', 'node')] = (src_net_out, dst_net_out)
+    
+    print("\tConstructing graph (net_in) (reverse net_out)")
+    res[('node', 'net_in', 'node')] = (dst_net_out, src_net_out)
+
+    g = dgl.heterograph(res).int()
+    return g
+                
+
+def construct_graph_old(cell_out, net_out, pin2index) -> dgl.heterograph:
     print("Constructing graph")
     res = {}
 
@@ -60,6 +78,9 @@ def construct_graph(cell_out, net_out, pin2index) -> dgl.heterograph:
         src_cell_out.append(s)
         dst_cell_out.append(d)
     res[('node', 'cell_out', 'node')] = (src_cell_out, dst_cell_out)
+    
+    # utils.save_json(src_cell_out, 'src_cell_out.json')
+    # utils.save_json(dst_cell_out, 'dst_cell_out.json')
 
     # net_out
     print("\tConstructing graph (net_out)")
@@ -77,6 +98,10 @@ def construct_graph(cell_out, net_out, pin2index) -> dgl.heterograph:
             continue
         src_net_out.append(s)
         dst_net_out.append(d)
+    
+    # utils.save_json(src_net_out, 'src_net_out.json')
+    # utils.save_json(dst_net_out, 'dst_net_out.json')
+
     res[('node', 'net_out', 'node')] = (src_net_out, dst_net_out)
     
     print("\tConstructing graph (net_in) (reverse net_out)")
@@ -85,8 +110,6 @@ def construct_graph(cell_out, net_out, pin2index) -> dgl.heterograph:
     g = dgl.heterograph(res).int()
     return g
     
-
-
 
 def add_graph_feature(
     g: dgl.DGLHeteroGraph,
