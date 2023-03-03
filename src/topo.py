@@ -81,8 +81,8 @@ class FindAllLoop:
             if self.color[i] == FindAllLoop.WHITE:
                 self.dfs(i)
 
-        for i in self.loops:
-            print(i)
+        # for i in self.loops:
+            # print(i)
         return self.loops
 
 
@@ -124,5 +124,5 @@ class RemoveAllLoops:
             loops = find_all_loops_johnson(self.g)
             if len(loops) > 0:
                 self.remove_loop(loops)
-                # print(f"Remove {len(loops)} loop(s)")
+                print(f"Remove {len(loops)} loop(s)")
         return self.g
